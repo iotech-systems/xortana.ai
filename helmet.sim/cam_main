@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+
+import sys, configparser as _cp
+from botCore.botCreator import botCreator
+from sensorCore.sensorInterface import sensorInterface as _iS
+from sysCore.redOps import redOps
+from sysCore.sysOps import sysOps
+
+
+INI_PATH: str = "conf/sensor_bots.ini"
+INI_BOTS: _cp.ConfigParser = _cp.ConfigParser()
+if len(INI_BOTS.read(INI_PATH)) != 1:
+   print(f"IniLoadError: {INI_PATH}")
+
+INI_PATH = "conf/redis.ini"
+INI_REDIS: _cp.ConfigParser = _cp.ConfigParser()
+if len(INI_REDIS.read(INI_PATH)) != 1:
+   print(f"IniLoadError: {INI_PATH}")
+RED_OPS: redOps = redOps(ini=INI_REDIS)
+if not RED_OPS.ping():
+   print("BadRedPing")
+   sys.exit(1)
+
+INI_PATH = "conf/sys.ini"
+INI_SYS: _cp.ConfigParser = _cp.ConfigParser()
+if len(INI_SYS.read(INI_PATH)) != 1:
+   print(f"IniLoadError: {INI_PATH}")
+SYS_OPS: sysOps = sysOps(INI_SYS)
+if not SYS_OPS.init():
+   print("UnableToInitSystem")
+   exit(1)
+
+
+def main():
+   print("\n\t[ -- main -- ]\n")
+   botCrt: botCreator = botCreator(INI_BOTS)
+   helmet_sensors: [_iS] = botCrt.create("HELMET_SENSORS")
+   [print(i) for i in helmet_sensors]
+   # -- start helmet sensors --
+   for iS in helmet_sensors:
+      iS: _iS = iS
+      iS.init(SYS_OPS, RED_OPS)
+      iS.start()
+   # -- start cam(s) --
+   cam_sensors: [] = botCrt.create("HELMET_CAMS")
+   [print(i) for i in cam_sensors]
+
+
+# -- entry point --
+if __name__ == '__main__':
+    main()

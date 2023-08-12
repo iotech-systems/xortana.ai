@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import setproctitle
+import time, sys, configparser as _cp
+from multiprocessing import Process
+from botCore.botCreator import botCreator
+from sensorCore.sensorInterface import sensorInterface as _iS
+from sysCore.redOps import redOps
+from sysCore.sysOps import sysOps
+from sysCore.iniLoader import load_inis
+from xorCore.xotranaAI import xortanaAI
+
+
+# -- load needed inis --
+INI_BOTS, RED_OPS, SYS_OPS = load_inis()
+# -- recast --
+INI_BOTS: _cp.ConfigParser = INI_BOTS
+RED_OPS: redOps = RED_OPS
+SYS_OPS: sysOps = SYS_OPS
+
+
+def main():
+   xorai: xortanaAI = xortanaAI(INI_BOTS, RED_OPS, SYS_OPS)
+   if xorai.init():
+      pass
+   xorai.start()
+   while True:
+      print("-- start loop --")
+      time.sleep(4.0)
+
+
+# -- entry point --
+if __name__ == '__main__':
+   setproctitle.setproctitle("xor.AI")
+   main()
