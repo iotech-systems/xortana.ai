@@ -1,4 +1,14 @@
 # Byte-compiled / optimized / DLL files
+
+# project
+*.mp3
+*.h
+*.wav
+*.o
+*.c
+*.cpp
+
+
 __pycache__/
 *.py[cod]
 *$py.class
