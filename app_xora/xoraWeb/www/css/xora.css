@@ -1,0 +1,62 @@
+
+html, body {
+   margin: 0;
+   padding: 0;
+}
+
+
+div.top-bar {
+   width: 98vw;
+   height: 8vh;
+   margin: 0.5vh auto;
+   border: 1px solid gray;
+   border-radius: 1vh;
+}
+
+div.view-port {
+   width: 98vw;
+   height: 90vh;
+   padding: 0;
+   margin: auto;
+   text-align: center;
+   border: 1px solid gray;
+   border-radius: 1vh;
+}
+
+div.view-box {
+   display: inline-block;
+   width: 48vw;
+   height: 88vh;
+   margin: 0.4% auto;
+   vertical-align: top;
+   border: 1px solid gray;
+   border-radius: 1vh;
+}
+
+
+/* 
+   - - - [ cam box ] - - - 
+*/
+div.cam-view-head {
+   height: 4vh;
+   line-height: 4vh;
+   text-align: left;
+   font-size: 2.8vh;
+   text-indent: 1vw;
+   border-bottom: 1px solid gray;
+}
+
+div.cam-view-head div {
+   display: inline-block;
+}
+
+div.cam-view-body {
+   height: calc(84vh - 4px);
+   border: 2px dotted darkblue;
+   border-radius: 1vh;
+}
+
+div.view-box-btns {
+   font-size: 1.8vh;
+   border: 1px solid blueviolet;
+}
