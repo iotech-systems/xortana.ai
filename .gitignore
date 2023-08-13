@@ -1,12 +1,16 @@
 # Byte-compiled / optimized / DLL files
 
-# project
+
+# -- [ project ] --
 *.mp3
 *.h
 *.wav
 *.o
 *.c
 *.cpp
+*.out
+**/sensors
+*.aup3
 
 
 __pycache__/
