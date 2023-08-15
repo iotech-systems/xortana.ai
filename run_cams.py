@@ -2,18 +2,26 @@
 
 import time
 from apps.xoraCams.cams.topCam import topCam
+from apps.shared.core.datatypes import *
 
 
 MAIN_TICK_SLEEP: float = 4.0
 TOP_CAM: topCam = topCam()
 
 
+def init():
+   TOP_CAM.start()
+
 def main():
-   def __main_tick():
+   # -- init code --
+   init()
+   # -- man tick --
+   def __main_tick() -> tickCode:
       print("run_cams: __main_tick()")
-   # -- main ticks --
+      return tickCode.OK
+   # -- main loop --
    while True:
-      __main_tick()
+      tick_code: tickCode = __main_tick()
       time.sleep(MAIN_TICK_SLEEP)
 
 
