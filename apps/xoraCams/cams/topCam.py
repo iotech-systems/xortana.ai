@@ -15,7 +15,7 @@ PROC_NAME: str = "xor.ai/topcam"
 class topCam(mp.Process):
 
    def __init__(self):
-      super().__init__(target=self.__main__)
+      super(topCam, self).__init__(target=self.__main__)
       # -- -- -- --
       if not os.path.exists(RAM_DISK_ROOT):
          raise FileNotFoundError(RAM_DISK_ROOT)
@@ -23,9 +23,6 @@ class topCam(mp.Process):
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
       # -- -- -- --
       self.cam: cv2.VideoCapture = cv2.VideoCapture()
-
-   def run(self) -> None:
-      pass
 
    def start(self) -> None:
       setproctitle.setproctitle(PROC_NAME)
