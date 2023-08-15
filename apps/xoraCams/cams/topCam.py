@@ -29,14 +29,18 @@ class topCam(mp.Process):
 
    def start(self) -> None:
       setproctitle.setproctitle(PROC_NAME)
+      super().start()
 
    def __main__(self):
+      # -- main loop tick --
       def __tick() -> tickCode:
-         pass
+         err, img = self.cam.read()
+         print([err, img])
+         return tickCode.OK
       # -- -- -- --
       while True:
          rval: tickCode = __tick()
          if rval == tickCode.OK:
             time.sleep(1.0)
-         err, img = self.cam.read()
-         print([err, img])
+         # -- -- -- --
+         time.sleep(2.0)
