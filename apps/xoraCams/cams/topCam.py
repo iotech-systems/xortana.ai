@@ -15,7 +15,8 @@ TOP_CAM_INDEX: int = 0
 class topCam(mp.Process):
 
    def __init__(self):
-      super(topCam, self).__init__(target=self.__main__)
+      super(topCam, self).__init__(group=None, target=self.__main__, name=PROC_NAME)
+      setproctitle.setproctitle(PROC_NAME)
       # -- -- -- --
       if not os.path.exists(RAM_DISK_ROOT):
          raise FileNotFoundError(RAM_DISK_ROOT)
@@ -24,9 +25,6 @@ class topCam(mp.Process):
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
       # -- -- -- --
       self.cam: cv2.VideoCapture = cv2.VideoCapture(TOP_CAM_INDEX)
-
-   def start(self) -> None:
-      setproctitle.setproctitle(PROC_NAME)
 
    def __main__(self):
       # -- main loop tick --
