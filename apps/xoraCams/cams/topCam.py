@@ -55,7 +55,7 @@ class topCam(mp.Process):
          return tickCode.OK
       # -- start proc threads --
       self.img_thread.start()
-      print([self.img_w, self.img_h, self.img_freq])
+      print([self.img_w, self.img_h, self.img_freq, self.cam_idx])
       # -- -- -- --
       while True:
          rval: tickCode = __tick()
@@ -65,6 +65,11 @@ class topCam(mp.Process):
          time.sleep(2.0)
 
    def _img_thread(self):
+      # -- -- -- --
+      if self.cam.isOpened():
+         print("CAM_IS_READY")
+      else:
+         print("CAM_IS_NOT_READY")
       def _tick() -> tickCode:
          err_code, img = self.cam.read()
          if err_code:
