@@ -29,7 +29,7 @@ PROC_NAME: str = "xor.ai/topcam"
 
 class topCam(mp.Process):
 
-   def __init__(self, sec: cp.ConfigParser):
+   def __init__(self, sec: cp.SectionProxy):
       super(topCam, self).__init__(group=None, target=self.__main__, name=PROC_NAME)
       setproctitle.setproctitle(PROC_NAME)
       # -- -- -- --

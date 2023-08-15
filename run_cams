@@ -10,7 +10,7 @@ XORA_INI: cp.ConfigParser = cp.ConfigParser()
 if len(XORA_INI.read(ini_file)) != 0:
    raise FileNotFoundError(ini_file)
 # -- -- -- --
-TOP_CAM: topCam = topCam(XORA_INI[""])
+TOP_CAM: topCam = topCam(XORA_INI["TOP_CAM"])
 MAIN_TICK_SLEEP: float = 8.0
 
 def init():
