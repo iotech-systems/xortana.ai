@@ -10,7 +10,7 @@ TOP_CAM: topCam = topCam()
 
 def main():
    def __main_tick():
-      pass
+      print("run_cams: __main_tick()")
    # -- main ticks --
    while True:
       __main_tick()
