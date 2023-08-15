@@ -11,6 +11,8 @@ Available cameras
 """
 
 import os, sys, time
+import threading
+
 import cv2, setproctitle
 import configparser as cp
 import multiprocessing as mp
@@ -30,7 +32,7 @@ PROC_NAME: str = "xor.ai/topcam"
 class topCam(mp.Process):
 
    def __init__(self, sec: cp.SectionProxy):
-      super(topCam, self).__init__(group=None, target=self.__main__, name=PROC_NAME)
+      super(topCam, self).__init__(group=None, target=self._main, name=PROC_NAME)
       setproctitle.setproctitle(PROC_NAME)
       # -- -- -- --
       self.sec: cp.SectionProxy = sec
@@ -42,23 +44,20 @@ class topCam(mp.Process):
       self.cam_idx: int = self.sec.get("TOP_CAM_INDEX")
       self.img_w: int = self.sec.getint("IMG_WIDTH")
       self.img_h: int = self.sec.getint("IMG_HEIGHT")
+      self.img_freq: int = self.sec.getint("IMG_FREQ")
       self.cam: cv2.VideoCapture = cv2.VideoCapture(self.cam_idx)
       self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, self.img_w)
       self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, self.img_h)
+      # -- -- -- --
+      self.img_thread: threading.Thread = threading.Thread(target=self._img_thread)
 
-   def __main__(self):
+   def _main(self):
       # -- main loop tick --
       def __tick() -> tickCode:
-         err_code, img = self.cam.read()
-         if err_code:
-            fname: str = f"{IMAGE_SAVE_PATH}/topcam.png"
-            cv2.imwrite(filename=fname, img=img)
-            if os.path.exists(fname):
-               print("img_taken_and_saved")
-         else:
-            print("img_not_taken")
          # -- --
          return tickCode.OK
+      # -- start proc threads --
+      self.img_thread.start()
       # -- -- -- --
       while True:
          rval: tickCode = __tick()
@@ -66,3 +65,24 @@ class topCam(mp.Process):
             time.sleep(1.0)
          # -- -- -- --
          time.sleep(2.0)
+
+   def _img_thread(self):
+      def _tick() -> tickCode:
+         err_code, img = self.cam.read()
+         if err_code:
+            fname: str = f"{IMAGE_SAVE_PATH}/topcam.png"
+            cv2.imwrite(filename=fname, img=img)
+            if os.path.exists(fname):
+               print("img_taken_and_saved")
+            return tickCode.OK
+         else:
+            print("img_not_taken")
+            return tickCode.Error
+      # -- -- -- --
+      while True:
+         sleep: float = 1000 / (self.img_freq * 1000)
+         tick_code: tickCode = _tick()
+         if tick_code == tickCode.OK:
+            time.sleep(sleep)
+         else:
+            pass
