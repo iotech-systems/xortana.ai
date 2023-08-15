@@ -2,7 +2,6 @@
 
 import time
 from cams.topCam import topCam
-from ..xoraCams.cams.datatypes import *
 
 
 MAIN_TICK_SLEEP: float = 4.0
