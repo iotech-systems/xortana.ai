@@ -7,7 +7,7 @@ from apps.shared.core.datatypes import *
 # -- -- -- --
 ini_file: str = "conf/xorai.ini"
 XORA_INI: cp.ConfigParser = cp.ConfigParser()
-if len(XORA_INI.read(ini_file)) != 0:
+if len(XORA_INI.read(ini_file)) != 1:
    raise FileNotFoundError(ini_file)
 # -- -- -- --
 TOP_CAM: topCam = topCam(XORA_INI["TOP_CAM"])
