@@ -21,9 +21,7 @@ class topCam(mp.Process):
       if not os.path.exists(RAM_DISK_ROOT):
          raise FileNotFoundError(RAM_DISK_ROOT)
       print(f"[ topCam: PathFound: {RAM_DISK_ROOT} ]")
-      # -- -- -- --
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
-      # -- -- -- --
       self.cam: cv2.VideoCapture = cv2.VideoCapture(TOP_CAM_INDEX)
 
    def __main__(self):
@@ -31,7 +29,10 @@ class topCam(mp.Process):
       def __tick() -> tickCode:
          err_code, img = self.cam.read()
          if err_code:
-            print("img_taken")
+            fname: str = f"{IMAGE_SAVE_PATH}/topcam.png"
+            cv2.imwrite(filename=fname, img=img)
+            if os.path.exists(fname):
+               print("img_taken_and_saved")
          else:
             print("img_not_taken")
          # -- --
