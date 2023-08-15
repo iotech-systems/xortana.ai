@@ -27,4 +27,5 @@ def main():
 
 # -- -- -- entry point -- -- --
 if __name__ == "__main__":
+   print("\n\t-- [ main ] --\n")
    main()
