@@ -1,11 +1,9 @@
 
-import os.path
-import time
-
+import os.path, time
 import cv2, setproctitle
 import multiprocessing as mp
 # -- [ system ] --
-from datatypes import *
+from ...xoraCore.datatypes import *
 
 
 RAM_DISK_ROOT: str = "/run/xor.ai"
