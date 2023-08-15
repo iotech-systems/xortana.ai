@@ -1,0 +1,17 @@
+
+/*
+   div.cam-view-body {
+      height: calc(84vh - 4px);
+      border: 2px dotted darkblue;
+      border-radius: 1vh;
+   }
+*/
+
+#threejs-container {
+   position: block;
+   width: calc(100% - 4px);
+   /* height: 100%; */
+   height: calc(84vh - 4px);
+   border: 2px dotted rgb(129, 127, 216);
+   border-radius: 1vh;
+}

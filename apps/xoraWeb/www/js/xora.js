@@ -3,11 +3,15 @@
 var xora = {
 
    topCam: null,
+   xorVR: null,
 
    init() {
       console.log("xora.ini");
       xora.topCam = new CamTop();
       xora.topCam.init();
+      /* vr env. */
+      xora.xorVR = new xoraVR();
+      xora.xorVR.demo();
    },
 
    run() {

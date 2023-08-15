@@ -20,7 +20,7 @@ class CamTop {
 
    camTick() {
       CamTop.tickCount++;
-      console.log(`cam_tick: ${CamTop.tickCount}`);
+      //console.log(`cam_tick: ${CamTop.tickCount}`);
    }
 
 };
