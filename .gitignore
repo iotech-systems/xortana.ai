@@ -9,8 +9,8 @@
 *.c
 *.cpp
 *.out
-**/sensors
 *.aup3
+**/sensors
 
 
 __pycache__/

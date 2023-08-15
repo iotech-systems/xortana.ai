@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <title>xoraWebIndex</title>
-   <link rel="stylesheet" href="css/xora.css">
-   <!-- class files -->
-   <script src="js/cam-top.js"></script>
-   <!-- app files -->
-   <script src="js/jq.js"></script>
-   <script src="js/xora.js"></script>
-</head>
-<body>
-   <div id="topBar" class="top-bar">
-      xora
-   </div>
-   <div id="viewPort" class="view-port">
-      <div id="leftViewBox" class="view-box">
-         <div id="camView" class="cam-view">
-            <div id="camViewHead" class="cam-view-head">
-               <div class="view-box-lbl">cam view</div>
-               <div class="view-box-btns">
-                  <div id="btnCamOnOff" class="btn-div">CamOnOff</div>
+   <head>
+      <meta charset="UTF-8">
+      <title>xoraWebIndex</title>
+      <link rel="stylesheet" href="css/js3.css">
+      <link rel="stylesheet" href="css/xora.css">
+      <!-- 3rd party files -->
+      <script src="js/jq.js"></script>
+      <!-- <script src="js/js3/three.module.min.js"></script>
+      <script src="js/js3/three.min.js "></script> -->
+      <!-- <script src="js/js3/three.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js"></script>
+      <!-- class files -->
+      <script src="js/cam-top.js"></script>
+      <!-- app files -->
+      <script src="js/xora-vr.js"></script>
+      <script src="js/xora.js"></script>
+   </head>
+   <body>
+      <div id="topBar" class="top-bar">
+         xora
+      </div>
+      <div id="viewPort" class="view-port">
+         <div id="leftViewBox" class="view-box">
+            <div id="camView" class="cam-view">
+               <div id="camViewHead" class="cam-view-head">
+                  <div class="view-box-lbl">cam view</div>
+                  <div class="view-box-btns">
+                     <div id="btnCamOnOff" class="btn-div">CamOnOff</div>
+                  </div>
+               </div>
+               <div id="camViewBody" class="cam-view-body">
                </div>
             </div>
-            <div id="camViewBody" class="cam-view-body">
+         </div>
+         <div id="rightViewBox" class="view-box">
+            <div id="vrView" class="vr-view">
+               <div id="camViewHead" class="cam-view-head">
+                  <div class="view-box-lbl">vr view</div>
+                  <!-- <div class="view-box-btns"></div> -->
+               </div>
+               <div id="vrViewBody" class="vr-view-body">
+                  <div id="threejs-container"></div>
+               </div>
             </div>
          </div>
       </div>
-      <div id="rightViewBox" class="view-box">
-      </div>
-   </div>
-</body>
+   </body>
 </html>
