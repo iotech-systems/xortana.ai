@@ -10,6 +10,7 @@ from apps.shared.core.datatypes import *
 RAM_DISK_ROOT: str = "/run/xor.ai"
 IMAGE_SAVE_PATH: str = f"{RAM_DISK_ROOT}/cams/topcam"
 PROC_NAME: str = "xor.ai/topcam"
+TOP_CAM_INDEX: int = 0
 
 
 class topCam(mp.Process):
@@ -22,7 +23,7 @@ class topCam(mp.Process):
       # -- -- -- --
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
       # -- -- -- --
-      self.cam: cv2.VideoCapture = cv2.VideoCapture()
+      self.cam: cv2.VideoCapture = cv2.VideoCapture(TOP_CAM_INDEX)
 
    def start(self) -> None:
       setproctitle.setproctitle(PROC_NAME)
@@ -31,8 +32,12 @@ class topCam(mp.Process):
    def __main__(self):
       # -- main loop tick --
       def __tick() -> tickCode:
-         err, img = self.cam.read()
-         print([err, img])
+         err_code, img = self.cam.read()
+         if err_code:
+            pass
+         else:
+            pass
+         # -- --
          return tickCode.OK
       # -- -- -- --
       while True:
