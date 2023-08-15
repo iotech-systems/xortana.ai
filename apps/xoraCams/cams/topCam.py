@@ -10,6 +10,9 @@ RAM_DISK_ROOT: str = "/run/xor.ai"
 IMAGE_SAVE_PATH: str = f"{RAM_DISK_ROOT}/cams/topcam"
 PROC_NAME: str = "xor.ai/topcam"
 TOP_CAM_INDEX: int = 0
+# -- IMG INFO --
+IMG_WIDTH: int = 800
+IMG_HEIGHT: int = 600
 
 
 class topCam(mp.Process):
@@ -22,7 +25,10 @@ class topCam(mp.Process):
          raise FileNotFoundError(RAM_DISK_ROOT)
       print(f"[ topCam: PathFound: {RAM_DISK_ROOT} ]")
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
+      # -- set top cam info --
       self.cam: cv2.VideoCapture = cv2.VideoCapture(TOP_CAM_INDEX)
+      self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, IMG_WIDTH)
+      self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, IMG_HEIGHT)
 
    def __main__(self):
       # -- main loop tick --
