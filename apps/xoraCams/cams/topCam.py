@@ -19,6 +19,7 @@ class topCam(mp.Process):
       # -- -- -- --
       if not os.path.exists(RAM_DISK_ROOT):
          raise FileNotFoundError(RAM_DISK_ROOT)
+      print(f"[ topCam: PathFound: {RAM_DISK_ROOT} ]")
       # -- -- -- --
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
       # -- -- -- --
