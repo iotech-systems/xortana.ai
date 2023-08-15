@@ -2,7 +2,6 @@
 import os, sys, time
 import cv2, setproctitle
 import multiprocessing as mp
-# sys.path.insert(0, "..")
 # -- [ system ] --
 from apps.shared.core.datatypes import *
 
@@ -27,16 +26,15 @@ class topCam(mp.Process):
 
    def start(self) -> None:
       setproctitle.setproctitle(PROC_NAME)
-      super().start()
 
    def __main__(self):
       # -- main loop tick --
       def __tick() -> tickCode:
          err_code, img = self.cam.read()
          if err_code:
-            pass
+            print("img_taken")
          else:
-            pass
+            print("img_not_taken")
          # -- --
          return tickCode.OK
       # -- -- -- --
