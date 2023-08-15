@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
-import time
+import time, configparser as cp
 from apps.xoraCams.cams.topCam import topCam
 from apps.shared.core.datatypes import *
 
-
+# -- -- -- --
+ini_file: str = "conf/xorai.ini"
+XORA_INI: cp.ConfigParser = cp.ConfigParser()
+if len(XORA_INI.read(ini_file)) != 0:
+   raise FileNotFoundError(ini_file)
+# -- -- -- --
+TOP_CAM: topCam = topCam(XORA_INI[""])
 MAIN_TICK_SLEEP: float = 8.0
-TOP_CAM: topCam = topCam()
-
 
 def init():
    TOP_CAM.start()
