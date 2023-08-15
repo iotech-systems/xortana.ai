@@ -76,7 +76,7 @@ class topCam(mp.Process):
                print("img_taken_and_saved")
             return tickCode.OK
          else:
-            print("img_not_taken")
+            print(["img_not_taken", err_code])
             return tickCode.Error
       # -- -- -- --
       while True:
@@ -85,4 +85,4 @@ class topCam(mp.Process):
          if tick_code == tickCode.OK:
             time.sleep(sleep)
          else:
-            pass
+            time.sleep(4.0)
