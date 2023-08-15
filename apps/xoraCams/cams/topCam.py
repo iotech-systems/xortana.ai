@@ -23,10 +23,6 @@ from apps.shared.core.datatypes import *
 RAM_DISK_ROOT: str = "/run/xor.ai"
 IMAGE_SAVE_PATH: str = f"{RAM_DISK_ROOT}/cams/topcam"
 PROC_NAME: str = "xor.ai/topcam"
-# TOP_CAM_INDEX: int = 0
-# -- IMG INFO; 1920x1080 --
-# IMG_WIDTH: int = 800
-# IMG_HEIGHT: int = 800
 
 
 class topCam(mp.Process):
@@ -55,9 +51,11 @@ class topCam(mp.Process):
       # -- main loop tick --
       def __tick() -> tickCode:
          # -- --
+         time.sleep(1.0)
          return tickCode.OK
       # -- start proc threads --
       self.img_thread.start()
+      print([self.img_w, self.img_h, self.img_freq])
       # -- -- -- --
       while True:
          rval: tickCode = __tick()
