@@ -10,9 +10,9 @@ RAM_DISK_ROOT: str = "/run/xor.ai"
 IMAGE_SAVE_PATH: str = f"{RAM_DISK_ROOT}/cams/topcam"
 PROC_NAME: str = "xor.ai/topcam"
 TOP_CAM_INDEX: int = 0
-# -- IMG INFO --
-IMG_WIDTH: int = 800
-IMG_HEIGHT: int = 600
+# -- IMG INFO; 1920x1080 --
+IMG_WIDTH: int = 1920
+IMG_HEIGHT: int = 1080
 
 
 class topCam(mp.Process):
