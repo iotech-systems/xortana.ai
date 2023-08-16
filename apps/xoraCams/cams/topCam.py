@@ -10,9 +10,8 @@ Available cameras
 
 """
 
-import os, sys, time
+import os, time
 import threading
-
 import cv2, setproctitle
 import configparser as cp
 import multiprocessing as mp
@@ -34,10 +33,11 @@ class topCam(mp.Process):
       self.sec: cp.SectionProxy = sec
       if not os.path.exists(RAM_DISK_ROOT):
          raise FileNotFoundError(RAM_DISK_ROOT)
+      # -- -- -- --
       print(f"[ topCam: PathFound: {RAM_DISK_ROOT} ]")
       rval: int = os.system(f"mkdir -p {IMAGE_SAVE_PATH}")
       # -- set top cam info --
-      self.cam_idx: int = self.sec.get("TOP_CAM_INDEX")
+      self.cam_idx: int = self.sec.getint("TOP_CAM_INDEX")
       self.img_w: int = self.sec.getint("IMG_WIDTH")
       self.img_h: int = self.sec.getint("IMG_HEIGHT")
       self.img_freq: int = self.sec.getint("IMG_FREQ")
