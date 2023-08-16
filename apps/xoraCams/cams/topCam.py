@@ -65,22 +65,28 @@ class topCam(mp.Process):
          time.sleep(2.0)
 
    def _img_thread(self):
+      tick_count: int = 0
       # -- -- -- --
       if self.cam.isOpened():
          print("CAM_IS_READY")
       else:
          print("CAM_IS_NOT_READY")
       def _tick() -> tickCode:
+         nonlocal tick_count
+         tick_count += 1
          err_code, img = self.cam.read()
-         if err_code:
+         if err_code and tick_count == 16:
             fname: str = f"{IMAGE_SAVE_PATH}/topcam.png"
             cv2.imwrite(filename=fname, img=img)
             if os.path.exists(fname):
                print("img_taken_and_saved")
+            tick_count = 0
             return tickCode.OK
-         else:
+         elif not err_code:
             print(["img_not_taken", err_code, self.cam])
             return tickCode.Error
+         else:
+            return tickCode.OK
       # -- -- -- --
       while True:
          sleep: float = 1000 / (self.img_freq * 1000)
