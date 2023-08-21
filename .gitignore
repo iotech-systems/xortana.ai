@@ -141,3 +141,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/data/guns/edge-collected-gunshot-audio.zip
+/data/guns/edge-collected-gunshot-audio/gunshot-audio-all-metadata.csv
