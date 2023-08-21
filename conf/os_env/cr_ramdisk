@@ -14,3 +14,5 @@ fi
 
 mkdir -p /run/xora.ai
 chown xora:xora -R /run/xora.ai
+
+export XORA_RUN_AI_ROOT=$RUN_XOR_AI
