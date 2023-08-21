@@ -1,5 +1,6 @@
 
 import os.path, time
+from PIL import Image
 try:
    from picamera2.picamera2 import Picamera2 as PiCam2
 except ModuleNotFoundError:
@@ -12,9 +13,10 @@ from shared.datatypes import execResult
 
 class skyCam(object):
 
-   TF_DATA_FOLDER: str = "/opt/xortana.ai/tf/data"
    prefixIdx: {} = {}
    CAM: PiCam2 = None
+   TF_IMGS_FOLDER: str = "/opt/xortana.ai/tf/imgs"
+   TF_THUMS_FOLDER: str = "/opt/xortana.ai/tf/thums"
 
    def __init__(self, act: str, args: str):
       self.act: str = act
@@ -36,10 +38,11 @@ class skyCam(object):
          if prefix in skyCam.prefixIdx.keys():
             idx = int(skyCam.prefixIdx[prefix])
          # -- -- -- --
-         if not os.path.exists(skyCam.TF_DATA_FOLDER):
-            raise FileNotFoundError(skyCam.TF_DATA_FOLDER)
+         if not os.path.exists(skyCam.TF_IMGS_FOLDER):
+            raise FileNotFoundError(skyCam.TF_IMGS_FOLDER)
          # -- -- -- --
-         ffn: str = f"{skyCam.TF_DATA_FOLDER}/{prefix}_{idx:03}.jpg"
+         img_name: str = f"{prefix}_{idx:03}.jpg"
+         ffn: str = f"{skyCam.TF_IMGS_FOLDER}/{img_name}"
          SYS_TTS.say("taking image in 3", 150)
          time.sleep(0.6)
          SYS_TTS.say("2", 150)
@@ -49,6 +52,10 @@ class skyCam(object):
          skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
          skyCam.prefixIdx[prefix] = (idx + 1)
          if os.path.exists(ffn):
+            img: Image = Image.open(ffn)
+            img.thumbnail((128, 96))
+            thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/{img_name}"
+            img.save(thum_path)
             SYS_TTS.say("image has been taken", 150)
          # -- -- -- --
       except Exception as e:

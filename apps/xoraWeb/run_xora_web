@@ -41,6 +41,12 @@ def cam_ops(camid: str, act: str, args: str):
    except Exception as e:
       return flask.Response(str(e), mimetype="text/app_error")
 
+@FLASK_APP.route("/view/tf/folder/<fld>", methods=["GET"])
+def view_tf_folder(fld: str):
+   pass
+
+
+
 
 # -- -- -- -- [ entry point ] -- -- -- --
 if __name__ == "__main__":
