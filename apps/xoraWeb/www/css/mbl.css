@@ -1,0 +1,45 @@
+
+html, body {
+   margin: 0;
+   padding: 0;
+}
+
+div.page-top {
+   width: calc(100vw - 16px);
+   height: 6vh;
+   line-height: 6vh;
+   font-size: 3.6vh;
+   text-align: center;
+   margin: 1vh auto 2vh auto;
+   border: 2px solid rgb(32, 57, 126);
+   border-radius: 1vh;
+}
+
+div.feedback-box {
+   width: 92vw;
+   height: 20vh;
+}
+
+div.main-menu-box {
+   width: 92vw;
+   height: 64vh;
+   margin: 1vh auto 2vh auto;
+   border: 2px solid rgb(178, 182, 194);
+   border-radius: 1.2vh;
+}
+
+div.btn-menu {
+   width: 96%;
+   height: 8vh;
+   line-height: 8vh;
+   font-size: 3.8vh;
+   text-align: center;
+   margin: 2vh auto;
+   border: 1px solid rgb(32, 57, 126);
+   border-radius: 1vh;
+}
+
+div.btn-menu:hover {
+   cursor: pointer;
+   background-color: rgba(170, 172, 189, 0.61);
+}

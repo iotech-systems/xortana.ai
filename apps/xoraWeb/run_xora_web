@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
-import flask
+import flask, json
 import setproctitle
+from shared.datatypes import *
+from shared.skyCam import skyCam
 
 
 APP_NAME = "xor/xora_web"
@@ -12,18 +14,34 @@ FLASK_APP = flask.Flask(APP_NAME
    , template_folder="www/templates")
 
 
-# -- app rounds --
+# -- [ app routes ] --
 @FLASK_APP.route("/")
 def idx():
    return FLASK_APP.send_static_file("idx.html")
 
+@FLASK_APP.route("/mbltools")
+def mbltools():
+   return FLASK_APP.send_static_file("mbltools.html")
 
-@FLASK_APP.route("/cam/<cam_id>")
-def read_cam(cam_id: str):
-   return f"{cam_id}"
+@FLASK_APP.route("/cam/<camid>/<act>/<args>", methods=["GET", "POST"])
+def cam_ops(camid: str, act: str, args: str):
+   try:
+      MIME_TYPE: str = "application/json"
+      rval: execResult = None
+      if camid == "sky":
+         cam: skyCam = skyCam(act=act, args=args)
+         rval: execResult = cam.execute()
+      elif camid == "":
+         pass
+      else:
+         pass
+      # -- -- -- --
+      return flask.Response(f"{rval}", mimetype=MIME_TYPE)
+   except Exception as e:
+      return flask.Response(str(e), mimetype="text/app_error")
 
 
 # -- -- -- -- [ entry point ] -- -- -- --
 if __name__ == "__main__":
    setproctitle.setproctitle(APP_NAME)
-   FLASK_APP.run(host="0.0.0.0", port=TCP_PORT, debug=True)
+   FLASK_APP.run(host="0.0.0.0", port=TCP_PORT, debug=True, use_reloader=False)
