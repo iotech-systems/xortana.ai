@@ -1,7 +1,11 @@
 
 import os.path, time
+
+import picamera2.picamera2
+
 try:
    from picamera2.picamera2 import Picamera2 as PiCam2
+   from picamera2.picamera2 import NullPreview
 except ModuleNotFoundError:
    # this mics code rpi calls running on ubuntu
    from shared.stubs.picam2 import picam2stub as PiCam2
@@ -44,7 +48,7 @@ class skyCam(object):
          time.sleep(0.8)
          SYS_TTS.say("1", 150)
          # -- -- -- --
-         self.cam.start_and_capture_file(ffn)
+         self.cam.start_and_capture_file(ffn, show_preview=False)
          skyCam.prefixIdx[prefix] = (idx + 1)
          # -- -- -- --
       except Exception as e:
