@@ -39,8 +39,8 @@ class skyCam(object):
          if not os.path.exists(skyCam.TF_DATA_FOLDER):
             raise FileNotFoundError(skyCam.TF_DATA_FOLDER)
          # -- -- -- --
-         ffn: str = f"{skyCam.TF_DATA_FOLDER}/{prefix}_{idx}.jpg"
-         SYS_TTS.say("I, will take an image in 3", 145)
+         ffn: str = f"{skyCam.TF_DATA_FOLDER}/{prefix}_{idx:03}.jpg"
+         SYS_TTS.say("I, will take an image in 3", 150)
          time.sleep(0.8)
          SYS_TTS.say("2", 150)
          time.sleep(0.8)
@@ -48,6 +48,8 @@ class skyCam(object):
          # -- -- -- --
          skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
          skyCam.prefixIdx[prefix] = (idx + 1)
+         if os.path.exists(ffn):
+            SYS_TTS.say("image has been taken", 150)
          # -- -- -- --
       except Exception as e:
          print(e)
