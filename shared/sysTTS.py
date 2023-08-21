@@ -8,10 +8,13 @@ class sysTTS(object):
      self.ttsEng = pyttsx3.init()
 
    def say(self, txt: str, rate: int):
-      self.ttsEng.setProperty("rate", rate)
-      self.ttsEng.say(txt)
-      self.ttsEng.runAndWait()
+      try:
+         self.ttsEng.setProperty("rate", rate)
+         self.ttsEng.say(txt)
+         self.ttsEng.runAndWait()
+      except Exception as e:
+         print(e)
 
 
-# -- global --
+# -- [ global ] --
 SYS_TTS: sysTTS = sysTTS()
