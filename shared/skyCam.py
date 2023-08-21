@@ -54,8 +54,8 @@ class skyCam(object):
          if os.path.exists(ffn):
             img: Image = Image.open(ffn)
             img.thumbnail((324, 243))
-            thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/{img_name}"
-            img.save(thum_path)
+            # thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}"
+            img.save(f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}")
             SYS_TTS.say("Image has been taken", 150)
          # -- -- -- --
       except Exception as e:
