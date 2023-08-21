@@ -43,7 +43,7 @@ class skyCam(object):
          # -- -- -- --
          img_name: str = f"{prefix}_{idx:03}.jpg"
          ffn: str = f"{skyCam.TF_IMGS_FOLDER}/{img_name}"
-         SYS_TTS.say("taking image in 3", 150)
+         SYS_TTS.say("New image in 3", 150)
          time.sleep(0.6)
          SYS_TTS.say("2", 150)
          time.sleep(0.6)
@@ -56,7 +56,7 @@ class skyCam(object):
             img.thumbnail((324, 243))
             thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/{img_name}"
             img.save(thum_path)
-            SYS_TTS.say("image has been taken", 150)
+            SYS_TTS.say("Image has been taken", 150)
          # -- -- -- --
       except Exception as e:
          print(e)
