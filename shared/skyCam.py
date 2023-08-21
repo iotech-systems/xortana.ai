@@ -40,10 +40,10 @@ class skyCam(object):
             raise FileNotFoundError(skyCam.TF_DATA_FOLDER)
          # -- -- -- --
          ffn: str = f"{skyCam.TF_DATA_FOLDER}/{prefix}_{idx:03}.jpg"
-         SYS_TTS.say("I, will take an image in 3", 150)
-         time.sleep(0.8)
+         SYS_TTS.say("taking image in 3", 150)
+         time.sleep(0.6)
          SYS_TTS.say("2", 150)
-         time.sleep(0.8)
+         time.sleep(0.6)
          SYS_TTS.say("1", 150)
          # -- -- -- --
          skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
