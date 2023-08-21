@@ -53,7 +53,7 @@ class skyCam(object):
          skyCam.prefixIdx[prefix] = (idx + 1)
          if os.path.exists(ffn):
             img: Image = Image.open(ffn)
-            img.thumbnail((128, 96))
+            img.thumbnail((324, 243))
             thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/{img_name}"
             img.save(thum_path)
             SYS_TTS.say("image has been taken", 150)
