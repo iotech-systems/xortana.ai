@@ -1,11 +1,7 @@
 
 import os.path, time
-
-import picamera2.picamera2
-
 try:
    from picamera2.picamera2 import Picamera2 as PiCam2
-   from picamera2.picamera2 import NullPreview
 except ModuleNotFoundError:
    # this mics code rpi calls running on ubuntu
    from shared.stubs.picam2 import picam2stub as PiCam2
@@ -18,11 +14,13 @@ class skyCam(object):
 
    TF_DATA_FOLDER: str = "/opt/xortana.ai/tf/data"
    prefixIdx: {} = {}
+   CAM: PiCam2 = None
 
    def __init__(self, act: str, args: str):
       self.act: str = act
       self.args: str = args
-      self.cam: PiCam2 = PiCam2()
+      if skyCam.CAM is None:
+         skyCam.CAM = PiCam2()
 
    def execute(self) -> execResult:
       if self.act == "take_img":
@@ -48,7 +46,7 @@ class skyCam(object):
          time.sleep(0.8)
          SYS_TTS.say("1", 150)
          # -- -- -- --
-         self.cam.start_and_capture_file(ffn, show_preview=False)
+         skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
          skyCam.prefixIdx[prefix] = (idx + 1)
          # -- -- -- --
       except Exception as e:
