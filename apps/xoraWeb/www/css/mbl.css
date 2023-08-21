@@ -43,3 +43,8 @@ div.btn-menu:hover {
    cursor: pointer;
    background-color: rgba(170, 172, 189, 0.61);
 }
+
+input#txtImgPrefix {
+   margin: 1vh 0 0 3.6vw;
+   font-size: 2.8vh;
+}
