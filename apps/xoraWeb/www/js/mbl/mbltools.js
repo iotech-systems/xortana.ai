@@ -9,7 +9,8 @@ var mbltools = {
 
       skyCamTakePic() {
          /* "/cam/<camid>/<act>/<args>" */
-         let url = "/cam/sky/take_img/('someapth.abdc.a'; arg1; 44; 'run')";
+         let img_prefix = $("#txtImgPrefix").val(), 
+            url = `/cam/sky/take_img/(${img_prefix})`;
          $.post(url, (resp) => {
                console.log(resp);
             });

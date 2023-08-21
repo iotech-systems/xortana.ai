@@ -29,6 +29,7 @@ def cam_ops(camid: str, act: str, args: str):
       MIME_TYPE: str = "application/json"
       rval: execResult = None
       if camid == "sky":
+         args = args.replace("(", "").replace(")", "").strip()
          cam: skyCam = skyCam(act=act, args=args)
          rval: execResult = cam.execute()
       elif camid == "":
