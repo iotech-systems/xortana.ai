@@ -18,6 +18,5 @@ class sysTTS(object):
 
 # -- [ global ] --
 SYS_TTS: sysTTS = sysTTS()
-pitch = float(SYS_TTS.ttsEng.getProperty("pitch"))
-SYS_TTS.ttsEng.setProperty("pitch", (pitch - 0.5))
-
+# pitch = float(SYS_TTS.ttsEng.getProperty("pitch"))
+# SYS_TTS.ttsEng.setProperty("pitch", (pitch - 0.5))
