@@ -1,18 +1,20 @@
 #!/usr/bin/sh
 
+
+RUN_XOR_AI="/run/xora.ai"
+
+
 if [ "$(id -u)" -ne 0 ]; then
   echo "script must be run as root"
   exit 1
 fi
 
-RUN_XOR_AI="/run/xora.ai"
-
 if [ ! -f $RUN_XOR_AI ]; then
   echo "PATH_NOT_FOUND: $RUN_XOR_AI"
-  exit 2
+  # make root in run folder
+  mkdir "$RUN_XOR_AI"
 fi
 
-mkdir -p /run/xora.ai
 chown xora:xora -R /run/xora.ai
-
+# export to env
 export XORA_RUN_AI_ROOT=$RUN_XOR_AI
