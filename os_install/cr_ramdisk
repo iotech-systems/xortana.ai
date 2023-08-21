@@ -1,4 +1,16 @@
 #!/usr/bin/sh
 
+if [ "$(id -u)" -ne 0 ]; then
+  echo "script must be run as root"
+  exit 1
+fi
+
+RUN_XOR_AI="/run/xora.ai"
+
+if [ ! -f $RUN_XOR_AI ]; then
+  echo "PATH_NOT_FOUND: $RUN_XOR_AI"
+  exit 2
+fi
+
 mkdir -p /run/xora.ai
 chown xora:xora -R /run/xora.ai
