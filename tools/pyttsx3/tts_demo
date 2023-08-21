@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import pyttsx3
+
+
+engine = pyttsx3.init(driverName="espeak")
+voices = engine.getProperty("voices")
+# -- -- -- --
+rate: int = 155
+lang_id: str = "english-us"
+# lang_id: str = "english_rp+f3"
+engine.setProperty("rate", rate)
+for hr in range(0, 12):
+   engine.setProperty("voice", lang_id)
+   engine.say(f"possible drone at {hr} o'clock")
+   engine.runAndWait()
