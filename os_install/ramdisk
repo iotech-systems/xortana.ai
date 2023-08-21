@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+mkdir -p /run/xora.ai
+chown xora:xora -R /run/xora.ai

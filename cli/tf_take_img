@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import pyttsx3, picamera2 as p2
+
+
+cam = p2.Picamera2()
+fn = ""
+cam.start_and_capture_file(fn, delay=0, show_preview=False)
