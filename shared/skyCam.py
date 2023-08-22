@@ -25,8 +25,10 @@ class skyCam(object):
 
    @staticmethod
    def Instance():
+      # -- -- -- --
       if not os.path.exists(skyCam.RAM_DISK):
          os.makedirs(skyCam.RAM_DISK)
+      # -- -- -- --
       if skyCam.__inst is None:
          skyCam.__inst = skyCam()
       # -- -- -- --
@@ -37,6 +39,7 @@ class skyCam(object):
          skyCam.CAM = PiCam2()
          conf = skyCam.CAM.create_still_configuration(main={"size": (1920, 1080)})
          skyCam.CAM.configure(conf)
+         skyCam.CAM.start()
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
 
    def start_cam_thread(self):
@@ -113,7 +116,8 @@ class skyCam(object):
          # -- -- -- --
          time.sleep(0.01)
          skyCam.CAM_LOCK.acquire()
-         skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
+         # skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
+         skyCam.CAM.capture_file(ffn, wait=True)
          skyCam.CAM_LOCK.release()
          # -- -- -- --
       except Exception as e:
