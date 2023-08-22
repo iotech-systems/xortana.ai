@@ -19,7 +19,7 @@ class skyCam(object):
    CAM: PiCam2 = None
    TF_IMGS_FOLDER: str = "/opt/xortana.ai/tf/imgs"
    TF_THUMS_FOLDER: str = "/opt/xortana.ai/tf/thums"
-   RAM_DISK: str = "/run/xora.si/skycam"
+   RAM_DISK: str = "/run/xora.ai/skycam"
    CAM_LOCK: threading.Lock = threading.Lock()
    __inst = None
 
