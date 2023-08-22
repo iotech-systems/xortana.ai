@@ -35,6 +35,8 @@ class skyCam(object):
    def __init__(self):
       if skyCam.CAM is None:
          skyCam.CAM = PiCam2()
+      self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
+      self.cam_thread.start()
 
    def web_take_img(self, prefix: str) -> [None, execResult]:
       try:
@@ -56,14 +58,11 @@ class skyCam(object):
          time.sleep(0.36)
          SYS_TTS.say("1", 150)
          # -- -- -- --
-         skyCam.CAM_LOCK.acquire()
-         skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
-         skyCam.CAM_LOCK.release()
+         self.__take_img(ffn)
          skyCam.prefixIdx[prefix] = (idx + 1)
          if os.path.exists(ffn):
             img: Image = Image.open(ffn)
             img.thumbnail((324, 243))
-            # thum_path: str = f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}"
             img.save(f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}")
             SYS_TTS.say("Image has been taken", 150)
          # -- -- -- --
@@ -78,3 +77,29 @@ class skyCam(object):
                skyCam.CAM_LOCK.release()
          except Exception as e:
             print(e)
+
+   def __cam_thread(self):
+      # -- -- -- --
+      rnd_q: queue.SimpleQueue = queue.SimpleQueue()
+      [rnd_q.put(i) for i in range(0, 8)]
+      def __thread_tick(ffn: str):
+         self.__take_img(ffn=ffn)
+      # -- -- -- --
+      while True:
+         idx: int = rnd_q.get()
+         fpath = f"{skyCam.RAM_DISK}/skycam/img_{idx:02}.jpg"
+         __thread_tick(ffn=fpath)
+         rnd_q.put(idx)
+         time.sleep(skyCam.CAM_THREAD_TICK_MS)
+      # -- -- -- --
+
+   def __take_img(self, ffn: str):
+      try:
+         skyCam.CAM_LOCK.acquire()
+         skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
+         skyCam.CAM_LOCK.release()
+      except Exception as e:
+         print(e)
+      finally:
+         if skyCam.CAM_LOCK.locked():
+            skyCam.CAM_LOCK.release()

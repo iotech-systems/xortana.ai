@@ -1,22 +1,11 @@
 #!/usr/bin/env python3
 
 import time
-from xoraCams.cams.topCam import topCam
+from shared.sysCamMngr import sysCamMngr
 
 
-MAIN_TICK_SLEEP: float = 4.0
+camMngr: sysCamMngr = sysCamMngr()
 
-TOP_CAM: topCam = topCam()
-
-
-
-def main():
-   def __main_tick():
-      pass
-   # -- main ticks --
-   while True:
-      __main_tick()
-      time.sleep(MAIN_TICK_SLEEP)
 
 
 # -- -- -- entry point -- -- --
