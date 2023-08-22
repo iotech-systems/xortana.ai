@@ -17,9 +17,9 @@ class skyCam(object):
    CAM_THREAD_TICK_MS: int = 0.480
    prefixIdx: {} = {}
    CAM: PiCam2 = None
+   RAM_DISK: str = "/run/xora.ai"
    TF_IMGS_FOLDER: str = "/opt/xortana.ai/tf/imgs"
    TF_THUMS_FOLDER: str = "/opt/xortana.ai/tf/thums"
-   RAM_DISK: str = "/run/xora.ai/skycam"
    CAM_LOCK: threading.Lock = threading.Lock()
    __inst = None
 
@@ -84,12 +84,18 @@ class skyCam(object):
       # -- -- -- --
       rnd_q: queue.SimpleQueue = queue.SimpleQueue()
       [rnd_q.put(i) for i in range(0, 8)]
+      sky_cam_fld: str = f"{skyCam.RAM_DISK}/skycam"
+      try:
+         if not os.path.exists(sky_cam_fld):
+            os.makedirs(sky_cam_fld)
+      except Exception as e:
+         print(e)
       def __thread_tick(ffn: str):
          self.__take_img(ffn=ffn)
       # -- -- -- --
       while True:
          idx: int = rnd_q.get()
-         fpath = f"{skyCam.RAM_DISK}/skycam/img_{idx:02}.jpg"
+         fpath = f"{sky_cam_fld}/img_{idx:02}.jpg"
          __thread_tick(ffn=fpath)
          rnd_q.put(idx)
          time.sleep(skyCam.CAM_THREAD_TICK_MS)
