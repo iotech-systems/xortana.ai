@@ -9,7 +9,7 @@ from shared.sysCamMngr import sysCamMngr
 APP_NAME = "xora-ai/cams"
 
 camMngr: sysCamMngr = sysCamMngr()
-camMngr.sky_cam.start_cam_thread()
+camMngr.sky_cam.start_cam_threads()
 
 
 # -- -- -- entry point -- -- --
