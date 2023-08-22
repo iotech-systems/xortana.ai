@@ -36,6 +36,8 @@ class skyCam(object):
       if skyCam.CAM is None:
          skyCam.CAM = PiCam2()
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
+
+   def start_cam_thread(self):
       self.cam_thread.start()
 
    def web_take_img(self, prefix: str) -> [None, execResult]:

@@ -5,9 +5,11 @@ from shared.sysCamMngr import sysCamMngr
 
 
 camMngr: sysCamMngr = sysCamMngr()
-
+camMngr.sky_cam.start_cam_thread()
 
 
 # -- -- -- entry point -- -- --
 if __name__ == "__main__":
-   main()
+   while True:
+      print("run_xora_cams_main_loop")
+      time.sleep(8.0)
