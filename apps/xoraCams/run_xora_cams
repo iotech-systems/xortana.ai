@@ -16,5 +16,6 @@ camMngr.sky_cam.start_cam_thread()
 if __name__ == "__main__":
    setproctitle.setproctitle(APP_NAME)
    while True:
-      print("run_xora_cams_main_loop")
+      msg = f"run_xora_cams_main_loop\n\timg_cnt: {camMngr.sky_cam.img_cnt}"
+      print(msg)
       time.sleep(8.0)

@@ -40,6 +40,8 @@ class skyCam(object):
          conf = skyCam.CAM.create_still_configuration(main={"size": (1920, 1080)})
          skyCam.CAM.configure(conf)
          skyCam.CAM.start()
+      # -- -- -- --
+      self.img_cnt: int = 0
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
 
    def start_cam_thread(self):
@@ -116,12 +118,12 @@ class skyCam(object):
          # -- -- -- --
          time.sleep(0.01)
          skyCam.CAM_LOCK.acquire()
-         # skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
          skyCam.CAM.capture_file(ffn, wait=True)
          skyCam.CAM_LOCK.release()
          # -- -- -- --
       except Exception as e:
          print(e)
       finally:
+         self.img_cnt += 1
          if skyCam.CAM_LOCK.locked():
             skyCam.CAM_LOCK.release()
