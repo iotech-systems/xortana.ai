@@ -6,7 +6,7 @@ from shared.datatypes import *
 from shared.skyCam import skyCam
 
 
-APP_NAME = "xor/xora_web"
+APP_NAME = "xora-ai/web"
 TCP_PORT: int = 9090
 FLASK_APP = flask.Flask(APP_NAME
    , static_url_path=""
@@ -44,8 +44,6 @@ def cam_ops(camid: str, act: str, args: str):
 @FLASK_APP.route("/view/tf/folder/<fld>", methods=["GET"])
 def view_tf_folder(fld: str):
    pass
-
-
 
 
 # -- -- -- -- [ entry point ] -- -- -- --

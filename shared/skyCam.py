@@ -35,6 +35,8 @@ class skyCam(object):
    def __init__(self):
       if skyCam.CAM is None:
          skyCam.CAM = PiCam2()
+         conf = skyCam.CAM.create_still_configuration(main={"size": (1920, 1080)})
+         skyCam.CAM.configure(conf)
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
 
    def start_cam_thread(self):
@@ -87,7 +89,7 @@ class skyCam(object):
       sky_cam_fld: str = f"{skyCam.RAM_DISK}/skycam"
       try:
          if not os.path.exists(sky_cam_fld):
-            os.system(f"cd {skyCam.RAM_DISK} && mkdir skycam")
+            os.system(f"cd {skyCam.RAM_DISK} && mkdir -p skycam/imgs")
       except Exception as e:
          print(e)
       def __thread_tick(ffn: str):
@@ -95,7 +97,7 @@ class skyCam(object):
       # -- -- -- --
       while True:
          idx: int = rnd_q.get()
-         fpath = f"{sky_cam_fld}/img_{idx:02}.jpg"
+         fpath = f"{sky_cam_fld}/imgs/skycam_img_{idx:02}.jpg"
          __thread_tick(ffn=fpath)
          rnd_q.put(idx)
          time.sleep(skyCam.CAM_THREAD_TICK_MS)
