@@ -25,7 +25,7 @@ class skyCam(object):
 
    @staticmethod
    def Instance():
-      if os.path.exists(skyCam.RAM_DISK):
+      if not os.path.exists(skyCam.RAM_DISK):
          os.makedirs(skyCam.RAM_DISK)
       if skyCam.__inst is None:
          skyCam.__inst = skyCam()
