@@ -107,9 +107,15 @@ class skyCam(object):
 
    def __take_img(self, ffn: str):
       try:
+         # -- -- -- --
+         if os.path.exists(ffn):
+            os.unlink(ffn)
+         # -- -- -- --
+         time.sleep(0.01)
          skyCam.CAM_LOCK.acquire()
          skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
          skyCam.CAM_LOCK.release()
+         # -- -- -- --
       except Exception as e:
          print(e)
       finally:
