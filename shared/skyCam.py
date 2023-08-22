@@ -87,7 +87,7 @@ class skyCam(object):
       sky_cam_fld: str = f"{skyCam.RAM_DISK}/skycam"
       try:
          if not os.path.exists(sky_cam_fld):
-            os.makedirs(sky_cam_fld)
+            os.makedirs(sky_cam_fld, exist_ok=True)
       except Exception as e:
          print(e)
       def __thread_tick(ffn: str):
