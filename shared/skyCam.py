@@ -1,4 +1,15 @@
 
+"""
+xora@xortana:~ $ libcamera-still --list-cameras
+Available cameras
+-----------------
+   0 : ov5647 [2592x1944] (/base/soc/i2c0mux/i2c@1/ov5647@36)
+       Modes: 'SGBRG10_CSI2P' : 640x480 [30.00 fps - (0, 0)/0x0 crop]
+                                1296x972 [30.00 fps - (0, 0)/0x0 crop]
+                                1920x1080 [30.00 fps - (0, 0)/0x0 crop]
+                                2592x1944 [30.00 fps - (0, 0)/0x0 crop]
+"""
+
 import threading
 import os.path, time, queue
 from PIL import Image
@@ -35,9 +46,10 @@ class skyCam(object):
       return skyCam.__inst
 
    def __init__(self):
+      img_size: () = (1920, 1920)
       if skyCam.CAM is None:
          skyCam.CAM = PiCam2()
-         conf = skyCam.CAM.create_still_configuration(main={"size": (1920, 1080)})
+         conf = skyCam.CAM.create_still_configuration(main={"size": img_size})
          skyCam.CAM.configure(conf)
          skyCam.CAM.start()
       # -- -- -- --
