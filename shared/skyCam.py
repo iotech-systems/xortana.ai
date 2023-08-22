@@ -21,56 +21,30 @@ class skyCam(object):
    TF_THUMS_FOLDER: str = "/opt/xortana.ai/tf/thums"
    RAM_DISK: str = "/run/xora.si/skycam"
    CAM_LOCK: threading.Lock = threading.Lock()
+   __inst = None
 
-   def __init__(self, act: str, args: str):
-      self.act: str = act
-      self.args: str = args
-      if skyCam.CAM is None:
-         skyCam.CAM = PiCam2()
-      # -- tf thread --
-      self.tf_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
-
-   def init(self):
-      # -- -- -- --
+   @staticmethod
+   def Instance():
       if os.path.exists(skyCam.RAM_DISK):
          os.makedirs(skyCam.RAM_DISK)
+      if skyCam.__inst is None:
+         skyCam.__inst = skyCam()
       # -- -- -- --
-      self.tf_thread.start()
+      return skyCam.__inst
 
-   def execute(self) -> execResult:
-      if self.act == "take_img":
-         self.__take_img(self.args)
-      # -- -- -- --
-      rval: execResult = execResult(0, "OK")
-      return rval
+   def __init__(self):
+      if skyCam.CAM is None:
+         skyCam.CAM = PiCam2()
 
-   """
-      this tread will run tensorflow code on skycam every conf_ms
-   """
-   def __cam_thread(self):
-      # -- -- -- --
-      rnd_q: queue.SimpleQueue = queue.SimpleQueue()
-      [rnd_q.put(i) for i in range(0, 8)]
-      def __thread_tick(ffn: str):
-         skyCam.CAM_LOCK.acquire()
-         skyCam.CAM.start_and_capture_file(ffn, show_preview=False)
-         skyCam.CAM_LOCK.release()
-      # -- -- -- --
-      while True:
-         idx: int = rnd_q.get()
-         fpath = f"{skyCam.RAM_DISK}/skycam/img_{idx:02}.jpg"
-         __thread_tick(ffn=fpath)
-         rnd_q.put(idx)
-         time.sleep(skyCam.CAM_THREAD_TICK_MS)
-      # -- -- -- --
-
-   def __take_img(self, prefix: str):
+   def web_take_img(self, prefix: str) -> [None, execResult]:
       try:
          # -- -- -- --
          idx: int = 0
          if prefix in skyCam.prefixIdx.keys():
             idx = int(skyCam.prefixIdx[prefix])
          # -- -- -- --
+         if not os.path.exists(skyCam.TF_IMGS_FOLDER):
+            os.makedirs(skyCam.TF_IMGS_FOLDER)
          if not os.path.exists(skyCam.TF_IMGS_FOLDER):
             raise FileNotFoundError(skyCam.TF_IMGS_FOLDER)
          # -- -- -- --
@@ -93,8 +67,11 @@ class skyCam(object):
             img.save(f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}")
             SYS_TTS.say("Image has been taken", 150)
          # -- -- -- --
+         rval: execResult = execResult(0, "OK")
+         return rval
       except Exception as e:
          print(e)
+         return None
       finally:
          try:
             if skyCam.CAM_LOCK.locked():

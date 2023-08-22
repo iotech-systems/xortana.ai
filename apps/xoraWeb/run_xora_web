@@ -30,8 +30,8 @@ def cam_ops(camid: str, act: str, args: str):
       rval: execResult = None
       if camid == "sky":
          args = args.replace("(", "").replace(")", "").strip()
-         cam: skyCam = skyCam(act=act, args=args)
-         rval: execResult = cam.execute()
+         sky_cam: skyCam = skyCam.Instance()
+         rval = sky_cam.web_take_img(prefix=args)
       elif camid == "":
          pass
       else:
