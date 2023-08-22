@@ -43,9 +43,11 @@ class skyCam(object):
       # -- -- -- --
       self.img_cnt: int = 0
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
+      self.cmd_thread: threading.Thread = threading.Thread(target=self.__cmd_thread)
 
-   def start_cam_thread(self):
+   def start_cam_threads(self):
       self.cam_thread.start()
+      self.cmd_thread.start()
 
    def web_take_img(self, prefix: str) -> [None, execResult]:
       try:
@@ -86,6 +88,25 @@ class skyCam(object):
                skyCam.CAM_LOCK.release()
          except Exception as e:
             print(e)
+
+   def __cmd_thread(self):
+      # -- -- -- --
+      cmd_file: str = f"{skyCam.RAM_DISK}/skycam/cmd.txt"
+      def __th_tick() -> int:
+         if not os.path.exists(cmd_file):
+            return 1
+         with open(cmd_file, "r") as f:
+            cmd_body = f.read().strip()
+         os.unlink(cmd_file)
+         if cmd_body.startswith("web_take_img:"):
+            _, prefix = cmd_body.split(":")
+            self.web_take_img(prefix)
+         else:
+            pass
+      # -- -- -- --
+      while True:
+         rval: int = __th_tick()
+         time.sleep(1.0)
 
    def __cam_thread(self):
       # -- -- -- --
