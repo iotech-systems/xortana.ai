@@ -89,9 +89,11 @@ class skyCam(object):
       sky_cam_fld: str = f"{skyCam.RAM_DISK}/skycam"
       try:
          if not os.path.exists(sky_cam_fld):
-            os.system(f"cd {skyCam.RAM_DISK} && mkdir -p skycam/imgs")
+            os.system(f"cd {skyCam.RAM_DISK} && mkdir skycam")
+            os.system(f"cd {skyCam.RAM_DISK}/skycam && mkdir imgs")
       except Exception as e:
          print(e)
+         exit(100)
       def __thread_tick(ffn: str):
          self.__take_img(ffn=ffn)
       # -- -- -- --
