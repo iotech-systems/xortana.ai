@@ -84,11 +84,6 @@ class skyCam(object):
          # -- -- -- --
          img_name: str = f"{prefix}_{idx:03}.jpg"
          ffn: str = f"{skyCam.TF_IMGS_FOLDER}/{img_name}"
-         # SYS_TTS.say("New image in 3", 150)
-         # time.sleep(0.2)
-         # SYS_TTS.say("2", 150)
-         # time.sleep(0.2)
-         # SYS_TTS.say("1", 150)
          sysSnd.play_tone("hz560", 2)
          # -- -- -- --
          self.__take_img(ffn)
@@ -97,7 +92,6 @@ class skyCam(object):
             img: Image = Image.open(ffn)
             img.thumbnail(THUM_SIZE)
             img.save(f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}")
-            # SYS_TTS.say("Image has been taken", 150)
             sysSnd.play_tone("hz660")
          # -- -- -- --
          rval: execResult = execResult(0, "OK")

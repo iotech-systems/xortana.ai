@@ -36,7 +36,7 @@ class sysSnd(object):
                wave_data = wave_fl_obj.readframes(sysSnd.CHNK_SIZE)
             cnt -= 1
             if cnt > 0:
-               time.sleep(0.500)
+               time.sleep(0.220)
       except Exception as e:
          print(e)
       finally:
