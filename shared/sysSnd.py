@@ -18,6 +18,7 @@ class sysSnd(object):
       try:
          ffpath: str = f"{sysSnd.TONES_PATH}/{wav_name}.wav"
          if not os.path.exists(ffpath):
+            print(f"play_tone_not_found: {wav_name}")
             return
          wave_fl_obj = wave.open(ffpath, "rb")
          chnls: int = wave_fl_obj.getnchannels()
@@ -27,6 +28,7 @@ class sysSnd(object):
          stream = PY_AUDIO.open(format=_format, channels=chnls, rate=rate, output=True)
          # -- -- -- --
          while cnt > 0:
+            print(f"play_tone: {wav_name}")
             wave_fl_obj.rewind()
             wave_data = wave_fl_obj.readframes(sysSnd.CHNK_SIZE)
             while wave_data != b'':
