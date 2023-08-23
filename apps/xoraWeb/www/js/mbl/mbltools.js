@@ -19,7 +19,7 @@ var mbltools = {
          setInterval(() => {
                $("div#btnTopCamTakePic").css("opacity", "1.0");
                $("div#btnTopCamTakePic").off().on("click", mbltools.skyCamTakePic);
-            }, 2400);
+            }, 6000);
       }
 
 };
