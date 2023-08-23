@@ -93,3 +93,7 @@ div.fn-lbl {
    font-size: 1.8vh;
    border-top: 2px solid dimgray;
 }
+
+.flex {
+   overflow-y: scroll;
+}
