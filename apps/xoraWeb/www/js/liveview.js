@@ -26,9 +26,7 @@ class liveViewCls {
    peekFolder(fld) {
       /* -- */
       let url = `/view/tf/${fld}`;
-      /* -- */
       let _on_get = function(jsArr) {
-            console.log(jsArr);
             jsArr.forEach(liveViewCls.Instance.onArrItem);
             let dts = new Date().toLocaleString();
             $("div#lastTickDts").html(dts);
@@ -39,7 +37,6 @@ class liveViewCls {
 
    onArrItem(i) {
       /* -- */
-      console.log(i);
       let fn = i[0];
       if (liveViewCls.Instance.last_dirlst.includes(fn))
          return;
