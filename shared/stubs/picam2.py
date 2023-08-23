@@ -13,3 +13,9 @@ class picam2stub(object):
 
    def configure(self, obj: object):
       pass
+
+   def start(self):
+      pass
+
+   def capture_file(self):
+      pass

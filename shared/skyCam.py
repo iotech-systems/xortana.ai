@@ -78,9 +78,9 @@ class skyCam(object):
          img_name: str = f"{prefix}_{idx:03}.jpg"
          ffn: str = f"{skyCam.TF_IMGS_FOLDER}/{img_name}"
          SYS_TTS.say("New image in 3", 150)
-         time.sleep(0.36)
+         time.sleep(0.2)
          SYS_TTS.say("2", 150)
-         time.sleep(0.36)
+         time.sleep(0.2)
          SYS_TTS.say("1", 150)
          # -- -- -- --
          self.__take_img(ffn)

@@ -4,6 +4,7 @@ import flask, json
 import setproctitle
 from shared.datatypes import *
 from shared.skyCam import skyCam
+from shared.sysOps import sysOps
 
 
 APP_NAME = "xora-ai/web"
@@ -14,19 +15,24 @@ FLASK_APP = flask.Flask(APP_NAME
    , template_folder="www/templates")
 
 
+CT_JSON: str = "application/json"
+CT_APP_ERR: str = "text/app_error"
+
+
 # -- [ app routes ] --
 @FLASK_APP.route("/")
 def idx():
-   return FLASK_APP.send_static_file("idx.html")
+   return FLASK_APP.send_static_file("index.html")
+
 
 @FLASK_APP.route("/mbltools")
 def mbltools():
    return FLASK_APP.send_static_file("mbltools.html")
 
+
 @FLASK_APP.route("/cam/<camid>/<act>/<args>", methods=["GET", "POST"])
 def cam_ops(camid: str, act: str, args: str):
    try:
-      MIME_TYPE: str = "application/json"
       rval: execResult = None
       if camid == "sky":
          args = args.replace("(", "").replace(")", "").strip()
@@ -38,15 +44,29 @@ def cam_ops(camid: str, act: str, args: str):
       else:
          pass
       # -- -- -- --
-      return flask.Response(f"{rval}", mimetype=MIME_TYPE)
+      return flask.Response(f"{rval}", mimetype=CT_JSON)
    except Exception as e:
-      return flask.Response(str(e), mimetype="text/app_error")
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
 
-@FLASK_APP.route("/view/tf/folder/<fld>", methods=["GET"])
+
+""" 
+   [ view folders ] 
+   /view/tf/thums
+   /opt/xortana.ai/tf/thums
+"""
+@FLASK_APP.route("/view/tf/<fld>", methods=["GET"])
 def view_tf_folder(fld: str):
-   pass
+   fpath: str = f"/opt/xortana.ai/tf/{fld}"
+   err, lst = sysOps.folder_files(fpath=fpath)
+   print([err, lst])
+   if err == 0:
+      js_str: str = json.dumps(lst)
+      return flask.Response(js_str, mimetype=CT_JSON)
+   else:
+      return flask.Response("FolderReadError", mimetype=CT_APP_ERR)
 
 
+# = = = = = = = = = = = = = = = = = = = =
 # -- -- -- -- [ entry point ] -- -- -- --
 if __name__ == "__main__":
    setproctitle.setproctitle(APP_NAME)
