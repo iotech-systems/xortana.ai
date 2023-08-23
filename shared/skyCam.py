@@ -23,6 +23,9 @@ from shared.sysTTS import SYS_TTS
 from shared.datatypes import execResult
 
 
+IMG_SIZE: () = (2592, 1944)
+
+
 class skyCam(object):
 
    CAM_THREAD_TICK_MS: int = 0.480
@@ -46,10 +49,9 @@ class skyCam(object):
       return skyCam.__inst
 
    def __init__(self):
-      img_size: () = (1920, 1920)
       if skyCam.CAM is None:
          skyCam.CAM = PiCam2()
-         conf = skyCam.CAM.create_still_configuration(main={"size": img_size})
+         conf = skyCam.CAM.create_still_configuration(main={"size": IMG_SIZE})
          skyCam.CAM.configure(conf)
          skyCam.CAM.start()
       # -- -- -- --

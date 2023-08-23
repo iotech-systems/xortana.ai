@@ -30,8 +30,6 @@ def cam_ops(camid: str, act: str, args: str):
       rval: execResult = None
       if camid == "sky":
          args = args.replace("(", "").replace(")", "").strip()
-         # sky_cam: skyCam = skyCam.Instance()
-         # rval = sky_cam.web_take_img(prefix=args)
          cmd_file = f"{skyCam.RAM_DISK}/skycam/cmd.txt"
          with open(cmd_file, "w") as f:
             f.write(f"web_take_img:{args}")

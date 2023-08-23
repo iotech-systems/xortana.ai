@@ -16,5 +16,7 @@ if [ ! -f $RUN_XOR_AI ]; then
 fi
 
 chown xora:xora -R /run/xora.ai
-# export to env
-export XORA_RUN_AI_ROOT=$RUN_XOR_AI
+
+# link ramdisk back to the app
+cd /opt/xortana.ai || exit 1
+ln -s /run/xora.ai/ ramdsk
