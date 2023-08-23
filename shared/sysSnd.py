@@ -18,7 +18,7 @@ class sysSnd(object):
       try:
          ffpath: str = f"{sysSnd.TONES_PATH}/{wav_name}.wav"
          if not os.path.exists(ffpath):
-            print(f"play_tone_not_found: {wav_name}")
+            print(f"FileNotFound: {ffpath}")
             return
          wave_fl_obj = wave.open(ffpath, "rb")
          chnls: int = wave_fl_obj.getnchannels()
