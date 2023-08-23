@@ -7,7 +7,7 @@ class sysSnd(object):
 
    WAVE_FILE: str = ""
    SND_CARD_INDEX: int = 0
-   TONES_PATH: str = "/opt/xortana.ai/data/tones"
+   TONES_PATH: str = "/opt/xortana.ai/sounds/tones"
    # PY_AUDIO: pyaudio.PyAudio = pyaudio.PyAudio()
    CHNK_SIZE: int = 1024
 
