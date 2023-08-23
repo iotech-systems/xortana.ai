@@ -37,6 +37,7 @@ div.view-box {
 /* 
    - - - [ cam box ] - - - 
 */
+
 div.cam-view-head {
    height: 4vh;
    line-height: 4vh;
@@ -59,4 +60,14 @@ div.cam-view-body {
 div.view-box-btns {
    font-size: 1.8vh;
    border: 1px solid blueviolet;
+}
+
+
+/*  
+   - - - [ live view ] - - - 
+*/
+div.thum-box {
+   display: inline-block;
+   border: 2px solid dimgray;
+   border-radius: 1vh;
 }
