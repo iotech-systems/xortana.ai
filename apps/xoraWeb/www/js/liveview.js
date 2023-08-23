@@ -40,14 +40,14 @@ class liveViewCls {
    onArrItem(i) {
       /* -- */
       console.log(i);
-      if (liveViewCls.Instance.last_dirlst.includes(i))
+      let fn = i[0];
+      if (liveViewCls.Instance.last_dirlst.includes(fn))
          return;
       /* -- */
-      liveViewCls.Instance.last_dirlst.push(i);
-      /* -- */
-      $.get(`/load/tf/img/thums/${i}`, (b64) => {
+      liveViewCls.Instance.last_dirlst.push(fn);
+      $.get(`/load/tf/img/thums/${fn}`, (b64) => {
             let src = `data:image/jpg;base64, ${b64}`,
-               dhtml = `<div class="thum-box" fn="${i}"><img src="${src}"></div>`;
+               dhtml = `<div class="thum-box" fn="${fn}"><img src="${src}"></div>`;
             $("div#viewPort").append(dhtml);
          });
       /* -- */
