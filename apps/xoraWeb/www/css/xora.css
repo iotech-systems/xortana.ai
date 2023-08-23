@@ -88,8 +88,8 @@ div#lastTickDts {
 }
 
 div.fn-lbl {
-   height: 2vh;
-   line-height: 2vh;
-   font-size: 1.6vh;
+   height: 3.2vh;
+   line-height: 3.2vh;
+   font-size: 1.8vh;
    border-top: 2px solid dimgray;
 }
