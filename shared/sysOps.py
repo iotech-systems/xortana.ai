@@ -9,7 +9,7 @@ class sysOps(object):
    def folder_files(fpath: str) -> (int, []):
       #  -- -- -- --
       def _sort_func(i):
-         return i[1]
+         return i[0]
       #  -- -- -- --
       try:
          print(f"folder_files: {fpath}")
