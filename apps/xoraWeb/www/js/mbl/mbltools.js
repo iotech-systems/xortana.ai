@@ -2,8 +2,6 @@
 var mbltools = {
 
       init() {
-         // $("div.btn-menu").on("click", () => {
-         //    });
          $("div#btnTopCamTakePic").on("click", mbltools.skyCamTakePic);
       },
 
@@ -19,5 +17,7 @@ var mbltools = {
 };
 
 
-/* -- -- [ on doc loaded ] -- -- */
+/* 
+   -- -- [ on doc loaded ] -- -- 
+*/
 document.addEventListener("DOMContentLoaded", mbltools.init);
