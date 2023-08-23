@@ -4,7 +4,6 @@ html, body {
    padding: 0;
 }
 
-
 div.top-bar {
    width: 98vw;
    height: 8vh;
@@ -13,6 +12,10 @@ div.top-bar {
    margin: 0.5vh auto;
    border: 1px solid gray;
    border-radius: 1vh;
+}
+
+div.top-bar div {
+   display: inline-block;
 }
 
 div.view-port {
@@ -76,11 +79,11 @@ div.thum-box {
 }
 
 div.top-bar-lbl {
-   font-size: 4.2vh;
+   font-size: 3.8vh;
    font-weight: bold;
 }
 
 div#lastTickDts {
-   font-size: 3.2vh;
+   font-size: 2.8vh;
    color: darkblue;
 }
