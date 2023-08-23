@@ -7,7 +7,7 @@ class liveViewCls {
    constructor() {
       setInterval(() => {
          this.peekFolder("thums");         
-      }, 2000);
+      }, 8000);
    }
 
    peekFolder(fld) {

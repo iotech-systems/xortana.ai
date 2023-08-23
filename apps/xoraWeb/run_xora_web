@@ -80,11 +80,14 @@ def load_img(fld: str, img: str):
    if not os.path.exists(fpath):
       return flask.Response("FolderReadError", mimetype=CT_APP_ERR)
    # -- -- -- --
-   with open(fpath, "rb") as f:
-      buff = f.read()
-   enc_img = base64.b64encode(buff)
-   # -- -- -- --
-   return flask.Response(enc_img, mimetype="img/base64")
+   try:
+      with open(fpath, "rb") as f:
+         buff = f.read()
+      enc_img = base64.b64encode(buff)
+      # -- -- -- --
+      return flask.Response(enc_img, mimetype="img/base64")
+   except Exception as e:
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
 
 
 # = = = = = = = = = = = = = = = = = = = =
