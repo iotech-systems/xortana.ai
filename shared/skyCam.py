@@ -24,6 +24,7 @@ from shared.datatypes import execResult
 
 
 IMG_SIZE: () = (2592, 1944)
+THUM_SIZE: () = (486, 364)
 
 
 class skyCam(object):
@@ -87,7 +88,7 @@ class skyCam(object):
          skyCam.prefixIdx[prefix] = (idx + 1)
          if os.path.exists(ffn):
             img: Image = Image.open(ffn)
-            img.thumbnail((324, 243))
+            img.thumbnail(THUM_SIZE)
             img.save(f"{skyCam.TF_THUMS_FOLDER}/thm_{img_name}")
             SYS_TTS.say("Image has been taken", 150)
          # -- -- -- --
