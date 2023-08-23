@@ -19,6 +19,10 @@ class liveViewCls {
       /* -- */
    }
 
+   init() {
+      this.peekFolder("thums");
+   }
+
    peekFolder(fld) {
       /* -- */
       let url = `/view/tf/${fld}`;
@@ -68,4 +72,5 @@ class liveViewCls {
 /* -- -- [ on doc loaded ] -- -- */
 document.addEventListener("DOMContentLoaded", () => {
       liveView = new liveViewCls();
+      liveView.init();
    });
