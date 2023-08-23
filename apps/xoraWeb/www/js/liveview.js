@@ -16,6 +16,7 @@ class liveViewCls {
          url = `/view/tf/${fld}`
       /* -- -- */
       $.get(url, function(jsArr) {
+            console.log(jsArr);
             $("div#viewPort").html("");
             jsArr.forEach((i) => {
                   /* -- */
