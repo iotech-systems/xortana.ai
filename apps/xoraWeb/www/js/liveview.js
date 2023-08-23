@@ -37,7 +37,7 @@ class liveViewCls {
 
    onArrItem(i) {
       /* -- */
-      let fn = i[0];
+      let fn = String(i[0]);
       if (liveViewCls.Instance.last_dirlst.includes(fn))
          return;
       /* -- */
