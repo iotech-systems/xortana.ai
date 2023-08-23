@@ -68,6 +68,7 @@ div.view-box-btns {
 */
 div.thum-box {
    display: inline-block;
-   border: 2px solid dimgray;
-   border-radius: 1vh;
+   margin: 1vh;
+   border: 4px solid dimgray;
+   border-radius: 8px;
 }

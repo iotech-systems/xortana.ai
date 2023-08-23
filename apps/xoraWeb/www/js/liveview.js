@@ -8,6 +8,7 @@ class liveViewCls {
       setInterval(() => {
          this.peekFolder("thums");         
       }, 8000);
+      this.last_dirlst = [];
    }
 
    peekFolder(fld) {
@@ -16,16 +17,21 @@ class liveViewCls {
       /* -- -- */
       $.get(url, function(jsArr) {
             $("div#viewPort").html("");
-            _this.showThums(jsArr);
             /* -- -- */
             jsArr.forEach((i) => {
+                  /* -- */
+                  if (_this.last_dirlst.includes(i))
+                     return;
+                  /* -- */
                   $.get(`/load/tf/img/thums/${i}`, (b64) => {
                         let src = `data:image/jpg;base64, ${b64}`,
                            dhtml = `<div class="thum-box"><img src="${src}"></div>`;
                         $("div#viewPort").append(dhtml);
                      });
+                  /* -- */
                });
             /* -- -- */
+            _this.last_dirlst = jsArr;
          });
       /* -- -- */
    }
