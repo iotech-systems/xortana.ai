@@ -26,7 +26,8 @@ class liveViewCls {
       let _on_get = function(jsArr) {
             console.log(jsArr);
             jsArr.forEach(liveViewCls.Instance.onArrItem);
-            console.log(liveViewCls.Instance.last_dirlst);
+            let dts = new Date().toLocaleString();
+            $("div#lastTickDts").html(dts);
          };
       /* -- */
       $.get(url, _on_get);
@@ -38,7 +39,6 @@ class liveViewCls {
       if (liveViewCls.Instance.last_dirlst.includes(i))
          return;
       /* -- */
-      console.log(i);
       liveViewCls.Instance.last_dirlst.push(i);
       /* -- */
       $.get(`/load/tf/img/thums/${i}`, (b64) => {

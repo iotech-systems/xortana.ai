@@ -8,6 +8,8 @@ html, body {
 div.top-bar {
    width: 98vw;
    height: 8vh;
+   line-height: 8vh;
+   text-indent: 1vw;
    margin: 0.5vh auto;
    border: 1px solid gray;
    border-radius: 1vh;
@@ -71,4 +73,14 @@ div.thum-box {
    margin: 1vh;
    border: 4px solid dimgray;
    border-radius: 8px;
+}
+
+div.top-bar-lbl {
+   font-size: 4.2vh;
+   font-weight: bold;
+}
+
+div#lastTickDts {
+   font-size: 3.2vh;
+   color: darkblue;
 }
