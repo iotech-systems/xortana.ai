@@ -39,10 +39,9 @@ div.view-box {
 }
 
 
-/* 
+/* ====================================================
    - - - [ cam box ] - - - 
 */
-
 div.cam-view-head {
    height: 4vh;
    line-height: 4vh;
@@ -68,7 +67,7 @@ div.view-box-btns {
 }
 
 
-/*  
+/* ====================================================
    - - - [ live view ] - - - 
 */
 div.thum-box {
@@ -84,6 +83,6 @@ div.top-bar-lbl {
 }
 
 div#lastTickDts {
-   font-size: 2.8vh;
+   font-size: 2.4vh;
    color: darkblue;
 }
