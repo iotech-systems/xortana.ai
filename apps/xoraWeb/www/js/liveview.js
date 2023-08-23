@@ -22,6 +22,7 @@ class liveViewCls {
                   if (_this.last_dirlst.includes(i))
                      return;
                   /* -- */
+                  console.log(i);
                   _this.last_dirlst.append(i);
                   $.get(`/load/tf/img/thums/${i}`, (b64) => {
                         let src = `data:image/jpg;base64, ${b64}`,
@@ -31,6 +32,7 @@ class liveViewCls {
                   /* -- */
                });
             /* -- -- */
+            console.log(_this.last_dirlst);
          });
       /* -- -- */
    }
