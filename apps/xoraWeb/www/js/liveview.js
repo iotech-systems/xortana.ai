@@ -22,7 +22,7 @@ class liveViewCls {
                   $.get(`/load/tf/img/thums/${i}`, (b64) => {
                         let src = `data:image/jpg;base64, ${b64}`,
                            dhtml = `<div><img src="${src}"></div>`;
-                        $("div#viewPort").html(dhtml);
+                        $("div#viewPort").append(dhtml);
                      });
                });
             /* -- -- */
