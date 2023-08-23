@@ -22,9 +22,13 @@ except ModuleNotFoundError:
 from shared.sysTTS import SYS_TTS
 from shared.datatypes import execResult
 
+MAX_WIDTH: int = 2592
+MAX_HEIGHT: int = 1944
+SIZE_DIV: int = 3
 
-IMG_SIZE: () = (2592, 1944)
-THUM_SIZE: () = (486, 364)
+
+IMG_SIZE: () = (MAX_WIDTH, MAX_HEIGHT)
+THUM_SIZE: () = (int(MAX_WIDTH / SIZE_DIV), int(MAX_HEIGHT / SIZE_DIV))
 
 
 class skyCam(object):
