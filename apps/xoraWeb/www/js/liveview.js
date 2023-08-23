@@ -5,37 +5,44 @@ var liveView = null;
 class liveViewCls {
 
    constructor() {
+      /* -- -- */
       setInterval(() => {
          this.peekFolder("thums");         
       }, 8000);
+      /* -- -- */
       this.last_dirlst = [];
+      $("div#viewPort").html("");
+      /* -- -- */
    }
 
    peekFolder(fld) {
+      /* -- -- */
       let _this = this, 
          url = `/view/tf/${fld}`
       /* -- -- */
-      $.get(url, function(jsArr) {
+      let _on_get = function(jsArr) {
             console.log(jsArr);
-            $("div#viewPort").html("");
-            jsArr.forEach((i) => {
-                  /* -- */
-                  if (_this.last_dirlst.includes(i))
-                     return;
-                  /* -- */
-                  console.log(i);
-                  _this.last_dirlst.append(i);
-                  $.get(`/load/tf/img/thums/${i}`, (b64) => {
-                        let src = `data:image/jpg;base64, ${b64}`,
-                           dhtml = `<div class="thum-box" fn="${i}"><img src="${src}"></div>`;
-                        $("div#viewPort").append(dhtml);
-                     });
-                  /* -- */
-               });
-            /* -- -- */
+            jsArr.forEach(_this.onArrItem);
             console.log(_this.last_dirlst);
-         });
+         };
+      /* -- */
+      $.get(url, _on_get);
       /* -- -- */
+   }
+
+   onArrItem(i) {
+      /* -- */
+      if (_this.last_dirlst.includes(i))
+         return;
+      /* -- */
+      console.log(i);
+      _this.last_dirlst.ad;
+      $.get(`/load/tf/img/thums/${i}`, (b64) => {
+            let src = `data:image/jpg;base64, ${b64}`,
+               dhtml = `<div class="thum-box" fn="${i}"><img src="${src}"></div>`;
+            $("div#viewPort").append(dhtml);
+         });
+      /* -- */
    }
 
    /* <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
