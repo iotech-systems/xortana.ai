@@ -27,7 +27,7 @@ class liveViewCls {
                   _this.last_dirlst.append(i);
                   $.get(`/load/tf/img/thums/${i}`, (b64) => {
                         let src = `data:image/jpg;base64, ${b64}`,
-                           dhtml = `<div class="thum-box"><img src="${src}"></div>`;
+                           dhtml = `<div class="thum-box" fn="${i}"><img src="${src}"></div>`;
                         $("div#viewPort").append(dhtml);
                      });
                   /* -- */
