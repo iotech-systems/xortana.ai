@@ -18,7 +18,6 @@ class sysOps(object):
          fls = os.listdir(fpath)
          ffps = [(fn, os.stat(f"{fpath}/{fn}")[ST_CTIME]) for fn in fls]
          ffps_sorted = ffps.sort(key=_sort_func)
-         print(ffps_sorted)
          return 0, ffps_sorted
       except Exception as e:
          return 2, f"{e}"
