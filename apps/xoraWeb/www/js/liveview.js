@@ -39,7 +39,7 @@ class liveViewCls {
          return;
       /* -- */
       console.log(i);
-      liveViewCls.Instance.last_dirlst.append(i);
+      liveViewCls.Instance.last_dirlst.push(i);
       /* -- */
       $.get(`/load/tf/img/thums/${i}`, (b64) => {
             let src = `data:image/jpg;base64, ${b64}`,
