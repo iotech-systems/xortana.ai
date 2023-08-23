@@ -17,12 +17,12 @@ class liveViewCls {
       /* -- -- */
       $.get(url, function(jsArr) {
             $("div#viewPort").html("");
-            /* -- -- */
             jsArr.forEach((i) => {
                   /* -- */
                   if (_this.last_dirlst.includes(i))
                      return;
                   /* -- */
+                  _this.last_dirlst.append(i);
                   $.get(`/load/tf/img/thums/${i}`, (b64) => {
                         let src = `data:image/jpg;base64, ${b64}`,
                            dhtml = `<div class="thum-box"><img src="${src}"></div>`;
@@ -31,7 +31,6 @@ class liveViewCls {
                   /* -- */
                });
             /* -- -- */
-            _this.last_dirlst = jsArr;
          });
       /* -- -- */
    }
