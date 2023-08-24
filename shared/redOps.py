@@ -27,9 +27,12 @@ class redOps(redis.Redis):
    def read_thermal_reads(self) -> {}:
       self.select(redDBIdx.THERMAL.value)
       # -- -- -- --
+      conf = self.hgetall("AMG8833_CONFIG")
+      freq = conf["FRAME_FREQ"]
+      # -- -- -- --
       left_keys = self.keys(f"LEFT_AMG8833_*")
       left_vals = self.mget(left_keys)
       right_keys = self.keys(f"RIGHT_AMG8833_*")
       right_vals = self.mget(right_keys)
       # -- -- -- --
-      return {"LEFT": left_vals, "RIGHT": right_vals}
+      return {"FRAME_FREQ": freq, "LEFT": left_vals, "RIGHT": right_vals}

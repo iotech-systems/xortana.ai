@@ -44,8 +44,8 @@ class sysThermals(object):
          sysThermals.LEFT_I2C_ADDR = False
          print(e)
       # -- -- -- --
-      d: {} = {"FRAME_FREQ": self.FRAME_FREQ}
       key: str = "AMG8833_CONFIG"
+      d: {} = {"FRAME_FREQ": self.FRAME_FREQ}
       self.red.save_thermal_config(key, d)
       # -- -- -- --
       self.amg8833_thread = threading.Thread(target=self.__amg8833_thread)
