@@ -7,6 +7,10 @@ class tickCode(enum.IntEnum):
    OK = 0,
    Error = 1
 
+class redDBIdx(enum.IntEnum):
+   CONFIG = 0
+   THERMAL = 4
+
 
 class execResult(object):
 
