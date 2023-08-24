@@ -31,6 +31,7 @@ var thermoApp = {
    },
 
    displayData(jsObj) {
+      console.log("[ displayData ]");
       thermoApp.leftSensor.setData(jsObj.LEFT);
       thermoApp.rightSensor.setData(jsObj.RIGHT);
    }
