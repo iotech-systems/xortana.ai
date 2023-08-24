@@ -41,6 +41,7 @@ class amg8833Grid {
       this.canvas = document.getElementById(this.canvasID);
       if (this.canvas == null)
          console.log(`CanvasIsNull: ${this.canvasID}`);
+      console.log([this.canvas.width, this.canvas.height]);
       /* -- */
       this.cntx2d = this.canvas.getContext("2d");
       this.css_width = 0;
@@ -62,7 +63,8 @@ class amg8833Grid {
 
    preFillGrid() {
       console.log(this.canvas);
-      this.cntx2d.fillRect(50, 0, 100, 100);
+      this.cntx2d.fillStyle = "red";
+      this.cntx2d.fillRect(0, 0, 80, 80);
    }
 
 }
