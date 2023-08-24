@@ -28,9 +28,9 @@ def idx():
    return FLASK_APP.send_static_file("index.html")
 
 
-@FLASK_APP.route("/mbltools")
-def mbltools():
-   return FLASK_APP.send_static_file("mbltools.html")
+@FLASK_APP.route("/page/<pname>")
+def page_load(pname: str):
+   return FLASK_APP.send_static_file(f"{pname}.html")
 
 
 @FLASK_APP.route("/thermals")
