@@ -1,9 +1,8 @@
 
-
-
+/*
+   = = = = = = = = = = = = [ SENSOR ] = = = = = = = = = = = =
+*/
 class amg8833Sensor {
-
-   tickMS = 200;
 
    constructor(chan, canvasID, minTemp = 20, maxTemp = 40) {
       this.channel = chan;
@@ -11,14 +10,25 @@ class amg8833Sensor {
       this.grid = new amg8833Grid(this.canvasID, 8, 8, minTemp, maxTemp);
       this.grid.init();
       this.data = null;
+      this.dataLen = 0;
    }
 
    init() {
    }
 
    setData(data) {
-      // console.log(`setData: ${this.channel} | ${data}`);
       this.data = data;
+   }
+
+   sortFrames() {
+      console.log(`[ ${this.channel} | sortFrames: ${this.data.length} ]`)
+      if (this.data.length == 0)
+         return;
+      /* -- */
+   }
+
+   nextFrameTick() {
+      console.log(`[ ${this.channel} | nextFrameTick ]`);
    }
 
    tempToColor(temp) {
@@ -28,6 +38,9 @@ class amg8833Sensor {
 };
 
 
+/*
+   = = = = = = = = = = = = [ GRID ] = = = = = = = = = = = =
+*/
 class amg8833Grid {
 
    constructor(canvasID, cols = 8, rows = 8, minTemp = 20, maxTemp = 40) {
@@ -80,7 +93,7 @@ class amg8833Grid {
    preFillGrid() {
       /* -- */
       let MAX = 255
-         , colorStep = (255 / 8)
+         , colorStep = (MAX / 8)
          , boxW = 80;
       /* -- */
       for (let r = 0; r < this.rows; r++) {

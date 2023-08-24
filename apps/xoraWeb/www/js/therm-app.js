@@ -1,15 +1,15 @@
 
-
 var thermoApp = {
 
    MIN_TEMP: 20.0,
    MAX_TEMP: 40.0,
-   /* -- */
    leftSensor: null,
    rightSensor: null,
    leftCanvasID: "leftSensorGrid",
    rightCanvasID: "rightSensorGrid",
    dataUrl: "/read/thermals",
+   frameFreq: 0,
+   frameFreqTimerID: 0,
 
    init() {
       /* -- */
@@ -31,9 +31,27 @@ var thermoApp = {
    },
 
    displayData(jsObj) {
-      console.log("[ displayData ]");
+      /* -- */
+      clearInterval(thermoApp.frameFreqTimerID);
       thermoApp.leftSensor.setData(jsObj.LEFT);
       thermoApp.rightSensor.setData(jsObj.RIGHT);
+      /* -- */
+      let freq = parseInt(jsObj.FRAME_FREQ),
+         tickMS = (1000 / freq);
+      thermoApp.sortFrames();
+      /* tick frames */
+      thermoApp.frameFreqTimerID = 
+         setInterval(thermoApp.frameTickCallback, tickMS);
+   },
+
+   frameTickCallback() {
+      thermoApp.leftSensor.nextFrameTick();
+      thermoApp.rightSensor.nextFrameTick();
+   },
+
+   sortFrames() {
+      thermoApp.leftSensor.sortFrames();
+      thermoApp.leftSensor.sortFrames();
    }
 
 };
