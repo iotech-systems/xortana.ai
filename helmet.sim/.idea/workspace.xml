@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="488fc784-ffa7-4680-af3f-04e09f4f0029" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../applib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../applib/xorutils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botCore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botCore/botCreator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camCore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cam_main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/redis.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/sensor_bots.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/sys.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/guntypes.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/genSensor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/sensorCAM_VL_v0.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/sensorGENv0.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/sensorInterface.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensorCore/sensorMap.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sensors_main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/sim_strgs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sysCore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sysCore/iniLoader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sysCore/redOps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sysCore/sysOps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/mp3to_array.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xorCore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xorCore/xotranaAI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xortana_main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../run.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2SbrUM63i3I8h3HZubbjCHE3Vnf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/erik/__github__/xortana.ai/helmet.sim",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="helmet.sim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sensors_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="helmet.sim" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sensors_main" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.sensors_main" />
+      <item itemvalue="Python.main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sensors_main" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="488fc784-ffa7-4680-af3f-04e09f4f0029" name="Changes" comment="" />
+      <created>1689426135602</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689426135602</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sensors_main</url>
+          <line>36</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sensorCore/sensorGENv0.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sensors_main</url>
+          <line>24</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sensorCore/sensorGENv0.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sensors_main</url>
+          <line>13</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/mp3to_array.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
