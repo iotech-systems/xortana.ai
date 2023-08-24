@@ -1,6 +1,11 @@
 
 import redis
-from shared.datatypes import redDBIdx
+try:
+   from shared.datatypes import redDBIdx
+except ModuleNotFoundError:
+   from datatypes import redDBIdx
+finally:
+   pass
 
 
 class redOps(redis.Redis):
