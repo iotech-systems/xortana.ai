@@ -30,7 +30,7 @@ def idx():
 
 @FLASK_APP.route("/page/<pname>")
 def page_load(pname: str):
-   return FLASK_APP.send_static_file(f"{pname}.html")
+   return flask.render_template(f"{pname}.html")
 
 
 @FLASK_APP.route("/thermals")
