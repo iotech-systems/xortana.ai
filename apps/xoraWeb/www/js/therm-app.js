@@ -2,15 +2,19 @@
 
 var thermoApp = {
 
-   leftCanvasID: "",
-   rightCanvasID: "",
+   leftCanvasID: "leftSensorGrid",
+   rightCanvasID: "rightSensorGrid",
    leftSesnor: null,
    rightSensor: null,
    dataUrl: "/read/thermals",
 
    init() {
-      thermoApp.leftSesnor = new amg8833Sensor();
-      thermoApp.rightSensor = new amg8833Sensor();
+      /* -- */
+      thermoApp.leftSesnor = new amg8833Sensor(thermoApp.leftCanvasID);
+      thermoApp.init();
+      /* -- */
+      thermoApp.rightSensor = new amg8833Sensor(thermoApp.rightCanvasID);
+      thermoApp.init();
       /* -- */
       setInterval(thermoApp.readThermalData, 2000);
    },
