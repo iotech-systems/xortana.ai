@@ -16,7 +16,7 @@ div.thermal-sensor{
 }
 
 canvas.sensor-grid {
-   width: 800px;
-   height: 800px;
+   width: 640px;
+   height: 640px;
    border: 2px solid darkblue;
 }
