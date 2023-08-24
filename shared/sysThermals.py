@@ -42,12 +42,24 @@ class sysThermals(object):
       self.amg8833_thread.start()
 
    def __amg8833_thread(self):
+      # -- -- -- --
+      def __tick() -> int:
+         try:
+            if sysThermals.LEFT_I2C_READ:
+               self.__amg883_read_left()
+            if sysThermals.RIGHT_I2C_READ:
+               self.__amg883_read_right()
+            return 0
+         except Exception as e:
+            print(e)
+            return 1
+      # -- -- -- --
       while True:
-         if sysThermals.LEFT_I2C_READ:
-            self.__amg883_read_left()
-         if sysThermals.RIGHT_I2C_READ:
-            self.__amg883_read_right()
-         time.sleep(0.2)
+         if __tick() == 0:
+            time.sleep(0.200)
+         else:
+            time.sleep(1.0)
+      # -- -- -- --
 
    def __amg883_read_left(self):
       pass
