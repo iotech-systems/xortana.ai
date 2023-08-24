@@ -42,6 +42,7 @@ class sysThermals(object):
       pass
 
    def __amg883_read_right(self):
+      print(self.right_amg8833.pixels)
       print("-- [ start: right thermal frame ] --")
       for row in self.right_amg8833.pixels:
          print(["{0:.1f}".format(temp) for temp in row])
