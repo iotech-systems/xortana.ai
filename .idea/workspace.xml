@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals">
-      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/www/js/amg8833s.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/www/js/amg8833s.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/www/js/therm-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/www/js/therm-app.js" afterDir="false" />
-    </list>
+    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

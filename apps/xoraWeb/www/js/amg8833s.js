@@ -5,13 +5,20 @@ class amg8833Sensor {
 
    tickMS = 200;
 
-   constructor(canvasID, minTemp = 20, maxTemp = 40) {
+   constructor(chan, canvasID, minTemp = 20, maxTemp = 40) {
+      this.channel = chan;
       this.canvasID = canvasID;
       this.grid = new amg8833Grid(this.canvasID, 8, 8, minTemp, maxTemp);
       this.grid.init();
+      this.data = null;
    }
 
    init() {
+   }
+
+   setData(data) {
+      console.log(`setData: ${this.channel} | ${data}`);
+      this.data = data;
    }
 
    tempToColor(temp) {

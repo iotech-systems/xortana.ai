@@ -5,7 +5,7 @@ var thermoApp = {
    MIN_TEMP: 20.0,
    MAX_TEMP: 40.0,
    /* -- */
-   leftSesnor: null,
+   leftSensor: null,
    rightSensor: null,
    leftCanvasID: "leftSensorGrid",
    rightCanvasID: "rightSensorGrid",
@@ -13,12 +13,12 @@ var thermoApp = {
 
    init() {
       /* -- */
-      thermoApp.leftSesnor = 
-         new amg8833Sensor(thermoApp.leftCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
-      thermoApp.leftSesnor.init();
+      thermoApp.leftSensor = 
+         new amg8833Sensor("LEFT", thermoApp.leftCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
+      thermoApp.leftSensor.init();
       /* -- */
       thermoApp.rightSensor = 
-         new amg8833Sensor(thermoApp.rightCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
+         new amg8833Sensor("RIGHT", thermoApp.rightCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
       thermoApp.rightSensor.init();
       /* -- */
       setInterval(thermoApp.readThermalData, 2000);
@@ -31,11 +31,8 @@ var thermoApp = {
    },
 
    displayData(jsObj) {
-      /* -- */
-      let lft = jsObj.LEFT,
-         rgt = jsObj.RIGHT;
-      /* -- */
-      console.log([lft, rgt]);
+      thermoApp.leftSensor.setData(jsObj.LEFT);
+      thermoApp.rightSensor.setData(jsObj.RIGHT);
    }
 
 };
