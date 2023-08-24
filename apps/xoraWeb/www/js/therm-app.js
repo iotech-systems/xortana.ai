@@ -5,10 +5,10 @@ var thermoApp = {
    MIN_TEMP: 20.0,
    MAX_TEMP: 40.0,
    /* -- */
-   leftCanvasID: "leftSensorGrid",
-   rightCanvasID: "rightSensorGrid",
    leftSesnor: null,
    rightSensor: null,
+   leftCanvasID: "leftSensorGrid",
+   rightCanvasID: "rightSensorGrid",
    dataUrl: "/read/thermals",
 
    init() {
@@ -25,9 +25,17 @@ var thermoApp = {
    },
 
    readThermalData() {
-      $.get(thermoApp.dataUrl, (jsArr) => {
-            console.log(jsArr);
+      $.get(thermoApp.dataUrl, (jsObj) => {
+            thermoApp.displayData(jsObj);
          });
+   },
+
+   displayData(jsObj) {
+      /* -- */
+      let lft = jsObj.LEFT,
+         rgt = jsObj.RIGHT;
+      /* -- */
+      console.log([lft, rgt]);
    }
 
 };
