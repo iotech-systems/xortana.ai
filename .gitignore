@@ -12,6 +12,7 @@
 *.aup3
 **/sensors
 _local_only/
+.idea/
 
 
 __pycache__/
