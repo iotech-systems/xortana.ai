@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals" />
+    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals">
+      <change beforePath="$PROJECT_DIR$/shared/redOps.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/redOps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/sysThermals.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/sysThermals.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,30 +183,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679749912147</updated>
-    </task>
-    <task id="LOCAL-00141" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692846621851</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1692846621851</updated>
-    </task>
-    <task id="LOCAL-00142" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692846759023</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1692846759023</updated>
-    </task>
-    <task id="LOCAL-00143" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692846836706</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1692846836706</updated>
     </task>
     <task id="LOCAL-00144" summary="adding thermals">
       <option name="closed" value="true" />
@@ -573,7 +552,31 @@
       <option name="project" value="LOCAL" />
       <updated>1692902262191</updated>
     </task>
-    <option name="localTasksCounter" value="190" />
+    <task id="LOCAL-00190" summary="adding thermals">
+      <option name="closed" value="true" />
+      <created>1692916588168</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1692916588168</updated>
+    </task>
+    <task id="LOCAL-00191" summary="adding thermals">
+      <option name="closed" value="true" />
+      <created>1692916672328</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1692916672328</updated>
+    </task>
+    <task id="LOCAL-00192" summary="adding thermals">
+      <option name="closed" value="true" />
+      <created>1692917629692</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1692917629692</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -658,7 +661,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/shared/sysThermals.py</url>
-          <line>92</line>
+          <line>98</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
