@@ -2,6 +2,8 @@
 
 var thermoApp = {
 
+   leftCanvasID: "",
+   rightCanvasID: "",
    leftSesnor: null,
    rightSensor: null,
    dataUrl: "/read/thermals",

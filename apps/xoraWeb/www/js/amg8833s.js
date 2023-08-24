@@ -5,8 +5,9 @@ class amg8833Sensor {
 
    tickMS = 200;
 
-   constructor(serverID, canvasID) {
-      this.grid = new amg8833Grid(canvasID);
+   constructor(canvasID) {
+      this.convasID = canvasID;
+      this.grid = new amg8833Grid(this.canvasID);
       this.grid.init();
    }
 
@@ -17,8 +18,6 @@ class amg8833Sensor {
    tempToColor(temp) {
       return ""
    }
-
-
 
 };
 
