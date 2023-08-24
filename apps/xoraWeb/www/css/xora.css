@@ -28,6 +28,13 @@ div.view-box {
    border-radius: 1vh;
 }
 
+.vscroll {
+   overflow-y: scroll;
+}
+
+.flex {
+   overflow-y: scroll;
+}
 
 /* ====================================================
    - - - [ cam box ] - - - 
@@ -82,8 +89,4 @@ div.fn-lbl {
    line-height: 3.2vh;
    font-size: 1.8vh;
    border-top: 2px solid dimgray;
-}
-
-.flex {
-   overflow-y: scroll;
 }
