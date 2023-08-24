@@ -28,7 +28,7 @@ class amg8833Sensor {
       /* -- */
       let _oneach = function(frame) {
             console.log(frame);
-            let (idx, buff) = frame.split("::");
+            let [idx, buff] = frame.split("::");
             console.log([idx, buff]);
          };
       /* -- */
