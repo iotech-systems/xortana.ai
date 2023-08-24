@@ -1,5 +1,5 @@
 
-import redis
+import redis, json
 try:
    from shared.datatypes import redDBIdx
 except ModuleNotFoundError:
@@ -15,6 +15,6 @@ class redOps(redis.Redis):
 
    def save_thermal_read(self, read_key: str, arr: []):
       self.select(redDBIdx.THERMAL.value)
-      if self.set(name=read_key, value=arr):
+      if self.set(name=read_key, value=json.dumps(arr)):
          self.pexpire(read_key, 2000)
       # -- -- -- --
