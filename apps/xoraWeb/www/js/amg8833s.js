@@ -17,7 +17,7 @@ class amg8833Sensor {
    }
 
    setData(data) {
-      console.log(`setData: ${this.channel} | ${data}`);
+      // console.log(`setData: ${this.channel} | ${data}`);
       this.data = data;
    }
 
