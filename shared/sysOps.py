@@ -1,6 +1,10 @@
 
 import os
 from stat import S_ISREG, ST_MODE, ST_CTIME
+try:
+   from shared.redOps import redOps
+except ModuleNotFoundError:
+   from redOps import redOps
 
 
 class sysOps(object):
@@ -23,3 +27,9 @@ class sysOps(object):
          return 0, ffps_sorted
       except Exception as e:
          return 2, f"{e}"
+
+   @staticmethod
+   def get_thermals() -> {}:
+      red: redOps = redOps()
+      reads: {} = red.read_thermal_reads()
+      return reads

@@ -90,6 +90,16 @@ def load_img(fld: str, img: str):
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
 
+@FLASK_APP.route("/read/thermals", methods=["GET"])
+def read_thermals():
+   try:
+      reads: {} = sysOps.get_thermals()
+      jsbuff: str = json.dumps(reads)
+      return flask.Response(jsbuff, mimetype=CT_JSON)
+   except Exception as e:
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
+
+
 # = = = = = = = = = = = = = = = = = = = =
 # -- -- -- -- [ entry point ] -- -- -- --
 if __name__ == "__main__":
