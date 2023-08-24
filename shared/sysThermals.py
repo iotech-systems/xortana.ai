@@ -1,9 +1,14 @@
 
+import busio, board
 import threading, time
 import adafruit_amg88xx
-import busio, board
 # -- core --
-from shared.redOps import redOps
+try:
+   from shared.redOps import redOps
+except:
+   from redOps import redOps
+finally:
+   pass
 
 
 class sysThermals(object):
