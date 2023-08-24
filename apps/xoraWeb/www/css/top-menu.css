@@ -17,3 +17,7 @@ div.top-menu {
    display: inline-block;
    margin: 0 2vw;
 }
+
+div.top-menu a {
+   text-decoration: none;
+}
