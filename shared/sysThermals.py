@@ -83,7 +83,7 @@ class sysThermals(object):
 
    @staticmethod
    def __next_idx() -> str:
-      key = f"{sysThermals.READ_COUNTER:06}"
+      key = f"{sysThermals.READ_COUNTER:08}"
       sysThermals.READ_COUNTER += 1
       return key
 
