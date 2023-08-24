@@ -3,6 +3,6 @@ div.view-port {
    overflow-y: 0 !important;
 }
 
-div.top-menu div:nth-child(3) {
+div.top-menu div:nth-child(2) {
    font-weight: bold;
 }
