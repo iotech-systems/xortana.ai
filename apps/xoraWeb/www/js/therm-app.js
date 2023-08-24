@@ -51,7 +51,7 @@ var thermoApp = {
 
    sortFrames() {
       thermoApp.leftSensor.sortFrames();
-      thermoApp.leftSensor.sortFrames();
+      thermoApp.rightSensor.sortFrames();
    }
 
 };
