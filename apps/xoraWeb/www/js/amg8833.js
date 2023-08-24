@@ -21,10 +21,18 @@ class amg8833Sensor {
    }
 
    sortFrames() {
+      /* -- */
       console.log(`[ ${this.channel} | sortFrames: ${this.data.length} ]`)
       if (this.data.length == 0)
          return;
       /* -- */
+      let _oneach = function(frame) {
+            console.log(frame);
+            let (idx, buff) = frame.split("::");
+            console.log([idx, buff]);
+         };
+      /* -- */
+      this.data.forEach(_oneach);
    }
 
    nextFrameTick() {
