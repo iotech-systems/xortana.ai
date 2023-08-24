@@ -9,7 +9,7 @@ a {
 }
 
 
-div.top-bar {
+/* div.top-bar {
    width: 98vw;
    height: 8vh;
    line-height: 8vh;
@@ -21,7 +21,7 @@ div.top-bar {
 
 div.top-bar div {
    display: inline-block;
-}
+} */
 
 div.view-port {
    width: 98vw;
@@ -47,10 +47,10 @@ div.view-box {
 /* ====================================================
    - - - [ top menu ] - - - 
 */
-div.top-menu {
+/* div.top-menu {
    display: inline-block;
    margin: 0 2vw;
-}
+} */
 
 div.xora-ai-lbl {
    font-size: 4vh;
