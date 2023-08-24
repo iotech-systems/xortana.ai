@@ -88,7 +88,7 @@ class sysThermals(object):
       return key
 
 
-# -- -- -- [ testing ] --  -- --
+# -- -- -- -- [ testing ] --  -- -- --
 if __name__ == "__main__":
    obj: sysThermals = sysThermals()
    obj.init()
