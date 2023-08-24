@@ -20,20 +20,28 @@ class sysThermals(object):
    LEFT_I2C_READ: bool = True
 
    def __init__(self):
+      # -- -- -- --
       self.i2c: busio.I2C = busio.I2C(board.SCL, board.SDA)
       self.red: redOps = redOps()
+      # -- -- -- --
       try:
+         self.right_amg8833 = None
          self.right_amg8833 = (
             adafruit_amg88xx.AMG88XX(self.i2c, sysThermals.RIGHT_I2C_ADDR))
       except Exception as e:
          sysThermals.RIGHT_I2C_READ = False
          print(e)
+      finally:
+         pass
+      # -- -- -- --
       try:
+         self.left_amg8833 = None
          self.left_amg8833 = (
             adafruit_amg88xx.AMG88XX(self.i2c, sysThermals.LEFT_I2C_ADDR))
       except Exception as e:
          sysThermals.LEFT_I2C_ADDR = False
          print(e)
+      # -- -- -- --
       self.amg8833_thread = threading.Thread(target=self.__amg8833_thread)
 
    def init(self):
@@ -60,11 +68,15 @@ class sysThermals(object):
             time.sleep(1.0)
 
    def __amg883_read_left(self):
+      if self.left_amg8833 is None:
+         return
       idx = sysThermals.__next_idx()
       read_key: str = f"LEFT_AMG8833_{idx}"
       self.red.save_thermal_read(read_key, idx, self.left_amg8833.pixels)
 
    def __amg883_read_right(self):
+      if self.right_amg8833 is None:
+         return
       idx = sysThermals.__next_idx()
       read_key: str = f"RIGHT_AMG8833_{idx}"
       self.red.save_thermal_read(read_key, idx, self.right_amg8833.pixels)
