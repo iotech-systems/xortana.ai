@@ -62,27 +62,13 @@ class amg8833Grid {
    }
 
    preFillGrid() {
+      let colorStep = (255 / 8)
+         , boxW = 80;
       for (let r = 0; r < this.rows; r++) {
          for (let c = 0; c < this.cols; c++) {
-            this.cntx2d.fillStyle = `rgb(${Math.floor(255 - colorStep * i)}, 0, ${Math.floor(255 - colorStep * j)})`;
-            this.cntx2d.fillRect(j * boxW, i * boxW, boxW, boxW);
+            this.cntx2d.fillStyle = `rgb(${Math.floor(255 - colorStep * r)}, 0, ${Math.floor(255 - colorStep * c)})`;
+            this.cntx2d.fillRect(c * boxW, r * boxW, boxW, boxW);
          }
       }
    }
 }
-
-// function abc() {
-//    let colorStep = (255 / 8),
-//       boxW = 80;
-
-//    for (let i = 0; i < 6; i++) {
-//       for (let j = 0; j < 6; j++) {
-//          let r = "",
-//             g = 0,
-//             b = "";
-
-//          ctx.fillStyle = `rgb(${Math.floor(255 - colorStep * i)}, 0, ${Math.floor(255 - colorStep * j)})`;
-//          ctx.fillRect(j * boxW, i * boxW, boxW, boxW);
-//       }
-//    }
-// }
