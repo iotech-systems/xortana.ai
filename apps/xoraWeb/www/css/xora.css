@@ -4,6 +4,11 @@ html, body {
    padding: 0;
 }
 
+a {
+   text-decoration: none;
+}
+
+
 div.top-bar {
    width: 98vw;
    height: 8vh;
