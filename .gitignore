@@ -146,3 +146,4 @@ dmypy.json
 /data/guns/edge-collected-gunshot-audio.zip
 /data/guns/edge-collected-gunshot-audio/gunshot-audio-all-metadata.csv
 /apps/xoraWeb/www/top-bar.html_dead
+.idea/workspace.xml
