@@ -28,6 +28,8 @@ class amg8833Grid {
       this.cols = cols;
       this.rows = rows;
       this.canvas = document.getElementById(this.canvasID);
+      if (this.canvas == null)
+         console.log(`CanvasIsNull: ${this.canvasID}`);
       this.cntx2d = this.canvas.getContext("2d");
       this.css_width = 0;
       this.css_height = 0;
