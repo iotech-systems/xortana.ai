@@ -7,9 +7,16 @@ div.top-menu div:nth-child(2) {
    font-weight: bold;
 }
 
+div.thermal-sensor{
+   display: inline-block;
+   width: 46%;
+   height: auto;
+   margin: 4vh auto;
+   border: 1px dotted gray;
+}
 
 canvas.sensor-grid {
-   width: 400px;
-   height: 400px;
+   width: 600px;
+   height: 600px;
    border: 2px solid darkblue;
 }
