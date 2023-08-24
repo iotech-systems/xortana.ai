@@ -62,9 +62,27 @@ class amg8833Grid {
    }
 
    preFillGrid() {
-      console.log(this.canvas);
-      this.cntx2d.fillStyle = "red";
-      this.cntx2d.fillRect(0, 0, 80, 80);
+      for (let r = 0; r < this.rows; r++) {
+         for (let c = 0; c < this.cols; c++) {
+            ctx.fillStyle = `rgb(${Math.floor(255 - colorStep * i)}, 0, ${Math.floor(255 - colorStep * j)})`;
+            ctx.fillRect(j * boxW, i * boxW, boxW, boxW);
+         }
+      }
    }
-
 }
+
+// function abc() {
+//    let colorStep = (255 / 8),
+//       boxW = 80;
+
+//    for (let i = 0; i < 6; i++) {
+//       for (let j = 0; j < 6; j++) {
+//          let r = "",
+//             g = 0,
+//             b = "";
+
+//          ctx.fillStyle = `rgb(${Math.floor(255 - colorStep * i)}, 0, ${Math.floor(255 - colorStep * j)})`;
+//          ctx.fillRect(j * boxW, i * boxW, boxW, boxW);
+//       }
+//    }
+// }
