@@ -1,12 +1,13 @@
 
 
 
-class amg8833s {
+class amg8833Sensor {
 
    tickMS = 200;
 
-   constructor() {
-
+   constructor(serverID, canvasID) {
+      this.grid = new amg8833Grid(canvasID);
+      this.grid.init();
    }
 
    init() {
@@ -24,20 +25,31 @@ class amg8833s {
 
 class amg8833Grid {
 
-   constructor(divID, cols = 8, rows = 8) {
+   constructor(canvasID, cols = 8, rows = 8) {
       this.divID = divID;
       this.cols = cols;
       this.rows = rows;
+      this.canvas = document.getElementById(canvasID);
+      this.cntx2d = this.canvas.getContext("2d");
+      this.css_width = 0;
+      this.css_height = 0;
+   }
+
+   init() {
+      this.preFillGrid();
    }
 
    load(arr) {
       /* -- -- */
       let __onrow = function(row) {
-            
+
          };
       /* -- -- */
       arr.forEach(__onrow);
    }
 
+   preFillGrid() {
+      console.log(this.canvas);
+   }
 
 }
