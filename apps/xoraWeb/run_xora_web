@@ -33,9 +33,9 @@ def page_load(pname: str):
    return flask.render_template(f"{pname}.html")
 
 
-@FLASK_APP.route("/thermals")
-def mbltools():
-   return FLASK_APP.send_static_file("thermals.html")
+# @FLASK_APP.route("/thermals")
+# def mbltools():
+#    return FLASK_APP.send_static_file("thermals.html")
 
 
 @FLASK_APP.route("/cam/<camid>/<act>/<args>", methods=["GET", "POST"])
@@ -105,7 +105,7 @@ def read_thermals():
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
 
-# = = = = = = = = = = = = = = = = = = = =
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # -- -- -- -- [ entry point ] -- -- -- --
 if __name__ == "__main__":
    setproctitle.setproctitle(APP_NAME)
