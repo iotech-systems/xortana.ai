@@ -62,6 +62,7 @@ class amg8833Grid {
 
    preFillGrid() {
       console.log(this.canvas);
+      this.cntx2d.fillRect(50, 0, 100, 100);
    }
 
 }
