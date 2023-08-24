@@ -42,7 +42,6 @@ class sysThermals(object):
       self.amg8833_thread.start()
 
    def __amg8833_thread(self):
-      # -- -- -- --
       def __tick() -> int:
          try:
             if sysThermals.LEFT_I2C_READ:
@@ -59,23 +58,25 @@ class sysThermals(object):
             time.sleep(0.200)
          else:
             time.sleep(1.0)
-      # -- -- -- --
 
    def __amg883_read_left(self):
-      pass
+      idx = sysThermals.__next_idx()
+      read_key: str = f"LEFT_AMG8833_{idx}"
+      self.red.save_thermal_read(read_key, idx, self.left_amg8833.pixels)
 
    def __amg883_read_right(self):
-      idx = self.__next_idx()
+      idx = sysThermals.__next_idx()
       read_key: str = f"RIGHT_AMG8833_{idx}"
-      self.red.save_thermal_read(read_key, self.right_amg8833.pixels)
+      self.red.save_thermal_read(read_key, idx, self.right_amg8833.pixels)
 
-   def __next_idx(self) -> str:
+   @staticmethod
+   def __next_idx() -> str:
       key = f"{sysThermals.READ_COUNTER:06}"
       sysThermals.READ_COUNTER += 1
       return key
 
 
-# -- testing --
+# -- -- -- [ testing ] --  -- --
 if __name__ == "__main__":
    obj: sysThermals = sysThermals()
    obj.init()
