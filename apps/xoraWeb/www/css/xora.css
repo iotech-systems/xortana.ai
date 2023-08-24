@@ -51,6 +51,10 @@ div.xora-ai-lbl {
    font-size: 4vh;
 }
 
+div.home {
+   float: right;
+   margin-right: 4vw;
+}
 
 /* ====================================================
    - - - [ cam box ] - - - 
