@@ -12,7 +12,6 @@ class amg8833Sensor {
    }
 
    init() {
-
    }
 
    tempToColor(temp) {
@@ -25,10 +24,10 @@ class amg8833Sensor {
 class amg8833Grid {
 
    constructor(canvasID, cols = 8, rows = 8) {
-      this.divID = divID;
+      this.canvasID = canvasID;
       this.cols = cols;
       this.rows = rows;
-      this.canvas = document.getElementById(canvasID);
+      this.canvas = document.getElementById(this.canvasID);
       this.cntx2d = this.canvas.getContext("2d");
       this.css_width = 0;
       this.css_height = 0;

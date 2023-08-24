@@ -11,10 +11,10 @@ var thermoApp = {
    init() {
       /* -- */
       thermoApp.leftSesnor = new amg8833Sensor(thermoApp.leftCanvasID);
-      thermoApp.init();
+      thermoApp.leftSesnor.init();
       /* -- */
       thermoApp.rightSensor = new amg8833Sensor(thermoApp.rightCanvasID);
-      thermoApp.init();
+      thermoApp.rightSensor.init();
       /* -- */
       setInterval(thermoApp.readThermalData, 2000);
    },
