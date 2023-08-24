@@ -26,9 +26,10 @@ class amg8833Sensor {
       if (this.data.length == 0)
          return;
       /* -- */
+      let _this = this;
       let _oneach = function(frame) {
             let [idx, buff] = frame.split("::");
-            this.frameObj[parseInt(idx)] = buff;
+            _this.frameObj[parseInt(idx)] = buff;
          };
       /* -- */
       this.frameObj = {};
