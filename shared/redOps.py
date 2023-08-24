@@ -14,7 +14,7 @@ class redOps(redis.Redis):
       super().__init__(host="localhost", port=6379)
 
    def save_thermal_read(self, read_key: str, arr: []):
-      self.select(redDBIdx.THERMAL)
+      self.select(redDBIdx.THERMAL.value)
       if self.set(name=read_key, value=arr):
          self.pexpire(read_key, 2000)
       # -- -- -- --
