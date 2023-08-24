@@ -5,7 +5,7 @@ import adafruit_amg88xx
 # -- core --
 try:
    from shared.redOps import redOps
-except:
+except ModuleNotFoundError:
    from redOps import redOps
 finally:
    pass
