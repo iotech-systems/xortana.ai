@@ -21,6 +21,7 @@ class redOps(redis.Redis):
       # -- -- -- --
 
    def save_thermal_config(self, hash_name, d: {}):
+      self.select(redDBIdx.THERMAL.value)
       self.hset(name=hash_name, mapping=d)
 
    def read_thermal_reads(self) -> {}:
