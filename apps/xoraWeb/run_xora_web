@@ -15,7 +15,7 @@ TCP_PORT: int = 9090
 FLASK_APP = flask.Flask(APP_NAME
    , static_url_path=""
    , static_folder="www"
-   , template_folder="www/templates")
+   , template_folder="www")
 
 
 CT_JSON: str = "application/json"
