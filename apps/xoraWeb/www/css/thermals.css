@@ -6,3 +6,10 @@ div.view-port {
 div.top-menu div:nth-child(2) {
    font-weight: bold;
 }
+
+
+canvas.sensor-grid {
+   width: 400px;
+   height: 400px;
+   border: 2px solid darkblue;
+}
