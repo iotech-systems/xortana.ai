@@ -11,6 +11,7 @@ class amg8833Sensor {
       this.grid.init();
       this.data = null;
       this.dataLen = 0;
+      this.frameObj = null;
    }
 
    init() {
@@ -22,17 +23,17 @@ class amg8833Sensor {
 
    sortFrames() {
       /* -- */
-      console.log(`[ ${this.channel} | sortFrames: ${this.data.length} ]`)
       if (this.data.length == 0)
          return;
       /* -- */
       let _oneach = function(frame) {
-            console.log(frame);
             let [idx, buff] = frame.split("::");
-            console.log([idx, buff]);
+            this.frameObj[parseInt(idx)] = buff;
          };
       /* -- */
+      this.frameObj = {};
       this.data.forEach(_oneach);
+      console.log(this.frameObj);
    }
 
    nextFrameTick() {
