@@ -35,8 +35,9 @@ class amg8833Grid {
       this.canvasID = canvasID;
       this.cols = cols;
       this.rows = rows;
-      this.minTemp = minTemp;
-      this.maxTemp = maxTemp;
+      this.minTemp = parseFloat(minTemp);
+      this.maxTemp = parseFloat(maxTemp);
+      this.tempRange = (this.maxTemp - this.minTemp);
       /* -- */
       this.canvas = document.getElementById(this.canvasID);
       if (this.canvas == null)
@@ -61,14 +62,38 @@ class amg8833Grid {
       arr.forEach(__onrow);
    }
 
+   rgbFromTemp(tempStr) {
+      /* -- */
+      let scale = 100, 
+         tempFlt = parseFloat(tempStr);
+      if (tempFlt < this.minTemp)
+         tempFlt = this.minTemp;
+      if (tempFlt > this.maxTemp)
+         tempFlt = this.maxTemp;
+      /* -- */
+      let tempInt = parseInt(tempFlt * scale);
+      console.log([tempFlt, tempInt]);
+      /* -- */
+   
+   }
+
    preFillGrid() {
-      let colorStep = (255 / 8)
+      /* -- */
+      let MAX = 255
+         , colorStep = (255 / 8)
          , boxW = 80;
+      /* -- */
       for (let r = 0; r < this.rows; r++) {
          for (let c = 0; c < this.cols; c++) {
-            this.cntx2d.fillStyle = `rgb(${Math.floor(255 - colorStep * r)}, 0, ${Math.floor(255 - colorStep * c)})`;
+            /* -- */
+            this.cntx2d.fillStyle = 
+               `rgb(${Math.floor(MAX - (colorStep * r))}
+               , 0
+               , ${Math.floor(MAX - (colorStep * c))})`;
+            /* -- */
             this.cntx2d.fillRect(c * boxW, r * boxW, boxW, boxW);
          }
       }
+      /* -- */
    }
 }

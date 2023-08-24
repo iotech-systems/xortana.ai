@@ -20,6 +20,9 @@ class redOps(redis.Redis):
          self.pexpire(read_key, 2000)
       # -- -- -- --
 
+   def save_thermal_config(self, hash_name, d: {}):
+      self.hset(name=hash_name, mapping=d)
+
    def read_thermal_reads(self) -> {}:
       self.select(redDBIdx.THERMAL.value)
       # -- -- -- --

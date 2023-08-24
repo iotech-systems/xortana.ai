@@ -13,6 +13,8 @@ finally:
 
 class sysThermals(object):
 
+   FRAME_FREQ: int = 5
+   FRAME_TICK_INTERVAL: float = (1 / FRAME_FREQ)
    READ_COUNTER: int = 0
    RIGHT_I2C_ADDR: int = 0x68
    LEFT_I2C_ADDR: int = 0x69
@@ -42,6 +44,10 @@ class sysThermals(object):
          sysThermals.LEFT_I2C_ADDR = False
          print(e)
       # -- -- -- --
+      d: {} = {"LEFT_FRQ": self.FRAME_FREQ, "RIGHT_FREQ": self.FRAME_FREQ}
+      key: str = "AMG8833_CONFIG"
+      self.red.save_thermal_config(key, d)
+      # -- -- -- --
       self.amg8833_thread = threading.Thread(target=self.__amg8833_thread)
 
    def init(self):
@@ -63,7 +69,7 @@ class sysThermals(object):
       # -- -- -- --
       while True:
          if __tick() == 0:
-            time.sleep(0.200)
+            time.sleep(sysThermals.FRAME_TICK_INTERVAL)
          else:
             time.sleep(1.0)
 
@@ -88,7 +94,7 @@ class sysThermals(object):
       return key
 
 
-# -- -- -- -- [ testing ] --  -- -- --
+# -- -- -- -- [ testing ] -- -- -- --
 if __name__ == "__main__":
    obj: sysThermals = sysThermals()
    obj.init()
