@@ -31,7 +31,7 @@ class amg8833Sensor {
       let _oneach = function(frame) {
             let [idx, buff] = frame.split("::");
             _this.frameIndexes.push(idx);
-            _this.frameBuffer[parseInt(idx)] = buff;
+            _this.frameBuffer[idx] = buff;
          };
       /* -- */
       this.frameBuffer = {};
@@ -40,6 +40,7 @@ class amg8833Sensor {
       console.log(this.frameBuffer);
       console.log(this.frameIndexes);
       this.frameIndexes.sort();
+      console.log(this.frameIndexes);
       /* -- */
    }
 
