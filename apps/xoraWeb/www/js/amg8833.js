@@ -105,11 +105,10 @@ class amg8833Grid {
       let _this = this,
          boxW = 80;
       let __pxPlace = function(val, rowIdx, colIdx) {
-            // console.log([val, rowIdx, colIdx]);
             let rgb = _this.rgbFromTemp(val); 
             console.log([rgb, val]);
             _this.cntx2d.fillStyle = rgb;
-            _this.cntx2d.fillRect(colIdx * boxW, rowIdx * boxW, boxW, boxW);
+            _this.cntx2d.fillRect(rowIdx * boxW, colIdx * boxW, boxW, boxW);
          };
       /* -- -- */
       let __pxRow = function(pxRow, rowIdx) {
