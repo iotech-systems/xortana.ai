@@ -45,22 +45,20 @@ class amg8833Sensor {
    }
 
    nextFrameTick() {
+      /* -- */
       if (this.frameIndexes.length == 0)
          return;
       /* -- */
       try {
-         let idx = this.frameIndexes.shift();
-         let buff = this.frameBuffer[idx];
-         // console.log(buff);
+         let idx = this.frameIndexes.shift(),
+            buff = this.frameBuffer[idx];
+         /* -- */
          if (buff == undefined)
             return;
-         /* -- */         
-         console.log(`[ --- STAR: frame: ${idx} --- ]`);
+         /* -- */
          let pxGrid = JSON.parse(buff);
-         pxGrid.forEach((pxLn) => {
-               console.log(pxLn);
-            });
-         console.log(`[ --- END: frame: ${idx} --- ]`);
+         console.log(["pxGrid", pxGrid]);
+         this.grid.load(pxGrid);
          /* -- */
       } catch (e) {
          console.log(e);
@@ -102,13 +100,13 @@ class amg8833Grid {
       this.preFillGrid();
    }
 
-   load(arr) {
+   load(pxGrid) {
       /* -- -- */
-      let __onrow = function(row) {
-
+      let __pxRow = function(pxRow) {
+            console.log(pxRow);
          };
       /* -- -- */
-      arr.forEach(__onrow);
+      pxGrid.forEach(__pxRow);
    }
 
    rgbFromTemp(tempStr) {
