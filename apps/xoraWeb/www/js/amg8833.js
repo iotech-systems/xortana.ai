@@ -55,10 +55,12 @@ class amg8833Sensor {
          if (buff == undefined)
             return;
          /* -- */         
+         console.log(`[ --- STAR: frame: ${idx} --- ]`);
          let pxGrid = JSON.parse(buff);
          pxGrid.forEach((pxLn) => {
                console.log(pxLn);
             });
+         console.log(`[ --- END: frame: ${idx} --- ]`);
          /* -- */
       } catch (e) {
          console.log(e);
