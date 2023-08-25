@@ -134,11 +134,11 @@ class amg8833Grid {
       else
          onRngTemp = (tempFlt - this.minTemp);
       /* -- */
-      console.log([onRngTemp, tempFlt, this.tempRange]);
-      let ble = MAX * (((this.tempRange + 1) - onRngTemp) / this.tempRange);
-      let red = MAX * ((this.tempRange - ble) / this.tempRange);   
+      let ble_mult = (((this.tempRange + 1) - onRngTemp) / this.tempRange);
+      let red_mult = ((this.tempRange - ble) / this.tempRange);   
+      console.log([onRngTemp, tempFlt, this.tempRange, ble_mult, red_mult]);
       /* -- */
-      return `rgb(${red}, 0, ${ble})`;
+      return `rgb(244, 0, 111)`;
    }
 
    preFillGrid() {
