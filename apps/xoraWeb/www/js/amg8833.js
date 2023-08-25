@@ -125,7 +125,6 @@ class amg8833Grid {
       /* -- */
       let onRngTemp = 0, 
          MAX = 255, 
-         SCALE = 100, 
          tempFlt = parseFloat(tempStr);
       /* -- */
       if (tempFlt < this.minTemp)
@@ -135,6 +134,7 @@ class amg8833Grid {
       else
          onRngTemp = (tempFlt - this.minTemp);
       /* -- */
+      console.log([onRngTemp, tempFlt]);
       let ble = MAX * (((this.tempRange + 1) - onRngTemp) / this.tempRange);
       let red = MAX * ((this.tempRange - ble) / this.tempRange);   
       /* -- */
