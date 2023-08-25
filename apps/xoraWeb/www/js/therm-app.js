@@ -15,11 +15,11 @@ var thermoApp = {
    init() {
       /* -- */
       thermoApp.leftSensor = 
-         new amg8833Sensor("LEFT", thermoApp.leftCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
+         new amg8833Sensor("LEFT", thermoApp.leftCanvasID, thermoApp.MIN_TEMP, thermoApp.MAX_TEMP);
       thermoApp.leftSensor.init();
       /* -- */
       thermoApp.rightSensor = 
-         new amg8833Sensor("RIGHT", thermoApp.rightCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
+         new amg8833Sensor("RIGHT", thermoApp.rightCanvasID, thermoApp.MIN_TEMP, thermoApp.MAX_TEMP);
       thermoApp.rightSensor.init();
       /* -- */
       setTimeout(thermoApp.readThermalData, thermoApp.TICK_INTERVAL);
