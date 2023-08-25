@@ -135,8 +135,8 @@ class amg8833Grid {
          onRngTemp = (tempFlt - this.minTemp);
       /* -- */
       let ble_mult = (((this.tempRange + 1) - onRngTemp) / this.tempRange);
-      let red_mult = ((this.tempRange - ble) / this.tempRange);   
-      console.log([onRngTemp, tempFlt, this.tempRange, ble_mult, red_mult]);
+      //let red_mult = ((this.tempRange - ble_mult) / this.tempRange);   
+      console.log([onRngTemp, tempFlt, this.tempRange, ble_mult]);
       /* -- */
       return `rgb(244, 0, 111)`;
    }
