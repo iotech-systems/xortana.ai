@@ -3,6 +3,7 @@ var thermoApp = {
 
    MIN_TEMP: 20.0,
    MAX_TEMP: 40.0,
+   TICK_INTERVAL: 2000,
    leftSensor: null,
    rightSensor: null,
    leftCanvasID: "leftSensorGrid",
@@ -21,7 +22,7 @@ var thermoApp = {
          new amg8833Sensor("RIGHT", thermoApp.rightCanvasID, thermoApp.MAX_TEMP, thermoApp.MAX_TEMP);
       thermoApp.rightSensor.init();
       /* -- */
-      setInterval(thermoApp.readThermalData, 2000);
+      setTimeout(thermoApp.readThermalData, thermoApp.TICK_INTERVAL);
    },
 
    readThermalData() {
@@ -31,17 +32,23 @@ var thermoApp = {
    },
 
    displayData(jsObj) {
-      /* -- */
-      clearInterval(thermoApp.frameFreqTimerID);
-      thermoApp.leftSensor.setData(jsObj.LEFT);
-      thermoApp.rightSensor.setData(jsObj.RIGHT);
-      /* -- */
-      let freq = parseInt(jsObj.FRAME_FREQ),
-         tickMS = (1000 / freq);
-      thermoApp.sortFrames();
-      /* tick frames */
-      thermoApp.frameFreqTimerID = 
-         setInterval(thermoApp.frameTickCallback, tickMS);
+      try {
+         clearInterval(thermoApp.frameFreqTimerID);
+         thermoApp.leftSensor.setData(jsObj.LEFT);
+         thermoApp.rightSensor.setData(jsObj.RIGHT);
+         /* -- */
+         let freq = parseInt(jsObj.FRAME_FREQ),
+            tickMS = (1000 / freq);
+         thermoApp.sortFrames();
+         /* tick frames */
+         thermoApp.frameFreqTimerID = 
+            setInterval(thermoApp.frameTickCallback, tickMS);
+         /* -- */
+      } catch(e) {
+         console.log(e);
+      } finally {
+         setTimeout(thermoApp.readThermalData, thermoApp.TICK_INTERVAL);
+      }
    },
 
    frameTickCallback() {

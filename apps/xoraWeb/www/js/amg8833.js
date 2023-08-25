@@ -51,8 +51,10 @@ class amg8833Sensor {
          let idx = this.frameIndexes.shift();
          let buff = this.frameBuffer[idx];
          console.log(buff);
-         let jsArr = JSON.parse(buff);
-         console.log(jsArr);
+         if (!buff) {
+            let jsArr = JSON.parse(buff);
+            console.log(jsArr);
+         }
       } catch (e) {
          console.log(e);
       }
