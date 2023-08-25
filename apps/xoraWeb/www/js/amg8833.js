@@ -37,15 +37,25 @@ class amg8833Sensor {
       this.frameBuffer = {};
       this.frameIndexes = [];
       this.data.forEach(_oneach);
-      console.log(this.frameBuffer);
-      console.log(this.frameIndexes);
+      // console.log(this.frameBuffer);
+      // console.log(this.frameIndexes);
       this.frameIndexes.sort();
-      console.log(this.frameIndexes);
       /* -- */
    }
 
    nextFrameTick() {
-      console.log(`[ ${this.channel} | nextFrameTick ]`);
+      if (this.frameIndexes.length == 0)
+         return;
+      /* -- */
+      try {
+         let idx = this.frameIndexes.shift();
+         let buff = this.frameBuffer[idx];
+         console.log(buff);
+         let jsArr = JSON.parse(buff);
+         console.log(jsArr);
+      } catch (e) {
+         console.log(e);
+      }
    }
 
    tempToColor(temp) {
