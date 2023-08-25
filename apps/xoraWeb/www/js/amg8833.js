@@ -102,8 +102,14 @@ class amg8833Grid {
 
    load(pxGrid) {
       /* -- -- */
-      let __pxRow = function(pxRow) {
-            console.log(pxRow);
+      let __pxPlace = function(val, rowIdx, colIdx) {
+            console.log([val, rowIdx, colIdx])
+         };
+      /* -- -- */
+      let __pxRow = function(pxRow, rowIdx) {
+            pxRow.forEach(function(v, idx){
+                  __pxPlace(v, idx, rowIdx);
+               });
          };
       /* -- -- */
       pxGrid.forEach(__pxRow);
