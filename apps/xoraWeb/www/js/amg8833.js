@@ -137,8 +137,8 @@ class amg8833Grid {
       let ble_mult = (((this.tempRange + 1) - onRngTemp) / this.tempRange);
       let red_mult = (1 - ble_mult);   
       // console.log([onRngTemp, tempFlt, this.tempRange, ble_mult]);
-      let blue = MAX * ble_mult,
-         red = MAX * red_mult;
+      let blue = parseInt(MAX * ble_mult),
+         red = parseInt(MAX * red_mult);
       /* -- */
       return `rgb(${red}, 0, ${blue})`;
    }
