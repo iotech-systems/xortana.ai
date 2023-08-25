@@ -102,8 +102,12 @@ class amg8833Grid {
 
    load(pxGrid) {
       /* -- -- */
+      let _this = this,
+         boxW = 80;
       let __pxPlace = function(val, rowIdx, colIdx) {
-            console.log([val, rowIdx, colIdx])
+            console.log([val, rowIdx, colIdx]);
+            _this.cntx2d.fillStyle = _this.rgbFromTemp(val);
+            _this.cntx2d.fillRect(colIdx * boxW, rowIdx * boxW, boxW, boxW);
          };
       /* -- -- */
       let __pxRow = function(pxRow, rowIdx) {
@@ -117,17 +121,22 @@ class amg8833Grid {
 
    rgbFromTemp(tempStr) {
       /* -- */
-      let scale = 100, 
+      let onRngTemp = 0, 
+         MAX = 255, 
+         SCALE = 100, 
          tempFlt = parseFloat(tempStr);
+      /* -- */
       if (tempFlt < this.minTemp)
-         tempFlt = this.minTemp;
-      if (tempFlt > this.maxTemp)
-         tempFlt = this.maxTemp;
+         onRngTemp = 0;
+      else if (tempFlt > this.maxTemp)
+         onRngTemp = this.tempRange;
+      else
+         onRngTemp = (tempFlt - this.minTemp);
       /* -- */
-      let tempInt = parseInt(tempFlt * scale);
-      console.log([tempFlt, tempInt]);
+      let ble = MAX * (((this.tempRange + 1) - onRngTemp) / this.tempRange);
+      let red = MAX * ((this.tempRange - ble) / this.tempRange);   
       /* -- */
-   
+      return `rgb(${red}, 0, ${ble})`;
    }
 
    preFillGrid() {
@@ -138,11 +147,9 @@ class amg8833Grid {
       /* -- */
       for (let r = 0; r < this.rows; r++) {
          for (let c = 0; c < this.cols; c++) {
-            /* -- */
             this.cntx2d.fillStyle = 
                `rgb(${Math.floor(MAX - (colorStep * r))}
-               , 0
-               , ${Math.floor(MAX - (colorStep * c))})`;
+               , 0, ${Math.floor(MAX - (colorStep * c))})`;
             /* -- */
             this.cntx2d.fillRect(c * boxW, r * boxW, boxW, boxW);
          }
