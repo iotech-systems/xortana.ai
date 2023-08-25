@@ -134,7 +134,7 @@ class amg8833Grid {
       else
          onRngTemp = (tempFlt - this.minTemp);
       /* -- */
-      console.log([onRngTemp, tempFlt]);
+      console.log([onRngTemp, tempFlt, this.tempRange]);
       let ble = MAX * (((this.tempRange + 1) - onRngTemp) / this.tempRange);
       let red = MAX * ((this.tempRange - ble) / this.tempRange);   
       /* -- */
