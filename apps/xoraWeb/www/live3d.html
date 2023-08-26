@@ -11,6 +11,7 @@
       div.top-menu div:nth-child(1) {font-weight: bold;}
    </style>
    <!-- 3rd party files -->
+   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
    <script src="/js/jq.js"></script>
    <!-- <script src="js/js3/three.module.min.js"></script>
       <script src="js/js3/three.min.js "></script> -->
@@ -25,7 +26,7 @@
 <!-- / / / /-->
 <body>
    {% include "inc/top-bar.html" %}
-   <div id="floatMenu" class="float-menu" draggable="true" >
+   <div id="floatMenu" class="float-menu draggable-cls" draggable="true" >
       <div>Live3D Menu</div>
 
    </div>
@@ -36,6 +37,11 @@
 
       </div>
    </div>
+   <script>
+      $(function() {
+            $("#draggable").draggable();
+         });
+   </script>
 </body>
 <!-- / / / /-->
 </html>
