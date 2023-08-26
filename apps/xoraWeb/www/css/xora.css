@@ -103,4 +103,5 @@ div.float-menu {
    height: 4vh;
    border: 1px solid blue;
    border-radius: 4px;
+   z-index: 1000;
 }
