@@ -23,25 +23,25 @@
    <script src="/js/xora-vr.js"></script>
    <script src="/js/xora.js"></script>
 </head>
-<!-- / / / /-->
-<body>
-   {% include "inc/top-bar.html" %}
-   <div id="floatMenu" class="float-menu draggable-cls" draggable="true" >
-      <div>Live3D Menu</div>
-
-   </div>
-   <div id="viewPort" class="view-port">
-      <div id="skyCam" class="xora-cam">
-      </div>
-      <div id="three3D" class="three-js">
+   <body>
+      {% include "inc/top-bar.html" %}
+      <div id="floatMenu" class="float-menu draggable-cls" draggable="true" >
+         <div>Live3D Menu</div>
 
       </div>
-   </div>
-   <script>
-      $(function() {
-            $("div.draggable-cls").draggable();
-         });
-   </script>
-</body>
-<!-- / / / /-->
+      <div id="viewPort" class="view-port">
+         <div id="skyCam" class="xora-cam">
+         </div>
+         <div id="three3D" class="three-js">
+
+         </div>
+      </div>
+      <!-- / / / /-->
+      <script>
+         $(function() {
+               $("div.draggable-cls").draggable();
+            });
+      </script>
+      <!-- / / / /-->
+   </body>
 </html>
