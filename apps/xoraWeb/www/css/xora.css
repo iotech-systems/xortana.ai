@@ -100,8 +100,8 @@ div.float-menu {
    display: flex;
    top: 12vh;
    left: 8vh;
-   width: 16vw;
-   height: 16vh;
+   width: 20vw;
+   height: auto;
    border: 1px solid darkblue;
    border-radius: 4px;
    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
@@ -130,4 +130,8 @@ div.top-bar-fm div.open-close {
    width: 3.2vh;
    height: 3.2vh;
    border: 1px dotted darkorchid;
+}
+
+div.skycam-img {
+   height: 20vh;
 }
