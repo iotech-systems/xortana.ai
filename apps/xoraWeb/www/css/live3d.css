@@ -4,7 +4,12 @@ div.view-port {
    border: 1px dotted lightgray !important;
 }
 
-div.three-js-box {
+div.vp-lft-col {
+   width: 30vw;
+   float: left;
+}
+
+div.vp-rgt-col {
    width: 66vw;
    float: right;
 }
