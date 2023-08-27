@@ -11,7 +11,7 @@ var xora = {
       xora.topCam.init();
       /* vr env. */
       xora.xorVR = new xoraVR();
-      xora.xorVR.demo();
+      xora.xorVR.init();
    },
 
    run() {
