@@ -38,7 +38,7 @@ div.vp-rgt-col {
 }
 
 div.js3-vr-box {
-   width: 100%;
+   width: calc(100% - 4px);
    height: calc(89.4vh - 4px);
    padding: 0;
    margin: auto;
