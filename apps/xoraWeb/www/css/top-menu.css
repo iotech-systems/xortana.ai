@@ -5,7 +5,7 @@ div.top-bar {
    line-height: 8vh;
    text-indent: 1vw;
    margin: 0.5vh auto;
-   border: 1px solid gray;
+   border: 2px solid rgb(94, 97, 109);
    border-radius: 1vh;
 }
 
