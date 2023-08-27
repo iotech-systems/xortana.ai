@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals" />
+    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals">
+      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/datatypes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/skyCam.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/skyCam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/stubs/picam2.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/stubs/picam2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,16 +37,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/erik/__github__/xortana.ai/shared&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/erik/github/xortana.ai",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/shared" />
@@ -618,7 +623,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/shared/skyCam.py</url>
-          <line>89</line>
+          <line>91</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -643,7 +648,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/run_xora_web</url>
-          <line>45</line>
+          <line>40</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

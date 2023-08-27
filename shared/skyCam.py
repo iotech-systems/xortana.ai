@@ -20,7 +20,7 @@ except ModuleNotFoundError:
    from shared.stubs.picam2 import picam2stub as PiCam2
 # -- keep loading --
 from shared.sysTTS import SYS_TTS
-from shared.datatypes import execResult
+from shared.datatypes import *
 from shared.sysSnd import sysSnd
 
 
@@ -63,7 +63,9 @@ class skyCam(object):
          skyCam.CAM.start()
       # -- -- -- --
       self.img_cnt: int = 0
+      # -- [ cam thread ] --
       self.cam_thread: threading.Thread = threading.Thread(target=self.__cam_thread)
+      # -- [ command thread ] --
       self.cmd_thread: threading.Thread = threading.Thread(target=self.__cmd_thread)
 
    def start_cam_threads(self):
@@ -143,8 +145,12 @@ class skyCam(object):
       while True:
          idx: int = rnd_q.get()
          fpath = f"{sky_cam_fld}/imgs/skycam_img_{idx:02}.jpg"
+         # skip if lock file found for now
+         # if not os.path.exists(sysPaths.SKYCAM_PEEK_LOCK_FILE):
          __thread_tick(ffn=fpath)
          rnd_q.put(idx)
+         # else:
+         #    pass
          time.sleep(skyCam.CAM_THREAD_TICK_MS)
       # -- -- -- --
 
@@ -153,8 +159,8 @@ class skyCam(object):
          # -- -- -- --
          if os.path.exists(ffn):
             os.unlink(ffn)
+            time.sleep(0.002)
          # -- -- -- --
-         time.sleep(0.01)
          skyCam.CAM_LOCK.acquire()
          skyCam.CAM.capture_file(ffn, wait=True)
          skyCam.CAM_LOCK.release()

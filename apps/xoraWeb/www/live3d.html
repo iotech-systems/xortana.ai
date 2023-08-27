@@ -6,6 +6,7 @@
    <title>xora3D</title>
    <link rel="stylesheet" href="/css/js3.css">
    <link rel="stylesheet" href="/css/xora.css">
+   <link rel="stylesheet" href="/css/live3d.css">
    <!-- override for thermals -->
    <style>
       div.top-menu div:nth-child(1) {font-weight: bold;}
@@ -37,18 +38,27 @@
       </div>
       <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
       <div id="viewPort" class="view-port">
-         <div id="skyCam" class="xora-cam">
+         <!-- <div id="skyCam" class="xora-cam">
          </div>
-         <div id="three3D" class="three-js">
-
+         <div id="js3DBox" class="three-js-box">
+         </div> -->
+         <div id="vpLeftCol">
+            <div id="skyCam" class="xora-cam">
+            </div>
+            <div id="">
+            </div>
+         </div>
+         <div id="vpRightCol">
+            <div id="js3DBox" class="three-js-box">
+            </div>
          </div>
       </div>
-      <!-- / / / /-->
+      <!-- / / / / -->
       <script>
          $(function() {
                $("div.draggable-cls").draggable();
             });
       </script>
-      <!-- / / / /-->
+      <!-- / / / / -->
    </body>
 </html>

@@ -17,5 +17,5 @@ class picam2stub(object):
    def start(self):
       pass
 
-   def capture_file(self):
+   def capture_file(self, fn: str, wait: bool):
       pass

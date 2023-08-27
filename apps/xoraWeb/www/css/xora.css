@@ -91,6 +91,15 @@ div.fn-lbl {
    border-top: 2px solid dimgray;
 }
 
+div.three-js-box {
+   width: 98vw;
+   height: 90vh;
+   padding: 0;
+   margin: auto;
+   text-align: center;
+   border: 1px solid gray;
+   border-radius: 1vh;
+}
 
 /* ====================================================
    floating menu

@@ -33,11 +33,6 @@ def page_load(pname: str):
    return flask.render_template(f"{pname}.html")
 
 
-# @FLASK_APP.route("/thermals")
-# def mbltools():
-#    return FLASK_APP.send_static_file("thermals.html")
-
-
 @FLASK_APP.route("/cam/<camid>/<act>/<args>", methods=["GET", "POST"])
 def cam_ops(camid: str, act: str, args: str):
    try:
@@ -57,11 +52,9 @@ def cam_ops(camid: str, act: str, args: str):
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
 
-""" 
-   [ view folders ] 
+""" [ view folders ] 
    /view/tf/thums
-   /opt/xortana.ai/tf/thums
-"""
+   /opt/xortana.ai/tf/thums """
 @FLASK_APP.route("/view/tf/<fld>", methods=["GET"])
 def view_tf_folder(fld: str):
    fpath: str = f"/opt/xortana.ai/tf/{fld}"
@@ -74,11 +67,9 @@ def view_tf_folder(fld: str):
       return flask.Response("FolderReadError", mimetype=CT_APP_ERR)
 
 
-"""
-   <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+""" <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
     AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
-"""
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> """
 @FLASK_APP.route("/load/tf/img/<fld>/<img>", methods=["GET"])
 def load_img(fld: str, img: str):
    fpath: str = f"/opt/xortana.ai/tf/{fld}/{img}"
@@ -94,20 +85,46 @@ def load_img(fld: str, img: str):
    except Exception as e:
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
+@FLASK_APP.route("/peek/<camID>/<img>")
+def peek_cam(camID: str, img: str):
+   if camID.upper() == "SKYCAM":
+      try:
+         fpath = "/run/xora.ai/skycam"
+         if not os.path.exists(fpath):
+            return flask.Response(f"PathNotFound: {fpath}", mimetype=CT_APP_ERR)
+         ffpath = f"{fpath}/{img}"
+         # -- -- [ place peek sync file ] -- --
+         os.system(f"touch {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
+         if not os.path.exists(ffpath):
+            os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
+            return flask.Response(f"PathNotFound: {ffpath}", mimetype=CT_APP_ERR)
+         # -- -- -- --
+         with open(ffpath, "rb") as f:
+            buff = f.read()
+         os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
+         enc_img = base64.b64encode(buff)
+         # -- -- -- --
+         return flask.Response(enc_img, mimetype="img/base64")
+      except Exception as e:
+         return flask.Response(str(e), mimetype=CT_APP_ERR)
+      finally:
+         os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
+   else:
+      return flask.Response(f"BadCamID: {camID}", mimetype=CT_APP_ERR)
+
 
 @FLASK_APP.route("/read/thermals", methods=["GET"])
 def read_thermals():
    try:
       reads: {} = sysOps.get_thermals()
       jsbuff: str = json.dumps(reads)
-      # print(f"jsbuff: {jsbuff}")
       return flask.Response(jsbuff, mimetype=CT_JSON)
    except Exception as e:
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
 
-# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-# -- -- -- -- [ entry point ] -- -- -- --
+# = = = = = = = = = = = = = = = = = = = = = = = = = =
+# -- -- -- -- -- -- [ entry point ] -- -- -- -- -- --
 if __name__ == "__main__":
    setproctitle.setproctitle(APP_NAME)
    FLASK_APP.run(host="0.0.0.0", port=TCP_PORT, debug=True, use_reloader=False)

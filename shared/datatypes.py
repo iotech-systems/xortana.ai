@@ -3,6 +3,9 @@ import enum
 import json
 
 
+RUN_PATH: str = "/run/xora.ai"
+
+
 class tickCode(enum.IntEnum):
    OK = 0,
    Error = 1
@@ -23,3 +26,8 @@ class execResult(object):
 
    def toJson(self):
       return json.dumps(self, default=lambda this: this.__dict__)
+
+
+class sysPaths(object):
+
+   SKYCAM_PEEK_LOCK_FILE: str = f"{RUN_PATH}/skycam/peek.sync"
