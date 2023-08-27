@@ -92,7 +92,7 @@ div.fn-lbl {
 }
 
 div.three-js-box {
-   width: 98vw;
+   width: 100%;
    height: 90vh;
    padding: 0;
    margin: auto;
