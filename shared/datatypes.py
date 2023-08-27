@@ -1,6 +1,5 @@
 
-import enum
-import json
+import enum, json
 
 
 RUN_PATH: str = "/run/xora.ai"
@@ -30,4 +29,6 @@ class execResult(object):
 
 class sysPaths(object):
 
-   SKYCAM_PEEK_LOCK_FILE: str = f"{RUN_PATH}/skycam/peek.sync"
+   SKYCAM_PEEK_LOCK_FILE: str = f"{RUN_PATH}/skycam/peek_lock_sync"
+   SKYCAM_PEEK_ON: str = f"{RUN_PATH}/skycam/peek_on"
+   SKYCAM_PEEK_FILE: str = f"{RUN_PATH}/skycam/peek_img.jpg"

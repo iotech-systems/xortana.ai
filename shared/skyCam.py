@@ -1,18 +1,19 @@
 
 """
-xora@xortana:~ $ libcamera-still --list-cameras
-Available cameras
------------------
-   0 : ov5647 [2592x1944] (/base/soc/i2c0mux/i2c@1/ov5647@36)
-       Modes: 'SGBRG10_CSI2P' : 640x480 [30.00 fps - (0, 0)/0x0 crop]
-                                1296x972 [30.00 fps - (0, 0)/0x0 crop]
-                                1920x1080 [30.00 fps - (0, 0)/0x0 crop]
-                                2592x1944 [30.00 fps - (0, 0)/0x0 crop]
+   xora@xortana:~ $ libcamera-still --list-cameras
+   Available cameras
+   -----------------
+      0 : ov5647 [2592x1944] (/base/soc/i2c0mux/i2c@1/ov5647@36)
+          Modes: 'SGBRG10_CSI2P' : 640x480 [30.00 fps - (0, 0)/0x0 crop]
+                                   1296x972 [30.00 fps - (0, 0)/0x0 crop]
+                                   1920x1080 [30.00 fps - (0, 0)/0x0 crop]
+                                   2592x1944 [30.00 fps - (0, 0)/0x0 crop]
 """
-
+import datetime
 import threading
 import os.path, time, queue
 from PIL import Image
+from pathlib import Path
 try:
    from picamera2.picamera2 import Picamera2 as PiCam2
 except ModuleNotFoundError:
@@ -139,19 +140,40 @@ class skyCam(object):
       except Exception as e:
          print(e)
          exit(100)
+      # -- -- -- --
       def __thread_tick(ffn: str):
+         # -- --
          self.__take_img(ffn=ffn)
+         skycam_peek_on: Path = Path(sysPaths.SKYCAM_PEEK_ON)
+         if not skycam_peek_on.exists():
+            return
+         # -- -- [ ctime using system tz ] -- --
+         st_ctime: int = int(skycam_peek_on.stat().st_ctime)
+         diff: int = int(datetime.datetime.now().timestamp() - st_ctime)
+         if diff > 60:
+            skycam_peek_on.unlink(missing_ok=True)
+            return
+         # -- -- [ else save ] -- --
+         peek_file_path: Path = Path(sysPaths.SKYCAM_PEEK_FILE)
+         if peek_file_path.exists():
+            return
+         div_val: int = 4
+         img: Image = Image.open(peek_file_path)
+         new_size = (int(img.width / div_val), int(img.height / div_val))
+         resized_img: Image = img.resize(new_size)
+         resized_img.save(peek_file_path)
       # -- -- -- --
       while True:
-         idx: int = rnd_q.get()
-         fpath = f"{sky_cam_fld}/imgs/skycam_img_{idx:02}.jpg"
-         # skip if lock file found for now
-         # if not os.path.exists(sysPaths.SKYCAM_PEEK_LOCK_FILE):
-         __thread_tick(ffn=fpath)
-         rnd_q.put(idx)
-         # else:
-         #    pass
-         time.sleep(skyCam.CAM_THREAD_TICK_MS)
+         try:
+            idx: int = rnd_q.get()
+            fpath = f"{sky_cam_fld}/imgs/skycam_img_{idx:02}.jpg"
+            __thread_tick(ffn=fpath)
+            rnd_q.put(idx)
+            time.sleep(skyCam.CAM_THREAD_TICK_MS)
+         except Exception as e:
+            print(e)
+         finally:
+            pass
       # -- -- -- --
 
    def __take_img(self, ffn: str):
