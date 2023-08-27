@@ -125,3 +125,9 @@ div.top-bar-fm {
 div.top-bar-fm div:first-child {
    float: left;
 }
+
+div.top-bar-fm div.open-close {
+   width: 3.2vh;
+   height: 3.2vh;
+   border: 1px dotted darkorchid;
+}
