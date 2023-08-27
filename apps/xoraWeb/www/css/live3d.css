@@ -26,12 +26,14 @@ div.vp-rgt-col {
 div.xora-cam {
    width: 99.6%;
    height: calc(46vh - 4px);
-   border: 2px dotted green;
+   border: 2px solid darkblue;
+   border-radius: 1vh;
 }
 
 div.xora-console {
    width: 99.6%;
    height: calc(42vh - 4px);
    margin-top: 1.4vh;
-   border: 2px dotted green;  
+   border: 2px solid darkblue;
+   border-radius: 1vh;  
 }
