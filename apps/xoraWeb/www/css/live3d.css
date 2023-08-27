@@ -4,6 +4,16 @@ div.view-port {
    border: 1px dotted lightgray !important;
 }
 
+
+div.vr-col {
+   height: 90vh;
+   padding: 0;
+   margin: auto;
+   text-align: center;
+   border: 1px solid rgb(173, 30, 30);
+   border-radius: 1vh;
+}
+
 div.vp-lft-col {
    width: 30vw;
    float: left;
@@ -12,4 +22,10 @@ div.vp-lft-col {
 div.vp-rgt-col {
    width: 66vw;
    float: right;
+}
+
+div.xora-cam {
+   width: inherit;
+   height: 46vh;
+   border: 1px dotted green;
 }

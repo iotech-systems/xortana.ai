@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals">
-      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/datatypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/datatypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/skyCam.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/skyCam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/stubs/picam2.py" beforeDir="false" afterPath="$PROJECT_DIR$/shared/stubs/picam2.py" afterDir="false" />
-    </list>
+    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
