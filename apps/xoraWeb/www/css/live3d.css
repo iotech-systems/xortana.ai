@@ -3,3 +3,8 @@
 div.view-port {
    border: 1px dotted lightgray !important;
 }
+
+div.three-js-box {
+   width: 60vw;
+   float: right;
+}
