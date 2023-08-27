@@ -15,12 +15,12 @@ div.vr-col {
 }
 
 div.vp-lft-col {
-   width: 32vw;
+   width: 32%;
    float: left;
 }
 
 div.vp-rgt-col {
-   width: 66vw;
+   width: 66%;
    float: right;
 }
 
