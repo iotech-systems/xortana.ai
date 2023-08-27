@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
-import os.path
 import flask, json
-from PIL import Image
+import os.path, time
 import setproctitle, base64
+# -- -- [ froms ] -- --
+from PIL import Image
+from pathlib import Path
 # -- [ core ] --
 from shared.datatypes import *
 from shared.skyCam import skyCam
@@ -85,23 +87,19 @@ def load_img(fld: str, img: str):
    except Exception as e:
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
-@FLASK_APP.route("/peek/<camID>/<img>")
-def peek_cam(camID: str, img: str):
+@FLASK_APP.route("/peek/<camID>")
+def peek_cam(camID: str):
    if camID.upper() == "SKYCAM":
       try:
-         fpath = "/run/xora.ai/skycam"
-         if not os.path.exists(fpath):
-            return flask.Response(f"PathNotFound: {fpath}", mimetype=CT_APP_ERR)
-         ffpath = f"{fpath}/{img}"
-         # -- -- [ place peek sync file ] -- --
-         os.system(f"touch {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
-         if not os.path.exists(ffpath):
-            os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
-            return flask.Response(f"PathNotFound: {ffpath}", mimetype=CT_APP_ERR)
-         # -- -- -- --
-         with open(ffpath, "rb") as f:
+         peek_on_file: Path = Path(sysPaths.SKYCAM_PEEK_ON)
+         peek_on_file.touch()
+         time.sleep(1.0)
+         peek_file: Path = Path(sysPaths.SKYCAM_PEEK_FILE)
+         if not peek_file.exists():
+            return flask.Response(f"PathNotFound: {peek_file}", mimetype=CT_APP_ERR)
+         # -- -- file found -- --
+         with open(peek_file, "rb") as f:
             buff = f.read()
-         os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
          enc_img = base64.b64encode(buff)
          # -- -- -- --
          return flask.Response(enc_img, mimetype="img/base64")
