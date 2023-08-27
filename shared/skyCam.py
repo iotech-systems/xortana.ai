@@ -158,7 +158,7 @@ class skyCam(object):
          if peek_file_path.exists():
             return
          div_val: int = 4
-         img: Image = Image.open(peek_file_path)
+         img: Image = Image.open(ffn)
          new_size = (int(img.width / div_val), int(img.height / div_val))
          resized_img: Image = img.resize(new_size)
          resized_img.save(peek_file_path)
