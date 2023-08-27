@@ -26,7 +26,7 @@
 </head>
    <body>
       {% include "inc/top-bar.html" %}
-      <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+      <!-- = = = = = = = = = = = = -->
       <!-- <div id="floatSkyCam" class="float-menu draggable-cls" draggable="true" >
          <div class="top-bar-fm">
             <div>SkyCamView</div>
@@ -36,25 +36,27 @@
          <div id="skyCamImgBox" class="skycam-img">
          </div>
       </div> -->
-      <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+      <!-- -- -- [ view port ] -- -- -->
       <div id="viewPort" class="view-port">
+         <!-- left vr-box -->
          <div id="vpLeftCol" class="vp-lft-col vr-col">
             <div id="skyCam" class="xora-cam">
             </div>
-            <div id="">
+            <div id="xoraConsole" class="xora-console">
             </div>
          </div>
+         <!-- right vr-box -->
          <div id="vpRightCol" class="vp-rgt-col vr-col">
             <div id="js3DBox" class="three-js-box">
             </div>
          </div>
       </div>
-      <!-- / / / / -->
+      <!-- = = = = = = = = = = = = -->
       <script>
          $(function() {
                $("div.draggable-cls").draggable();
             });
       </script>
-      <!-- / / / / -->
+      <!-- = = = = = = = = = = = = -->
    </body>
 </html>

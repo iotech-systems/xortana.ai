@@ -4,7 +4,6 @@ div.view-port {
    border: 1px dotted lightgray !important;
 }
 
-
 div.vr-col {
    height: 90vh;
    padding: 0;
@@ -25,7 +24,13 @@ div.vp-rgt-col {
 }
 
 div.xora-cam {
-   width: inherit;
+   width: 99.6%;
    height: 46vh;
    border: 1px dotted green;
+}
+
+div.xora-console {
+   width: 99.6%;
+   height: 44vh;
+   border: 1px dotted green;  
 }
