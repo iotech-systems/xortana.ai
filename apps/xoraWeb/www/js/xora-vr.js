@@ -55,8 +55,7 @@ class xoraVR {
                dhtml = `<img class="sky-cam-peek" src="${src}"/>`;
             $("div#skyCam").html(dhtml);
             let now = new DateTime().toLocaleString();
-               msg = `[ readSkyCamPeek :: ${now} ]`;
-            xora.xoraConsoleWrite(msg);
+            xora.xoraConsoleWrite("readSkyCamPeek");
             setTimeout(xoraVR.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          };
       /* -- */
