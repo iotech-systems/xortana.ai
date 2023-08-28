@@ -144,6 +144,8 @@ div.xora-cons-ln {
    width: 98%;
    height: 2vh;
    line-height: 2vh;
-   font-size: 1.4vh;
+   font-size: 1.6vh;
    margin: 4px auto;
+   border: 1px solid rgb(205, 206, 240);
+   border-radius: 0.4vh;
 }

@@ -28,6 +28,8 @@ div.xora-console {
    width: 99.6%;
    height: calc(42vh - 4px);
    margin-top: 1.4vh;
+   text-align: left;
+   text-indent: 1vh;
    border: 2px solid rgb(94, 97, 109);
    border-radius: 1vh;  
 }
