@@ -14,12 +14,15 @@ class tfViewCls {
          }, TICK_INTERVAL);
       /* -- */
       this.last_dirlst = [];
+      this.lastLoadedImgCnt = 0;
       $("div#viewPort").html("");
       tfViewCls.Instance = this;
       /* -- */
    }
 
    init() {
+      $("div#topFreeBox").htm(`<div id="lastTickDts"></div>`);
+      $("div#viewPort").html("");
       this.peekFolder("thums");
    }
 
@@ -27,6 +30,12 @@ class tfViewCls {
       /* -- */
       let url = `/view/tf/${fld}`;
       let _on_get = function(jsArr) {
+            /* -- */
+            if (!Array.isArray(jsArr)) {
+               console.log(`peekFolder: ${fld} | returned NotArray`);
+               return;
+            }
+            /* -- */
             jsArr.forEach(tfViewCls.Instance.onArrItem);
             let dts = new Date().toLocaleString();
             $("div#lastTickDts").html(dts);
