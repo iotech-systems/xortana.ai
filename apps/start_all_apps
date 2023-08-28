@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+
+
+# -- -- [ run thermals ] -- --
+sleep 2
+./run_thermals >> /dev/null &
+
+# -- -- [ run cams ] -- --
+sleep 2
+./run_cams >> /dev/null &
+
+# -- -- [ run webui ] -- --
+sleep 2
+./run_webui >> /dev/null &
