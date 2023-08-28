@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding thermals" />
+    <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding peek file">
+      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/www/js/xora-vr.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/www/js/xora-vr.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +58,7 @@
       <recent name="$PROJECT_DIR$/tools/pyttsx3" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sysThermals">
+  <component name="RunManager" selected="Python.run_xora_web">
     <configuration name="listvoices" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="xortana.ai" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,13 +164,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.listvoices" />
+      <item itemvalue="Python.run_xora_cams" />
+      <item itemvalue="Python.run_xora_web" />
+      <item itemvalue="Python.sysThermals" />
+      <item itemvalue="Python.tts_demo" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sysThermals" />
         <item itemvalue="Python.run_xora_web" />
+        <item itemvalue="Python.listvoices" />
+        <item itemvalue="Python.sysThermals" />
         <item itemvalue="Python.run_xora_cams" />
         <item itemvalue="Python.tts_demo" />
-        <item itemvalue="Python.listvoices" />
       </list>
     </recent_temporary>
   </component>
@@ -180,46 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679749912147</updated>
-    </task>
-    <task id="LOCAL-00146" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692847210358</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1692847210358</updated>
-    </task>
-    <task id="LOCAL-00147" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692878717182</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1692878717182</updated>
-    </task>
-    <task id="LOCAL-00148" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692878859404</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1692878859404</updated>
-    </task>
-    <task id="LOCAL-00149" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692878961567</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1692878961567</updated>
-    </task>
-    <task id="LOCAL-00150" summary="adding thermals">
-      <option name="closed" value="true" />
-      <created>1692879157283</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1692879157283</updated>
     </task>
     <task id="LOCAL-00151" summary="adding thermals">
       <option name="closed" value="true" />
@@ -573,7 +542,47 @@
       <option name="project" value="LOCAL" />
       <updated>1692920873118</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="adding thermals">
+      <option name="closed" value="true" />
+      <created>1693161910011</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1693161910011</updated>
+    </task>
+    <task id="LOCAL-00196" summary="adding peek file">
+      <option name="closed" value="true" />
+      <created>1693175044017</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1693175044017</updated>
+    </task>
+    <task id="LOCAL-00197" summary="adding peek file">
+      <option name="closed" value="true" />
+      <created>1693175451132</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1693175451132</updated>
+    </task>
+    <task id="LOCAL-00198" summary="adding peek file">
+      <option name="closed" value="true" />
+      <created>1693177432613</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1693177432613</updated>
+    </task>
+    <task id="LOCAL-00199" summary="adding peek file">
+      <option name="closed" value="true" />
+      <created>1693181897832</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1693181897832</updated>
+    </task>
+    <option name="localTasksCounter" value="200" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -596,7 +605,8 @@
     <MESSAGE value="added beeps" />
     <MESSAGE value="btn fix" />
     <MESSAGE value="adding thermals" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding thermals" />
+    <MESSAGE value="adding peek file" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding peek file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,17 +628,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/shared/skyCam.py</url>
-          <line>91</line>
+          <line>92</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/shared/skyCam.py</url>
-          <line>57</line>
+          <line>58</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/shared/skyCam.py</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -638,12 +648,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/shared/skyCam.py</url>
-          <line>58</line>
+          <line>59</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/run_xora_web</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -653,13 +663,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/xoraWeb/run_xora_web</url>
-          <line>20</line>
+          <line>22</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/shared/sysThermals.py</url>
           <line>98</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/shared/skyCam.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
