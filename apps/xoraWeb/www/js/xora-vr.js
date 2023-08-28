@@ -51,8 +51,10 @@ class xoraVR {
 
    static readSkyCamPeek() {
       /* -- */
-      let __onresp = (resp) => {
-            console.log(resp);      
+      let __onresp = (b64) => {      
+            let src = `data:image/jpg;base64, ${b64}`,
+               dhtml = `<img src="${src}"/>`;
+            $("div#skyCam").html(dhtml);
             setTimeout(xoraVR.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          };
       /* -- */
