@@ -54,6 +54,7 @@ class xoraVR {
 
    readSkyCamPeek() {
       /* -- */
+      console.log("readSkyCamPeek");
       let _this = this;
       const url = "/peek/skycam";
       $.get(url, function(resp) {

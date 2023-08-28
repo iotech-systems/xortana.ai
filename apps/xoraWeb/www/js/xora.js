@@ -12,6 +12,7 @@ var xora = {
       /* vr env. */
       xora.xorVR = new xoraVR();
       xora.xorVR.init();
+      xora.xorVR.run();
    },
 
    run() {
