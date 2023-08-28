@@ -56,7 +56,7 @@ class xoraVR {
       /* -- */
       let _this = this;
       const url = "/peek/skycam";
-      $.get(url, (resp) => {
+      $.get(url, function(resp) {
             console.log(resp);      
             setTimeout(_this.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          });
