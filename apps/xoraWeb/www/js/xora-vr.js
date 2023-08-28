@@ -58,7 +58,7 @@ class xoraVR {
             _img.src = src;
             _img.on
             // $("div#skyCam").html(dhtml);
-            document.getElementById("div#skyCam").innerHTML = _img;
+            document.getElementById("skyCam").innerHTML = _img;
             xora.xoraConsoleWrite("readSkyCamPeek");
             setTimeout(xoraVR.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          };
