@@ -36,7 +36,7 @@ div.view-box {
    overflow-y: scroll;
 }
 
-/* ====================================================
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - -
    - - - [ cam box ] - - - 
 */
 div.cam-view-head {
@@ -64,7 +64,7 @@ div.view-box-btns {
 }
 
 
-/* ====================================================
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - -
    - - - [ live view ] - - - 
 */
 div.thum-box {
@@ -92,7 +92,7 @@ div.fn-lbl {
 }
 
 
-/* ====================================================
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - -
    floating menu
 */
 div.float-menu {
@@ -134,4 +134,16 @@ div.top-bar-fm div.open-close {
 
 div.skycam-img {
    height: 20vh;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   xora console
+*/
+div.xora-cons-ln {
+   width: 98%;
+   height: 2vh;
+   line-height: 2vh;
+   font-size: 1.4vh;
+   margin: 4px auto;
 }

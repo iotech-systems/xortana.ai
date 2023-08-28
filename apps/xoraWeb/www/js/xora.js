@@ -17,6 +17,11 @@ var xora = {
 
    run() {
       console.log("run...");
+   },
+
+   xoraConsoleWrite(msg) {
+      let m = `<div class="xora-cons-ln">${msg}</div>`;
+      $("div#xoraConsole").append(m);
    }
 
 };
