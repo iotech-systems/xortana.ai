@@ -20,7 +20,7 @@ var xora = {
    },
 
    xoraConsoleWrite(msg) {
-      let d = new Date().toLocaleString(), 
+      let d = new Date().toLocaleTimeString('en-US'),
          m = `<div class="xora-cons-ln">&nbsp;${d}&nbsp;|&nbsp;${msg}</div>`;
       $("div#xoraConsole").append(m);
    }
