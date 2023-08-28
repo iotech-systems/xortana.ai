@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daa45d84-375d-48c1-b342-1be1426b66a3" name="Changes" comment="adding peek file">
-      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/www/js/xora-vr.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/www/js/xora-vr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" beforeDir="false" afterPath="$PROJECT_DIR$/apps/xoraWeb/run_xora_web" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
