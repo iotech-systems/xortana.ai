@@ -2,7 +2,7 @@
 
 class xoraVR {
 
-   static SKYCAM_PEEK_INTERVAL = 1000;
+   static SKYCAM_PEEK_INTERVAL = 492;
 
    constructor() {
 
