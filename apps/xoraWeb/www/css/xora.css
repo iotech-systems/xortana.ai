@@ -79,7 +79,7 @@ div.thum-box img {
    width: 96%;
    margin-top: 8px;
    border: 1px solid dimgray;
-   /*border-radius: 4px;*/
+   border-radius: 8px;
 }
 
 div.top-bar-lbl {
