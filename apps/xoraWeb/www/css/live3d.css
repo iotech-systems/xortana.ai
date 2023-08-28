@@ -50,4 +50,5 @@ div.js3-vr-box {
 img.sky-cam-peek {
    width: 100%;
    height: 100%;
+   border-radius: 1vh;
 }
