@@ -43,7 +43,6 @@ class xoraVR {
 
    init() {
       console.log("xoraVR load...");
-      /* start skypeek every 488ms */
       xoraVR.readSkyCamPeek();
    }
 
@@ -53,13 +52,12 @@ class xoraVR {
       /* -- */
       let __onresp = (b64) => {      
             let src = `data:image/jpg;base64, ${b64}`,
-               dhtml = `<img src="${src}"/>`;
+               dhtml = `<img class="sky-cam-peek" src="${src}"/>`;
             $("div#skyCam").html(dhtml);
             setTimeout(xoraVR.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          };
       /* -- */
       $.get("/peek/skycam", __onresp);
-      /* -- */
    }
 
 };
