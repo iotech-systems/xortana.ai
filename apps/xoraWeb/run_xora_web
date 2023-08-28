@@ -87,7 +87,7 @@ def load_img(fld: str, img: str):
    except Exception as e:
       return flask.Response(str(e), mimetype=CT_APP_ERR)
 
-@FLASK_APP.route("/peek/<camID>")
+@FLASK_APP.route("/peek/<camID>", methods=["GET"])
 def peek_cam(camID: str):
    if camID.upper() == "SKYCAM":
       try:
