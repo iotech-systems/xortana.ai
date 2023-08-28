@@ -43,24 +43,23 @@ class xoraVR {
 
    init() {
       console.log("xoraVR load...");
-      // this.demo();
       /* start skypeek every 488ms */
-      setTimeout(this.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
+      let __this = this;
+      setTimeout(this.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL, __this);
    }
 
    run() {
 
    }
 
-   readSkyCamPeek() {
+   readSkyCamPeek(__this) {
       /* -- */
-      console.log("readSkyCamPeek");
-      let _this = this;
-      const url = "/peek/skycam";
-      $.get(url, function(resp) {
+      let __onresp = function(resp) {
             console.log(resp);      
-            setTimeout(_this.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
-         });
+            setTimeout(__this.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
+         };
+      /* -- */
+      $.get("/peek/skycam", __onresp);
       /* -- */
    }
 
