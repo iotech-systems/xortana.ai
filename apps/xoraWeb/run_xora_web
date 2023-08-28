@@ -91,6 +91,7 @@ def load_img(fld: str, img: str):
 def peek_cam(camID: str):
    if camID.upper() == "SKYCAM":
       try:
+         # -- -- read peek file -- --
          peek_on_file: Path = Path(sysPaths.SKYCAM_PEEK_ON)
          peek_on_file.touch()
          time.sleep(1.0)
@@ -106,10 +107,9 @@ def peek_cam(camID: str):
       except Exception as e:
          return flask.Response(str(e), mimetype=CT_APP_ERR)
       finally:
-         os.system(f"rm {sysPaths.SKYCAM_PEEK_LOCK_FILE}")
+         pass
    else:
       return flask.Response(f"BadCamID: {camID}", mimetype=CT_APP_ERR)
-
 
 @FLASK_APP.route("/read/thermals", methods=["GET"])
 def read_thermals():
