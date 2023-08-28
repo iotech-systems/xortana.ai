@@ -142,7 +142,7 @@ class skyCam(object):
          exit(100)
       # -- -- -- --
       def __thread_tick(ffn: str):
-         # -- --
+         # -- -- [ take img ] -- --
          self.__take_img(ffn=ffn)
          skycam_peek_on: Path = Path(sysPaths.SKYCAM_PEEK_ON)
          if not skycam_peek_on.exists():

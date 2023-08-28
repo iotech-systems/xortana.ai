@@ -90,6 +90,7 @@ def load_img(fld: str, img: str):
 @FLASK_APP.route("/peek/<camID>", methods=["GET"])
 def peek_cam(camID: str):
    if camID.upper() == "SKYCAM":
+      peek_file: Path = None
       try:
          # -- -- read peek file -- --
          peek_on_file: Path = Path(sysPaths.SKYCAM_PEEK_ON)
@@ -107,7 +108,7 @@ def peek_cam(camID: str):
       except Exception as e:
          return flask.Response(str(e), mimetype=CT_APP_ERR)
       finally:
-         pass
+         peek_file.unlink(missing_ok=True)
    else:
       return flask.Response(f"BadCamID: {camID}", mimetype=CT_APP_ERR)
 
