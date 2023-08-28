@@ -30,3 +30,9 @@ div.home {
    float: right;
    margin-right: 4vw;
 }
+
+div.free-box-frm {
+   height: calc(6vh - 2px);
+   line-height: calc(6vh - 2px);
+   margin: 1vh 2vw;
+}
