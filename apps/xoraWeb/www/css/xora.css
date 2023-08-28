@@ -69,9 +69,16 @@ div.view-box-btns {
 */
 div.thum-box {
    display: inline-block;
+   width: 48%;
    margin: 1vh;
    border: 4px solid dimgray;
    border-radius: 8px;
+}
+
+div.thum-box img {
+   width: 98%;
+   border: 4px solid dimgray;
+   border-radius: 4px;
 }
 
 div.top-bar-lbl {
