@@ -13,7 +13,7 @@ from shared.sysOps import sysOps
 APP_NAME = "xora.ai/web"
 WWW_FOLDER: str = "xoraWeb/www"
 TCP_PORT: int = 9090
-FLASK_APP = flask.Flask(APP_NAME, static_url_path=""
+FLASK_APP = flask.Flask(__name__, static_url_path=""
    , static_folder=WWW_FOLDER, template_folder=WWW_FOLDER)
 
 
