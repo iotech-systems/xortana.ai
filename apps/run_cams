@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 
-import time
-import setproctitle
-# -- system --
+import time, setproctitle
+# -- core --
 from shared.sysCamMngr import sysCamMngr
 
 
 APP_NAME = "xora.ai/cams"
-
 camMngr: sysCamMngr = sysCamMngr()
 camMngr.sky_cam.start_cam_threads()
 

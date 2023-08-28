@@ -1,7 +1,6 @@
 
 import pyttsx3
 
-
 class sysTTS(object):
 
    def __init__(self):
