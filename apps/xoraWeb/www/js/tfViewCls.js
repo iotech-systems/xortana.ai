@@ -21,7 +21,7 @@ class tfViewCls {
    }
 
    init() {
-      $("div#topFreeBox").htm(`<div id="lastTickDts"></div>`);
+      $("div#topFreeBox").html(`<div id="lastTickDts"></div>`);
       $("div#viewPort").html("");
       this.peekFolder("thums");
    }
