@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+
+import flask
+import os.path, time
+import setproctitle, base64
+from pathlib import Path
+# -- [ core ] --
+from shared.datatypes import *
+from shared.skyCam import skyCam
+from shared.sysOps import sysOps
+
+
+APP_NAME = "xora.ai/web"
+TCP_PORT: int = 9090
+FLASK_APP = flask.Flask(APP_NAME
+   , static_url_path=""
+   , static_folder="www"
+   , template_folder="www")
+
+
+CT_JSON: str = "application/json"
+CT_APP_ERR: str = "text/app_error"
+
+
+# -- [ app routes ] --
+@FLASK_APP.route("/")
+def idx():
+   return flask.render_template("index.html")
+
+
+@FLASK_APP.route("/page/<pname>")
+def page_load(pname: str):
+   return flask.render_template(f"{pname}.html")
+
+
+@FLASK_APP.route("/cam/<camid>/<act>/<args>", methods=["GET", "POST"])
+def cam_ops(camid: str, act: str, args: str):
+   try:
+      rval: execResult = None
+      if camid == "sky":
+         args = args.replace("(", "").replace(")", "").strip()
+         cmd_file = f"{skyCam.RAM_DISK}/skycam/cmd.txt"
+         with open(cmd_file, "w") as f:
+            f.write(f"web_take_img:{args}")
+      elif camid == "":
+         pass
+      else:
+         pass
+      # -- -- -- --
+      return flask.Response(f"{rval}", mimetype=CT_JSON)
+   except Exception as e:
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
+
+
+""" [ view folders ] 
+   /view/tf/thums
+   /opt/xortana.ai/tf/thums """
+@FLASK_APP.route("/view/tf/<fld>", methods=["GET"])
+def view_tf_folder(fld: str):
+   fpath: str = f"/opt/xortana.ai/tf/{fld}"
+   err, lst = sysOps.folder_files(fpath=fpath)
+   print([err, lst])
+   if err == 0:
+      js_str: str = json.dumps(lst)
+      return flask.Response(js_str, mimetype=CT_JSON)
+   else:
+      return flask.Response("FolderReadError", mimetype=CT_APP_ERR)
+
+
+""" <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+    AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+        9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" /> """
+@FLASK_APP.route("/load/tf/img/<fld>/<img>", methods=["GET"])
+def load_img(fld: str, img: str):
+   fpath: str = f"/opt/xortana.ai/tf/{fld}/{img}"
+   if not os.path.exists(fpath):
+      return flask.Response("FolderReadError", mimetype=CT_APP_ERR)
+   # -- -- -- --
+   try:
+      with open(fpath, "rb") as f:
+         buff = f.read()
+      enc_img = base64.b64encode(buff)
+      # -- -- -- --
+      return flask.Response(enc_img, mimetype="img/base64")
+   except Exception as e:
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
+
+@FLASK_APP.route("/peek/<camID>", methods=["GET"])
+def peek_cam(camID: str):
+   if camID.upper() == "SKYCAM":
+      peek_file: Path = None
+      try:
+         # -- -- read peek file -- --
+         peek_on_file: Path = Path(sysPaths.SKYCAM_PEEK_ON)
+         peek_on_file.touch()
+         time.sleep(1.0)
+         peek_file: Path = Path(sysPaths.SKYCAM_PEEK_FILE)
+         if not peek_file.exists():
+            return flask.Response(f"PathNotFound: {peek_file}", mimetype=CT_APP_ERR)
+         # -- -- file found -- --
+         with open(peek_file, "rb") as f:
+            buff = f.read()
+         enc_img = base64.b64encode(buff)
+         # -- -- -- --
+         return flask.Response(enc_img, mimetype="img/base64")
+      except Exception as e:
+         return flask.Response(str(e), mimetype=CT_APP_ERR)
+      finally:
+         peek_file.unlink(missing_ok=True)
+   else:
+      return flask.Response(f"BadCamID: {camID}", mimetype=CT_APP_ERR)
+
+@FLASK_APP.route("/read/thermals", methods=["GET"])
+def read_thermals():
+   try:
+      reads: {} = sysOps.get_thermals()
+      jsbuff: str = json.dumps(reads)
+      return flask.Response(jsbuff, mimetype=CT_JSON)
+   except Exception as e:
+      return flask.Response(str(e), mimetype=CT_APP_ERR)
+
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = =
+# -- -- -- -- -- -- [ entry point ] -- -- -- -- -- --
+if __name__ == "__main__":
+   setproctitle.setproctitle(APP_NAME)
+   FLASK_APP.run(host="0.0.0.0", port=TCP_PORT, debug=True, use_reloader=False)
