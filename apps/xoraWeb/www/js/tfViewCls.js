@@ -37,8 +37,8 @@ class tfViewCls {
             }
             /* -- */
             jsArr.forEach(tfViewCls.Instance.onArrItem);
-            let time = new Date().toLocaleTimeString();
-            $("div#lastTickDts").html(`LastThumbsPull: ${time.toUpperCase()}`);
+            let time = new Date().toLocaleTimeString("en-GB");
+            $("div#lastTickDts").html(`LastThumbsPull: ${time}`);
          };
       /* -- */
       $.get(url, _on_get);
