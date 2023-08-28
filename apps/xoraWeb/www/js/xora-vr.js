@@ -52,12 +52,7 @@ class xoraVR {
       let __onresp = (b64) => {      
             let src = `data:image/jpg;base64, ${b64}`,
                imgHtml = `<img class="sky-cam-peek" src="${src}"/>`;
-            /* -- */
-            //let _img = document.createElement("img");
-            //_img.className = "sky-cam-peek";
-            // _img.src = src;
-            // $("div#skyCam").html(dhtml);
-            document.getElementById("skyCam").innerHTML = imgHtml;
+            document.getElementById("skyCamDivBox").innerHTML = imgHtml;
             xora.xoraConsoleWrite("readSkyCamPeek");
             setTimeout(xoraVR.readSkyCamPeek, xoraVR.SKYCAM_PEEK_INTERVAL);
          };
