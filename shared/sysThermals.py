@@ -17,7 +17,6 @@ triggers: {} = {"level0": {16, 24.0}, "level1": {32, 32.0}
    , "level3": {32, 34.0}}
 
 
-
 class sysThermals(object):
 
    FRAME_FREQ: int = 5
