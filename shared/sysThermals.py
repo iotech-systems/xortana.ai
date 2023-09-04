@@ -5,10 +5,15 @@ import adafruit_amg88xx
 # -- core --
 try:
    from shared.redOps import redOps
+   from shared.sysTTS import sysTTS
 except ModuleNotFoundError:
    from redOps import redOps
+   from sysTTS import SYS_TTS
 finally:
    pass
+
+triggers: {} = {"level0": {16, 28}, "level1": {32, 32}, "level3": {32, 34}}
+
 
 
 class sysThermals(object):
@@ -78,14 +83,25 @@ class sysThermals(object):
          return
       idx = sysThermals.__next_idx()
       read_key: str = f"LEFT_AMG8833_{idx}"
-      self.red.save_thermal_read(read_key, idx, self.left_amg8833.pixels)
+      pixels: [] = self.left_amg8833.pixels
+      self.red.save_thermal_read(read_key, idx, pixels)
+      self.__check_for_triggers(pixels, "left")
 
    def __amg883_read_right(self):
       if self.right_amg8833 is None:
          return
       idx = sysThermals.__next_idx()
       read_key: str = f"RIGHT_AMG8833_{idx}"
-      self.red.save_thermal_read(read_key, idx, self.right_amg8833.pixels)
+      pixels: [] = self.right_amg8833.pixels
+      self.red.save_thermal_read(read_key, idx, pixels)
+      self.__check_for_triggers(pixels, "right")
+
+   def __check_for_triggers(self, pix_arr, side: str):
+      # check level 1
+      cnt, temp = triggers["level0"]
+      l1: [] = [pixel for pixel in pix_arr if pixel > float(temp)]
+      if len(l1) >= cnt:
+         SYS_TTS.say(f"John, weak thermal on {side}.")
 
    @staticmethod
    def __next_idx() -> str:

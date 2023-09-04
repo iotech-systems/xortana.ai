@@ -6,7 +6,7 @@ class sysTTS(object):
    def __init__(self):
      self.ttsEng = pyttsx3.init()
 
-   def say(self, txt: str, rate: int):
+   def say(self, txt: str, rate: int = 140):
       try:
          self.ttsEng.setProperty("rate", rate)
          self.ttsEng.say(txt)
