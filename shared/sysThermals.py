@@ -13,7 +13,7 @@ except ModuleNotFoundError:
 finally:
    pass
 
-triggers: {} = {"level0": {24, 32.0}, "level1": {16, 28.0}
+triggers: {} = {"level0": {28, 32.0}, "level1": {16, 28.0}
    , "level2": {12, 24.0}}
 
 
@@ -107,6 +107,7 @@ class sysThermals(object):
       if accu >= cnt:
          SYS_TTS.say(f"John, level zero thermal on the {side}.")
          print("thermal trigger level0")
+         print(triggers["level0"])
          return
       # -- -- -- -- --
       cnt, temp = triggers["level1"]
@@ -115,6 +116,8 @@ class sysThermals(object):
       if accu >= cnt:
          SYS_TTS.say(f"John, level one thermal on the {side}.")
          print("thermal trigger level1")
+         print(triggers["level1"])
+
          return
       # -- -- -- -- --
       cnt, temp = triggers["level2"]
@@ -123,6 +126,7 @@ class sysThermals(object):
       if accu >= cnt:
          SYS_TTS.say(f"John, level two thermal on the {side}.")
          print("thermal trigger level2")
+         print(triggers["level2"])
          return
       # -- -- -- -- --
       return
