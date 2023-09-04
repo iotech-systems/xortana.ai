@@ -13,7 +13,8 @@ except ModuleNotFoundError:
 finally:
    pass
 
-triggers: {} = {"level0": {16, 28}, "level1": {32, 32}, "level3": {32, 34}}
+triggers: {} = {"level0": {16, 24.0}, "level1": {32, 32.0}
+   , "level3": {32, 34.0}}
 
 
 
@@ -104,7 +105,7 @@ class sysThermals(object):
       for row in pix_tbl:
          accu += len([c for c in row if float(c) >= temp])
       if accu >= cnt:
-         SYS_TTS.say(f"John, level one thermal on {side}.")
+         SYS_TTS.say(f"John, level zero thermal on the {side}.")
 
    @staticmethod
    def __next_idx() -> str:
