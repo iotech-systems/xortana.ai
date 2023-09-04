@@ -97,12 +97,14 @@ class sysThermals(object):
       self.red.save_thermal_read(read_key, idx, pixels)
       self.__check_for_triggers(pixels, "right")
 
-   def __check_for_triggers(self, pix_arr, side: str):
+   def __check_for_triggers(self, pix_tbl, side: str):
       # check level 1
+      accu: int = 0
       cnt, temp = triggers["level0"]
-      l1: [] = [pixel for pixel in pix_arr if pixel > float(temp)]
-      if len(l1) >= cnt:
-         SYS_TTS.say(f"John, weak thermal on {side}.")
+      for row in pix_tbl:
+         accu += len([c for c in row if float(c) >= temp])
+      if accu >= cnt:
+         SYS_TTS.say(f"John, level one thermal on {side}.")
 
    @staticmethod
    def __next_idx() -> str:
