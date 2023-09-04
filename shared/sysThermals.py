@@ -13,8 +13,8 @@ except ModuleNotFoundError:
 finally:
    pass
 
-triggers: {} = {"level0": {16, 24.0}, "level1": {32, 32.0}
-   , "level3": {32, 34.0}}
+triggers: {} = {"level0": {24, 32.0}, "level1": {16, 28.0}
+   , "level2": {8, 20.0}}
 
 
 class sysThermals(object):
@@ -98,14 +98,34 @@ class sysThermals(object):
       self.__check_for_triggers(pixels, "right")
 
    def __check_for_triggers(self, pix_tbl, side: str):
-      # check level 1
+      # check level 1 - very close heat souce
       accu: int = 0
+      # -- -- -- -- --
       cnt, temp = triggers["level0"]
       for row in pix_tbl:
          accu += len([c for c in row if float(c) >= temp])
       if accu >= cnt:
          SYS_TTS.say(f"John, level zero thermal on the {side}.")
-         print("thermal trigger level0")
+         print("thermal trigger level0")cnt, temp = triggers["level0"]
+         return
+      # -- -- -- -- --
+      cnt, temp = triggers["level1"]
+      for row in pix_tbl:
+         accu += len([c for c in row if float(c) >= temp])
+      if accu >= cnt:
+         SYS_TTS.say(f"John, level one thermal on the {side}.")
+         print("thermal trigger level1")
+         return
+      # -- -- -- -- --
+      cnt, temp = triggers["level2"]
+      for row in pix_tbl:
+         accu += len([c for c in row if float(c) >= temp])
+      if accu >= cnt:
+         SYS_TTS.say(f"John, level two thermal on the {side}.")
+         print("thermal trigger level2")
+         return
+      # -- -- -- -- --
+      return
 
    @staticmethod
    def __next_idx() -> str:
