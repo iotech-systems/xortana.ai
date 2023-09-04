@@ -14,7 +14,7 @@ finally:
    pass
 
 triggers: {} = {"level0": {24, 32.0}, "level1": {16, 28.0}
-   , "level2": {8, 20.0}}
+   , "level2": {12, 24.0}}
 
 
 class sysThermals(object):
