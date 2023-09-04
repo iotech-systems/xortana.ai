@@ -106,7 +106,7 @@ class sysThermals(object):
          accu += len([c for c in row if float(c) >= temp])
       if accu >= cnt:
          SYS_TTS.say(f"John, level zero thermal on the {side}.")
-         print("thermal trigger level0")cnt, temp = triggers["level0"]
+         print("thermal trigger level0")
          return
       # -- -- -- -- --
       cnt, temp = triggers["level1"]
