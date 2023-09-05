@@ -8,8 +8,6 @@
 #   ps -A | grep $XORA_CAMS
 #   killall -s KILL $XORA_CAMS
 # fi
-./run_therm >> /dev/null &
-
 
 # -- -- [ run cams ] -- --
 sleep 2
@@ -19,3 +17,6 @@ sleep 2
 # -- -- [ run webui ] -- --
 sleep 2
 ./run_webui >> /dev/null &
+
+# -- -- [ run thermals ] -- --
+./run_therm >> /dev/null &
