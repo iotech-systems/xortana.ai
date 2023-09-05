@@ -19,4 +19,5 @@ sleep 2
 ./run_webui >> /dev/null &
 
 # -- -- [ run thermals ] -- --
+sleep 20
 ./run_therm >> /dev/null &
