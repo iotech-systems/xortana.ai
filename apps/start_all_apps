@@ -2,14 +2,13 @@
 
 
 # -- -- [ run thermals ] -- --
-XORA_CAMS="xora.ai/therm"
-sleep 2
-if [ "$(pgrep -c -x $XORA_CAMS)" != 1 ]; then
-  ps -A | grep $XORA_CAMS
-  killall -s KILL $XORA_CAMS
-fi
+# XORA_CAMS="xora.ai/therm"
+# sleep 2
+# if [ "$(pgrep -c -x $XORA_CAMS)" != 1 ]; then
+#   ps -A | grep $XORA_CAMS
+#   killall -s KILL $XORA_CAMS
+# fi
 ./run_therm >> /dev/null &
-
 
 
 # -- -- [ run cams ] -- --
