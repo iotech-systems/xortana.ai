@@ -4,7 +4,7 @@
 */
 class amg8833Sensor {
 
-   constructor(chan, canvasID, minTemp = 20, maxTemp = 40) {
+   constructor(chan, canvasID, minTemp = 22, maxTemp = 38) {
       this.channel = chan;
       this.canvasID = canvasID;
       this.grid = new amg8833Grid(this.canvasID, 8, 8, minTemp, maxTemp);
