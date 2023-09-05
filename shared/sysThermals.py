@@ -103,6 +103,7 @@ class sysThermals(object):
          accu: int = 0
          # -- -- -- -- --
          cnt, temp = triggers["level0"]
+         print([cnt, temp])
          for row in pix_tbl:
             accu += len([c for c in row if float(c) >= temp])
          if accu >= cnt:
@@ -112,6 +113,7 @@ class sysThermals(object):
             return
          # -- -- -- -- --
          cnt, temp = triggers["level1"]
+         print([cnt, temp])
          for row in pix_tbl:
             accu += len([c for c in row if float(c) >= temp])
          if accu >= cnt:
@@ -122,6 +124,7 @@ class sysThermals(object):
             return
          # -- -- -- -- --
          cnt, temp = triggers["level2"]
+         print([cnt, temp])
          for row in pix_tbl:
             accu += len([c for c in row if float(c) >= temp])
          if accu >= cnt:
