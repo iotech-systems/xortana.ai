@@ -13,8 +13,7 @@ except ModuleNotFoundError:
 finally:
    pass
 
-triggers: {} = {"level0": {48, 34.0}, "level1": {32, 32.0}
-   , "level2": {16, 30.0}}
+triggers: {} = {"level0": {48, 34.0}, "level1": {32, 32.0}, "level2": {16, 30.0}}
 
 
 class sysThermals(object):
