@@ -132,6 +132,7 @@ class sysThermals(object):
          return
       except Exception as e:
          print(f"[ __check_for_triggers: {e} ]")
+         print([pix_tbl, side])
       finally:
          pass
 
