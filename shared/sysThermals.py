@@ -98,38 +98,43 @@ class sysThermals(object):
       self.__check_for_triggers(pixels, "right")
 
    def __check_for_triggers(self, pix_tbl, side: str):
-      # check level 1 - very close heat souce
-      accu: int = 0
-      # -- -- -- -- --
-      cnt, temp = triggers["level0"]
-      for row in pix_tbl:
-         accu += len([c for c in row if float(c) >= temp])
-      if accu >= cnt:
-         SYS_TTS.say(f"John, level zero thermal on the {side}.")
-         print("thermal trigger level0")
-         print(triggers["level0"])
-         return
-      # -- -- -- -- --
-      cnt, temp = triggers["level1"]
-      for row in pix_tbl:
-         accu += len([c for c in row if float(c) >= temp])
-      if accu >= cnt:
-         SYS_TTS.say(f"John, level one thermal on the {side}.")
-         print("thermal trigger level1")
-         print(triggers["level1"])
+      try:
+         # check level 1 - very close heat souce
+         accu: int = 0
+         # -- -- -- -- --
+         cnt, temp = triggers["level0"]
+         for row in pix_tbl:
+            accu += len([c for c in row if float(c) >= temp])
+         if accu >= cnt:
+            SYS_TTS.say(f"John, level zero thermal on the {side}.")
+            print("thermal trigger level0")
+            print(triggers["level0"])
+            return
+         # -- -- -- -- --
+         cnt, temp = triggers["level1"]
+         for row in pix_tbl:
+            accu += len([c for c in row if float(c) >= temp])
+         if accu >= cnt:
+            SYS_TTS.say(f"John, level one thermal on the {side}.")
+            print("thermal trigger level1")
+            print(triggers["level1"])
 
+            return
+         # -- -- -- -- --
+         cnt, temp = triggers["level2"]
+         for row in pix_tbl:
+            accu += len([c for c in row if float(c) >= temp])
+         if accu >= cnt:
+            SYS_TTS.say(f"John, level two thermal on the {side}.")
+            print("thermal trigger level2")
+            print(triggers["level2"])
+            return
+         # -- -- -- -- --
          return
-      # -- -- -- -- --
-      cnt, temp = triggers["level2"]
-      for row in pix_tbl:
-         accu += len([c for c in row if float(c) >= temp])
-      if accu >= cnt:
-         SYS_TTS.say(f"John, level two thermal on the {side}.")
-         print("thermal trigger level2")
-         print(triggers["level2"])
-         return
-      # -- -- -- -- --
-      return
+      except Exception as e:
+         print(f"[ __check_for_triggers: {e} ]")
+      finally:
+         pass
 
    @staticmethod
    def __next_idx() -> str:
