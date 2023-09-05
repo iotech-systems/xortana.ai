@@ -21,6 +21,8 @@
    <!-- class files -->
    <script src="/js/cam-top.js"></script>
    <!-- app files -->
+   <script src="/js/amg8833.js"></script>
+   <script src="/js/therm-app.js"></script>
    <script src="/js/xora-vr.js"></script>
    <script src="/js/xora.js"></script>
 </head>
@@ -37,7 +39,17 @@
          </div>
          <!-- right vr-box -->
          <div id="vpRightCol" class="vp-rgt-col vr-col">
-            <div id="js3DBox" class="js3-vr-box">
+            <!-- <div id="js3DBox" class="js3-vr-box">
+            </div> -->
+            <div id="rightSensor" class="thermal-sensor">
+               <div class="canvas-lbl">Right Sensor</div>
+               <canvas id="rightSensorGrid" class="sensor-grid" width="640" height="640">
+               </canvas>
+            </div>
+            <div id="leftSensor" class="thermal-sensor">
+               <div class="canvas-lbl">Left Sensor</div>
+               <canvas id="leftSensorGrid" class="sensor-grid" width="640" height="640">
+               </canvas>
             </div>
          </div>
       </div>
