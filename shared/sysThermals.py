@@ -70,7 +70,7 @@ class sysThermals(object):
                self.__amg883_read_right()
             return 0
          except Exception as e:
-            print(e)
+            print(f"[ amg88xx_thread_tick: {e} ]")
             return 1
       # -- -- -- --
       while True:
