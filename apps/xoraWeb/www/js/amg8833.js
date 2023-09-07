@@ -143,7 +143,7 @@ class amg8833Grid {
          red = parseInt(MAX * red_mult);
       /* -- */
       // return `rgb(${red}, 0, ${blue})`;
-      red = (MAX / this.tempRange) * tempFlt;
+      red = parseInt((MAX / this.tempRange) * tempFlt);
       return `rgb(${red}, 0, 0)`;
    }
 
