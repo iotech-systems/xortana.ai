@@ -126,12 +126,15 @@ class amg8833Grid {
          MAX = 255, 
          tempFlt = parseFloat(tempStr);
       /* -- */
-      if (tempFlt < this.minTemp)
-         onRngTemp = 0;
-      else if (tempFlt > this.maxTemp)
-         onRngTemp = this.tempRange;
-      else
+      if (tempFlt < this.minTemp) {
+         // onRngTemp = 0;
+         return `rgb(0, 0, 255)`;
+      } else if (tempFlt > this.maxTemp) {
+         // onRngTemp = this.tempRange;
+         return `rgb(255, 0, 0)`;
+      } else {
          onRngTemp = (tempFlt - this.minTemp);
+      }
       /* -- */
       let ble_mult = (((this.tempRange + 1) - onRngTemp) / this.tempRange);
       let red_mult = (1 - ble_mult);   
@@ -139,7 +142,9 @@ class amg8833Grid {
       let blue = parseInt(MAX * ble_mult),
          red = parseInt(MAX * red_mult);
       /* -- */
-      return `rgb(${red}, 0, ${blue})`;
+      // return `rgb(${red}, 0, ${blue})`;
+      red = (MAX / this.tempRange) * tempFlt;
+      return `rgb(${red}, 0, 0)`;
    }
 
    preFillGrid() {
