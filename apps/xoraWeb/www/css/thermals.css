@@ -9,9 +9,9 @@ div.top-menu div:nth-child(2) {
 
 div.thermal-sensor{
    display: inline-block;
-   width: 46%;
+   width: 48%;
    height: auto;
-   margin: 4vh auto;
+   margin: 2vh auto;
    border: 1px dotted gray;
 }
 
