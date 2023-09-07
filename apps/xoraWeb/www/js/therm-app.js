@@ -2,7 +2,7 @@
 var thermoApp = {
 
    MIN_TEMP: 24.0,
-   MAX_TEMP: 38.0,
+   MAX_TEMP: 36.0,
    TICK_INTERVAL: 2000,
    leftSensor: null,
    rightSensor: null,

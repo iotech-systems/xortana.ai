@@ -128,7 +128,7 @@ class amg8833Grid {
       /* -- */
       if (tempFlt < this.minTemp) {
          // onRngTemp = 0;
-         return `rgb(0, 0, 255)`;
+         return `rgb(0, 0, 64)`;
       } else if (tempFlt > this.maxTemp) {
          // onRngTemp = this.tempRange;
          return `rgb(255, 0, 0)`;
@@ -143,7 +143,7 @@ class amg8833Grid {
          red = parseInt(MAX * red_mult);
       /* -- */
       // return `rgb(${red}, 0, ${blue})`;
-      red = parseInt((MAX / this.tempRange) * tempFlt);
+      red = parseInt((onRngTemp / this.tempRange) * MAX);
       return `rgb(${red}, 0, 0)`;
    }
 
